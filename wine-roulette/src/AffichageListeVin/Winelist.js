@@ -1,6 +1,4 @@
-
 import React, { Component } from 'react';
-import Bouton from "../boutonGenerantURL/Bouton"
 import "./Winelist.css"
 
 class Winelist extends Component {
@@ -13,7 +11,7 @@ class Winelist extends Component {
   }
 
   componentDidMount() {
-    fetch("http://lcboapi.com/products?q=red+wine+france&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm")
+    fetch('https://lcboapi.com/products?q=red+wine+chile+Sauvignon&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
       .then(res => res.json())
       .then((json) => {
           	this.setState({
@@ -27,31 +25,21 @@ class Winelist extends Component {
 
   render() {
 
+    
 
-    let {isLoaded, items } = this.state;
-
-    const objToString = () => {
-
-    	let yo = Object.keys(items)
-
-
-	}
+    const {isLoaded, items } = this.state;
 
     if (!isLoaded) return <div>Loading...</div>;
 
    else {
       return (
       	<div>
-        	<Bouton  />
-
-        
-
         <ul>
           {items.map((item, poulet) => (
             <li>
                 <p>Vin numero : {poulet+1}</p>
             
-               <p> Domaine :  {item.name}</p>
+                 <p> Domaine :  {item.name}</p>
             
                 <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
             
@@ -59,9 +47,6 @@ class Winelist extends Component {
             </li>
           ))}
         </ul>
-
-
-
 
         </div>
 
