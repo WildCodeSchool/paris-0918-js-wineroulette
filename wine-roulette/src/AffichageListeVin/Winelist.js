@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import Bouton from "../boutonGenerantURL/Bouton"
+import "./Winelist.css"
 
 class Winelist extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class Winelist extends Component {
       	<div>
         	<Bouton  />
 
-        	<p>{"yooo" + objToString()}</p>
+        
 
         <ul>
           {items.map((item, poulet) => (
