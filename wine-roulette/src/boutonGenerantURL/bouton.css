@@ -1,0 +1,45 @@
+div {
+	margin-top: 30px;
+}
+button {
+	margin: 3px;
+	
+}
+
+
+button.redtrue{
+	background-color: #008CBA
+}
+
+button.redfalse {
+	background-color: #e7e7e7; 
+	color: black;
+}
+
+
+button.whitetrue{
+	background-color: #008CBA
+}
+
+button.whitefalse {
+	background-color: #e7e7e7; 
+	color: black;
+}
+
+button.pinktrue{
+	background-color: #008CBA
+}
+
+button.pinkfalse {
+	background-color: #e7e7e7; 
+	color: black;
+}
+
+button.bubbletrue{
+	background-color: #008CBA
+}
+
+button.bubblefalse {
+	background-color: #e7e7e7; 
+	color: black;
+}
