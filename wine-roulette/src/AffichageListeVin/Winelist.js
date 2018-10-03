@@ -33,9 +33,6 @@ class Winelist extends Component {
 
     	let yo = Object.keys(items)
 
-	    for (var i = 0; i < items.length; i++) {
-	    	console.log(yo[i], typeof yo[i]);
-	    }
 
 	}
 
@@ -55,7 +52,7 @@ class Winelist extends Component {
             
                <p> Domaine :  {item.name}</p>
             
-                <p>Prix : {item.price_in_cents} $</p>
+                <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
             
                 <img src={item.image_url} alt="photo du vin"/>
             </li>
