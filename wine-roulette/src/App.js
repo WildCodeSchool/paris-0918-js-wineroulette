@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header'
+import BoutonPulse from './BoutonPulse'
 
 class App extends Component {
   render() {
     return (
-      <Header />
+      <div>
+        <Header />
+        <BoutonPulse />
+      </div>
     );
   }
 }
