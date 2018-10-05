@@ -25,7 +25,7 @@ class App extends Component {
             <NavLink to="/bubble-Wine-Selection"> Petillant </NavLink>
 
             <Switch>
-              <Route exact path="/:type-wine-selection" render={ (props) =><Winelist key={props.match.params.wine} {...props}/>}/>
+              <Route exact path="/:type-wine-selection" render={ (props) =><Winelist key={props.match.params.type} {...props}/>}/>
               
 
             </Switch>
