@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Bouton from "../boutonGenerantURL/Bouton"
 import "./Winelist.css"
 
 class Winelist extends Component {
@@ -6,9 +7,12 @@ class Winelist extends Component {
     super(props);
     this.state = {
       isLoaded: false,
-      items: []
+      items: [],
+      //url: url.url
     };
   }
+
+
 
   componentDidMount() {
     fetch('https://lcboapi.com/products?q=red+wine+chile+Sauvignon&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
@@ -25,7 +29,7 @@ class Winelist extends Component {
 
   render() {
 
-    
+
 
     const {isLoaded, items } = this.state;
 
@@ -34,6 +38,7 @@ class Winelist extends Component {
    else {
       return (
       	<div>
+
         <ul>
           {items.map((item, poulet) => (
             <li>

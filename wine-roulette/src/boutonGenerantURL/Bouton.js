@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import Winelist from "../AffichageListeVin/Winelist"
 import "./bouton.css";
 
 class Bouton extends Component {
@@ -8,7 +9,9 @@ class Bouton extends Component {
 						red:true,
 					    white:false,
 						pink: false,
-						Bubble:false
+						Bubble:false,
+						url:'qsd'
+						
 					};
 	}
 
@@ -32,7 +35,6 @@ class Bouton extends Component {
 					    white:false,
 						pink: !this.state.whpinkite,
 						Bubble:false})
-
 	}
 	bubbleWineSelection =() => {
 		this.setState ({red: false,
@@ -65,11 +67,12 @@ class Bouton extends Component {
 			else if (whiteWine) return 'white';
 			else if (pinkWine) return 'ping';
 			else if (BubbleWine) return 'bubble';
+			}
 
-
-		}
+//const superurl = 'http://lcboapi.com/products?q='+{WriteTheColor()}+'+wine+france&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'
 
 		return (
+
 
 			<div>
 				<button onClick={this.redWineSelection} className={redWineON} >Rouge{redWine}</button>
@@ -77,7 +80,10 @@ class Bouton extends Component {
 				<button onClick={this.pinkWineSelection} className={pinkWineON} >Rosé{pinkWine}</button>
 				<button onClick={this.bubbleWineSelection}className={BubbleWineON} >Petillant{BubbleWine}</button>
 
-				<p>http://lcboapi.com/products?q={WriteTheColor()}+wine+france</p> 
+			
+				<p>http://lcboapi.com/products?q='+{WriteTheColor()}+'+&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm</p> 
+
+				
 
 			</div>
 			)
