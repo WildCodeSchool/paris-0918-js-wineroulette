@@ -16,7 +16,7 @@ class Winelist extends Component {
         isLoaded:false
 });
     console.log(this.props)
-    fetch(`http://lcboapi.com/products?q=${this.props.match.params.wine}+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
+    fetch(`http://lcboapi.com/products?q=${this.props.match.params.type}+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
       .then(res => res.json())
       .then((json) => {
         this.setState({
