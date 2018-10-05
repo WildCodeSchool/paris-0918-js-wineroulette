@@ -19,7 +19,7 @@ class App extends Component {
         
         </header>
 
-        <Bouton />
+        
         <Winelist />
 
       </div>
