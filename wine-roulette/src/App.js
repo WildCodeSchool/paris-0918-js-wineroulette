@@ -19,7 +19,6 @@ class App extends Component {
         
         </header>
 
-        
         <Winelist />
 
       </div>

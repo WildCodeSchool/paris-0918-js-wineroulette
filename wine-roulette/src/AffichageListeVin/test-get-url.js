@@ -1,6 +1,6 @@
-   const password = document.getElementById("pass");
+   const champsurl = document.querySelector("span");
 
-    document.querySelector("form").addEventListener("submit", (event) => {
+    champsurl.addEventListener("click", (event) => {
       console.log(password.value.length);
       if (password.value.length < 6) {
         event.preventDefault();
@@ -8,3 +8,6 @@
         alert("Mot de pass trop faible try again");
       }
     });
+
+
+    document.querySelector('a').href = 'http://wikipedia.org';

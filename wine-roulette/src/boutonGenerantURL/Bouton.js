@@ -53,7 +53,7 @@ class Bouton extends Component {
 		return (
 			<div>
 
-				<button ref={this.boutonRED}>Rouge</button>
+				<button>Rouge</button>
 				<button>Blanc</button>
 				<button>Rosé</button>
 				<button>Petillant</button>
