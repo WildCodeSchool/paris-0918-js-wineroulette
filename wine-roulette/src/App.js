@@ -3,7 +3,7 @@ import logo from './logo.svg';
 
 //import Bouton from './Bouton';
 import Bouton from "./boutonGenerantURL/Bouton"
-import Winelist from "./AffichageListeVin/Winelist"
+// import Winelist from "./AffichageListeVin/Winelist"
 import './App.css';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
         
         </header>
 
-        <Winelist />
+        <Bouton />
 
       </div>
     );
