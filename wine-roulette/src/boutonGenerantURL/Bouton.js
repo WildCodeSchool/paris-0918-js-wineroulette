@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
 //import Winelist from "../AffichageListeVin/Winelist"
-// import "./Winelist.css"
+import "../AffichageListeVin/Winelist.css"
 
 // const url = 'https://lcboapi.com/products?q=red+wine+chile+Sauvignon&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'
 
@@ -14,10 +14,10 @@ class Bouton extends Component {
       pink: false,
       Bubble:false,
       isLoaded: false,
-      items: [],
-      url:'https://lcboapi.com/products?q=red&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'
+      items: []
 	};
 };
+
   
 
 	redWineSelection = () => {
@@ -25,31 +25,29 @@ class Bouton extends Component {
 		            white:false,
 		            pink: false,
 		            Bubble:false,
-		        	url:'https://lcboapi.com/products?q=red&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
-	console.log(this.state.url)}
+		            })
+}
 
 	whiteWineSelection =() => {
     this.setState ({red: false,
                     white:!this.state.white,
                     pink: false,
-                    Bubble:false,
-                	url:'https://lcboapi.com/products?q=white&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
+                    Bubble:false})
+}
 
-  console.log(this.state.url)}
  	pinkWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: !this.state.whpinkite,
-                    Bubble:false,
-                	url:'https://lcboapi.com/products?q=pink_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
-  console.log(this.state.url)}
+                    Bubble:false})
+}
+
 	bubbleWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: false,
-                    Bubble:!this.state.Bubble,
-                	url:'https://lcboapi.com/products?q=bubble&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
- console.log(this.state.url) }
+                    Bubble:!this.state.Bubble})
+}
 
 
 	// urlchange = () => {
@@ -59,9 +57,10 @@ class Bouton extends Component {
 	//     else if (this.state.Bubble) this.setState ({url:'https://lcboapi.com/products?q=bubble&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
 	//     console.log(this.state.url)
 	//      }
-  componentWillMount() {
-  	
-    fetch(this.state.url)
+
+
+  componentDidMount() {
+    fetch('https://lcboapi.com/products?q=wine+red+chile+Sauvignon&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
       .then(res => res.json())
       .then((json) => {
           	this.setState({
@@ -69,36 +68,37 @@ class Bouton extends Component {
 	            items: json.result
                 });
 	   })
-
   }
-
-  Reload() {
- 	this.setState({ url:this.state.url });
- }
 
 
   render() {
 
   	const {isLoaded, items } = this.state;
-    //console.log(this.state.url2)
+
+  	console.log(items)
+
+  	const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
+	const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
+
 
     if (!isLoaded) return <div>Loading...</div>;
 
-     else {
+     else if (this.state.red) {
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.bubbleWineSelection}>Petillant</button>
-				<p></p>
-				<button onClick={ this.Reload.bind(this) }>Roulette</button>
+				
 
 				<ul>
+				
+				
 
-              {items.map((item, poulet) => (
-                <li>
-                    <p>Vin numero : {poulet+1}</p>
+              {itemsred.map((item, id) => (
+                <li key={id}>
+                    <p>Vin numero : {id+1}</p>
                     <p> Domaine :  {item.name}</p>
                     <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
                     <img src={item.image_url} alt="photo du vin"/>
@@ -109,10 +109,44 @@ class Bouton extends Component {
 
       );
     }
+
+     else if (this.state.white) {
+        return (
+			<div>
+				<button onClick={this.redWineSelection}>Rouge</button>
+				<button onClick={this.whiteWineSelection}>Blanc</button>
+				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button onClick={this.bubbleWineSelection}>Petillant</button>
+				
+
+				<ul>
+				
+				
+
+              {itemswhite.map((item, id) => (
+                <li key={id}>
+                    <p>Vin numero : {id+1}</p>
+                    <p> Domaine :  {item.name}</p>
+                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+                    <img src={item.image_url} alt="photo du vin{id}"/>
+                </li>))}
+             
+            </ul>	
+			</div>
+
+      );
+    }
+
+
+
+
+
   }
 }
+
 export default Bouton;
 
 
 
 
+// Stella Artois
