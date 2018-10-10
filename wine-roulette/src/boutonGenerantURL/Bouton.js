@@ -414,26 +414,22 @@ class Bouton extends Component {
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
-				
 
-				<ul>
+				<ul>	
 				
-				
-
-              {itemschampagne.map((item, id) => (
-                <li key={id}>
-                    <p>Vin numero : {id+1}</p>
-                    <p> Domaine :  {item.name}</p>
-                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-                    <img src={item.image_url} alt={item.name}/>
-                </li>))}
-             
-            </ul>	
+	              {itemschampagne.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt={item.name}/>
+	                </li>))}
+	             
+	            </ul>	
 			</div>
 
       );
     }
-
 
     else {
         return (
