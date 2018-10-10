@@ -15,6 +15,11 @@ class Bouton extends Component {
       champagne:false,
       alcohol:false,
 
+      Sweet:false,
+      Xdrt:false,
+      Dry:false,
+
+
       isLoaded: false,
       items1: [],
 
@@ -68,6 +73,25 @@ class Bouton extends Component {
 
 	alcoholSelection =() => {
     this.setState ({alcohol:!this.state.alcohol})
+}
+
+
+	Sweetsugar_contentSelection =() => {
+    this.setState ({Sweet:!this.state.Sweet,
+				    Xdrt:false,
+				    Dry:false})
+}
+
+	Xdrtsugar_contentSelection =() => {
+    this.setState ({Sweet:false,
+				    Xdrt:!this.state.Xdrt,
+				    Dry:false})
+}
+
+	Drysugar_contentSelection =() => {
+    this.setState ({Sweet:false,
+				    Xdrt:false,
+				    Dry:!this.state.Dry})
 }
 
 
@@ -131,14 +155,19 @@ class Bouton extends Component {
 
 
 
-
   render() {
 
   	const {isLoaded, items1, items2, items3, items4, items5, items6 } = this.state;
 
-
-
   	const items = items1.concat(items2).concat(items3).concat(items4).concat(items5).concat(items6)
+
+  	console.log('items',items)
+  	console.log('items.origin',items.origin)
+
+
+  	
+
+
 
   	const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
 	const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
@@ -147,12 +176,16 @@ class Bouton extends Component {
 
 	const itemsredalcohol = itemsred.filter((item,id) => item.alcohol_content === 1300)
 
-
+	const itemswhiteSweet = itemswhite.filter((item,id) => item.sugar_content === "S - Sweet")
+	const itemswhiteXdry = itemswhite.filter((item,id) => item.sugar_content === "XD - Extra Dry")
+	const itemswhiteDry = itemswhite.filter((item,id) => item.sugar_content === "D - Dry")
 
 
     if (!isLoaded) return <div>Loading...</div>;
 
      else if (this.state.red && !this.state.alcohol) {
+     	  	console.log('items',items)
+  	console.log('items.origin',items.origin)
         return (
 			<div>
 				<button className='selected' onClick={this.redWineSelection}>Rouge</button>
@@ -210,33 +243,127 @@ class Bouton extends Component {
 
 
 
+     else if (this.state.white && !this.state.Sweet && !this.state.Xdrt && !this.state.Dry  ) {
 
-     else if (this.state.white) {
+     	console.log(this.state.white)
+     	console.log(this.state.Sweet)
+     	console.log(this.state.Xdrt)
+     	console.log(this.state.Dry)
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<p></p>
+				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
 				<ul>
-				
-				
-
-              {itemswhite.map((item, id) => (
-                <li key={id}>
-                    <p>Vin numero : {id+1}</p>
-                    <p> Domaine :  {item.name}</p>
-                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-                    <img src={item.image_url} alt={item.name}/>
-                </li>))}
-             
-            </ul>	
+				{itemswhite.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt={item.name}/>
+	                </li>))}
+	            </ul>	
 			</div>
 
       );
     }
+
+         else if (this.state.white && this.state.Sweett && !this.state.Xdrt && !this.state.Dry  ) {
+        return (
+			<div>
+				<button onClick={this.redWineSelection}>Rouge</button>
+				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<p></p>
+				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+				
+
+				<ul>
+				{itemswhiteSweet.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt={item.name}/>
+	                </li>))}
+	            </ul>	
+			</div>
+
+      );
+    }
+
+         else if (this.state.white && !this.state.Sweet && this.state.Xdrt && !this.state.Dry  ) {
+        return (
+			<div>
+				<button onClick={this.redWineSelection}>Rouge</button>
+				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<p></p>
+				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+				
+
+				<ul>
+				{itemswhiteXdry.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt={item.name}/>
+	                </li>))}
+	            </ul>	
+			</div>
+
+      );
+    }
+
+         else if (this.state.white && !this.state.Sweet && !this.state.Xdrt && this.state.Dry  ) {
+        return (
+			<div>
+				<button onClick={this.redWineSelection}>Rouge</button>
+				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<p></p>
+				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+				
+
+				<ul>
+				{itemswhiteDry.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt={item.name}/>
+	                </li>))}
+	            </ul>	
+			</div>
+
+      );
+    }
+
+
+
+
+
+
+
+
+
 
 
          else if (this.state.pink) {
@@ -304,7 +431,7 @@ class Bouton extends Component {
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
-				<p>Selectionne un vin pépé</p>
+				<p>Selectionne une COULEUR de vin pépé</p>
             
 			</div>
 
