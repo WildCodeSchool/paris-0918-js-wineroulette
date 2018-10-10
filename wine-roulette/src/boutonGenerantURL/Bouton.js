@@ -12,7 +12,7 @@ class Bouton extends Component {
       red:true,
       white:false,
       pink: false,
-      Bubble:false,
+      champagne:false,
 
       isLoaded: false,
       items1: [],
@@ -40,7 +40,7 @@ class Bouton extends Component {
 	this.setState ({red: !this.state.red,
 		            white:false,
 		            pink: false,
-		            Bubble:false,
+		            champagne:false,
 		            })
 }
 
@@ -48,21 +48,21 @@ class Bouton extends Component {
     this.setState ({red: false,
                     white:!this.state.white,
                     pink: false,
-                    Bubble:false})
+                    champagne:false})
 }
 
  	pinkWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: !this.state.pink,
-                    Bubble:false})
+                    champagne:false})
 }
 
-	bubbleWineSelection =() => {
+	champagneWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: false,
-                    Bubble:!this.state.Bubble})
+                    champagne:!this.state.champagne})
 }
 
 
@@ -70,7 +70,7 @@ class Bouton extends Component {
 	//     if (this.state.red) this.setState ({url:'https://lcboapi.com/products?q=red&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
 	//     else if (this.state.white) this.setState ({url:'https://lcboapi.com/products?q=white&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
 	//     else if (this.state.pink) this.setState ({url:'https://lcboapi.com/products?q=pink_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})  
-	//     else if (this.state.Bubble) this.setState ({url:'https://lcboapi.com/products?q=bubble&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
+	//     else if (this.state.champagne) this.setState ({url:'https://lcboapi.com/products?q=champagne&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
 	//     console.log(this.state.url)
 	//      }
 
@@ -145,12 +145,16 @@ class Bouton extends Component {
 
   	const items = items1.concat(items2).concat(items3).concat(items4).concat(items5).concat(items6)
 
+  	console.log(items)
+  	console.log(this.state.red)
+  	console.log(this.state.champagne)
+
   
 
   	const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
 	const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
 	const itemspink = items.filter((item,id) => item.secondary_category === "Rosé Wine")
-	const itemsbubble = items.filter((item,id) => item.secondary_category === "Champagne")
+	const itemschampagne = items.filter((item,id) => item.secondary_category === "Champagne")
 
 
 
@@ -163,7 +167,9 @@ class Bouton extends Component {
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.bubbleWineSelection}>Petillant</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<p></p>
+				<button >yooo</button>
 				
 
 				<ul>
@@ -190,7 +196,7 @@ class Bouton extends Component {
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.bubbleWineSelection}>Petillant</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
 				<ul>
@@ -218,7 +224,7 @@ class Bouton extends Component {
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.bubbleWineSelection}>Petillant</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
 				<ul>
@@ -240,20 +246,20 @@ class Bouton extends Component {
     }
 
 
-     else if (this.state.bubble) {
+     else if (this.state.champagne) {
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.bubbleWineSelection}>Petillant</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
 				<ul>
 				
 				
 
-              {itemsbubble.map((item, id) => (
+              {itemschampagne.map((item, id) => (
                 <li key={id}>
                     <p>Vin numero : {id+1}</p>
                     <p> Domaine :  {item.name}</p>
@@ -274,7 +280,7 @@ class Bouton extends Component {
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.bubbleWineSelection}>Petillant</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
 				<p>Selectionne un vin pépé</p>
