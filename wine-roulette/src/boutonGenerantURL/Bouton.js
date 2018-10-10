@@ -13,30 +13,22 @@ class Bouton extends Component {
       white:false,
       pink: false,
       champagne:false,
+
       alcohol:false,
 
       Sweet:false,
-      Xdrt:false,
+      Xdry:false,
       Dry:false,
 
 
       isLoaded: false,
       items1: [],
-
-      isLoaded2: false,
       items2: [],
-
-      isLoaded3: false,
       items3: [],
-
-      isLoaded4: false,
       items4: [],
-
-      isLoaded5: false,
       items5: [],
-
-      isLoaded6: false,
-      items6: []
+      items6: [],
+      items7: []
 	};
 };
 
@@ -54,7 +46,14 @@ class Bouton extends Component {
     this.setState ({red: false,
                     white:!this.state.white,
                     pink: false,
-                    champagne:false})
+                    champagne:false,
+    				alcohol:false})
+  //   console.log(this.state.white)
+ 	// console.log(this.state.Sweet)
+ 	// console.log(this.state.Xdry)
+ 	// console.log(this.state.Dry)
+ 	// console.log('--------------')
+
 }
 
  	pinkWineSelection =() => {
@@ -78,20 +77,35 @@ class Bouton extends Component {
 
 	Sweetsugar_contentSelection =() => {
     this.setState ({Sweet:!this.state.Sweet,
-				    Xdrt:false,
+				    Xdry:false,
 				    Dry:false})
+       //      console.log(this.state.white)
+	     	// console.log(this.state.Sweet)
+	     	// console.log(this.state.Xdry)
+	     	// console.log(this.state.Dry)
+	     	// console.log('--------------')
 }
 
-	Xdrtsugar_contentSelection =() => {
+	Xdrysugar_contentSelection =() => {
     this.setState ({Sweet:false,
-				    Xdrt:!this.state.Xdrt,
+				    Xdry:!this.state.Xdry,
 				    Dry:false})
+       //   	console.log(this.state.white)
+	     	// console.log(this.state.Sweet)
+	     	// console.log(this.state.Xdry)
+	     	// console.log(this.state.Dry)
+	     	// console.log('--------------')
 }
 
 	Drysugar_contentSelection =() => {
     this.setState ({Sweet:false,
-				    Xdrt:false,
+				    Xdry:false,
 				    Dry:!this.state.Dry})
+       //   	console.log(this.state.white)
+	     	// console.log(this.state.Sweet)
+	     	// console.log(this.state.Xdry)
+	     	// console.log(this.state.Dry)
+	     	// console.log('--------------')
 }
 
 
@@ -156,6 +170,15 @@ class Bouton extends Component {
 
 
   render() {
+  	console.log('red       ',this.state.red)
+  	console.log('white     ',this.state.white)
+  	console.log('pink      ',this.state.pink)
+  	console.log('champagne ',this.state.champagne)
+  	console.log('alcohol   ',this.state.alcohol)
+ 	console.log('Sweet     ',this.state.Sweet)
+ 	console.log('Xdry      ',this.state.Xdry)
+ 	console.log('Dry       ',this.state.Dry)
+ 	console.log('--------------')
 
   	const {isLoaded, items1, items2, items3, items4, items5, items6 } = this.state;
 
@@ -235,12 +258,7 @@ class Bouton extends Component {
 
 
 
-     else if (this.state.white && !this.state.Sweet && !this.state.Xdrt && !this.state.Dry  ) {
-
-     	console.log(this.state.white)
-     	console.log(this.state.Sweet)
-     	console.log(this.state.Xdrt)
-     	console.log(this.state.Dry)
+     else if (this.state.white && !this.state.Sweet && !this.state.Xdry && !this.state.Dry  ) {
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -249,7 +267,7 @@ class Bouton extends Component {
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				<p></p>
 				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
 				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
@@ -267,11 +285,8 @@ class Bouton extends Component {
       );
     }
 
-         else if (this.state.white && this.state.Sweet && !this.state.Xdrt && !this.state.Dry  ) {
-	        console.log(this.state.white)
-	     	console.log(this.state.Sweet)
-	     	console.log(this.state.Xdrt)
-	     	console.log(this.state.Dry)
+         else if (this.state.white && this.state.Sweet && !this.state.Xdry && !this.state.Dry  ) {
+
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -279,8 +294,8 @@ class Bouton extends Component {
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				<p></p>
-				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button className='selected' onClick={this.Sweetsugar_contentSelection}>Sec</button>
+				<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
 				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
@@ -298,11 +313,8 @@ class Bouton extends Component {
       );
     }
 
-         else if (this.state.white && !this.state.Sweet && this.state.Xdrt && !this.state.Dry  ) {
-         	console.log(this.state.white)
-	     	console.log(this.state.Sweet)
-	     	console.log(this.state.Xdrt)
-	     	console.log(this.state.Dry)
+         else if (this.state.white && !this.state.Sweet && this.state.Xdry && !this.state.Dry  ) {
+
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -311,7 +323,7 @@ class Bouton extends Component {
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				<p></p>
 				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
+				<button className='selected' onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
 				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
@@ -329,11 +341,8 @@ class Bouton extends Component {
       );
     }
 
-         else if (this.state.white && !this.state.Sweet && !this.state.Xdrt && this.state.Dry  ) {
-         	console.log(this.state.white)
-	     	console.log(this.state.Sweet)
-	     	console.log(this.state.Xdrt)
-	     	console.log(this.state.Dry)
+         else if (this.state.white && !this.state.Sweet && !this.state.Xdry && this.state.Dry  ) {
+
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -342,8 +351,8 @@ class Bouton extends Component {
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				<p></p>
 				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrtsugar_contentSelection}>Demi-sec</button>
-				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+				<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
+				<button className='selected' onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
 				<ul>
