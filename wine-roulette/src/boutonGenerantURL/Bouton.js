@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
 //import Winelist from "../AffichageListeVin/Winelist"
-import "../AffichageListeVin/Winelist.css"
+import "./bouton.css"
 
 // const url = 'https://lcboapi.com/products?q=red+wine+chile+Sauvignon&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'
 
@@ -13,6 +13,7 @@ class Bouton extends Component {
       white:false,
       pink: false,
       champagne:false,
+      alcohol:false,
 
       isLoaded: false,
       items1: [],
@@ -65,16 +66,10 @@ class Bouton extends Component {
                     champagne:!this.state.champagne})
 }
 
+	alcoholSelection =() => {
+    this.setState ({alcohol:!this.state.alcohol})
+}
 
-	// urlchange = () => {
-	//     if (this.state.red) this.setState ({url:'https://lcboapi.com/products?q=red&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
-	//     else if (this.state.white) this.setState ({url:'https://lcboapi.com/products?q=white&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
-	//     else if (this.state.pink) this.setState ({url:'https://lcboapi.com/products?q=pink_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})  
-	//     else if (this.state.champagne) this.setState ({url:'https://lcboapi.com/products?q=champagne&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'})
-	//     console.log(this.state.url)
-	//      }
-
-// &order=package_unit_volume_in_milliliters.asc
 
   componentDidMount() {
 
@@ -145,56 +140,82 @@ class Bouton extends Component {
 
   	const items = items1.concat(items2).concat(items3).concat(items4).concat(items5).concat(items6)
 
-  	console.log(items)
-  	console.log(this.state.red)
-  	console.log(this.state.champagne)
-
-  
-
   	const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
 	const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
 	const itemspink = items.filter((item,id) => item.secondary_category === "Rosé Wine")
 	const itemschampagne = items.filter((item,id) => item.secondary_category === "Champagne")
+
+	const itemsredalcohol = itemsred.filter((item,id) => item.alcohol_content === 1300)
 
 
 
 
     if (!isLoaded) return <div>Loading...</div>;
 
-     else if (this.state.red) {
+     else if (this.state.red && !this.state.alcohol) {
         return (
 			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
+				<button className='selected' onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				<p></p>
-				<button >yooo</button>
+				<button onClick={this.alcoholSelection}>alcohol = 13%</button>
 				
-
 				<ul>
-				
-				
-
-              {itemsred.map((item, id) => (
-                <li key={id}>
-                    <p>Vin numero : {id+1}</p>
-                    <p> Domaine :  {item.name}</p>
-                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-                    <img src={item.image_url} alt="photo du vin"/>
-                </li>))}
-             
-            </ul>	
+	              {itemsred.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p> ALCOOOOOOOL :  {(item.alcohol_content/100)} %</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt="photo du vin"/>
+	                </li>))}
+            	</ul>	
 			</div>
 
       );
     }
 
+         else if (this.state.red && this.state.alcohol) {
+        return (
+			<div>
+				<button className='selected' onClick={this.redWineSelection}>Rouge</button>
+				<button onClick={this.whiteWineSelection}>Blanc</button>
+				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<p></p>
+				<button onClick={this.alcoholSelection}>alcohol = 13%</button>
+				
+				<ul>
+	              {itemsredalcohol.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p> ALCOOOOOOOL :  {(item.alcohol_content/100)} %</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt="photo du vin"/>
+	                </li>))}
+            	</ul>	
+			</div>
+
+      );
+    }
+
+
+
+
+
+
+
+
+
+
      else if (this.state.white) {
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
+				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
@@ -223,7 +244,7 @@ class Bouton extends Component {
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button className='selected' onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
@@ -252,7 +273,7 @@ class Bouton extends Component {
 				<button onClick={this.redWineSelection}>Rouge</button>
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
+				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
 				
 
 				<ul>

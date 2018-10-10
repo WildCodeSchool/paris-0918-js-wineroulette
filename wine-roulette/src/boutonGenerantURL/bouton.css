@@ -7,39 +7,25 @@ button {
 }
 
 
-button.redtrue{
-	background-color: #008CBA
+button.selected{
+	color: red;
+}
+button.true{
+	color: red;
 }
 
-button.redfalse {
-	background-color: #e7e7e7; 
-	color: black;
+
+
+
+img {
+	width: 140px;
 }
 
-
-button.whitetrue{
-	background-color: #008CBA
+ul {
+	list-style:none;
+	
 }
 
-button.whitefalse {
-	background-color: #e7e7e7; 
-	color: black;
-}
-
-button.pinktrue{
-	background-color: #008CBA
-}
-
-button.pinkfalse {
-	background-color: #e7e7e7; 
-	color: black;
-}
-
-button.bubbletrue{
-	background-color: #008CBA
-}
-
-button.bubblefalse {
-	background-color: #e7e7e7; 
-	color: black;
+li {
+	border-top : 3px solid gray;
 }
