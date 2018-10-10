@@ -161,13 +161,6 @@ class Bouton extends Component {
 
   	const items = items1.concat(items2).concat(items3).concat(items4).concat(items5).concat(items6)
 
-  	console.log('items',items)
-  	console.log('items.origin',items.origin)
-
-
-  	
-
-
 
   	const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
 	const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
@@ -184,8 +177,7 @@ class Bouton extends Component {
     if (!isLoaded) return <div>Loading...</div>;
 
      else if (this.state.red && !this.state.alcohol) {
-     	  	console.log('items',items)
-  	console.log('items.origin',items.origin)
+
         return (
 			<div>
 				<button className='selected' onClick={this.redWineSelection}>Rouge</button>
@@ -275,7 +267,11 @@ class Bouton extends Component {
       );
     }
 
-         else if (this.state.white && this.state.Sweett && !this.state.Xdrt && !this.state.Dry  ) {
+         else if (this.state.white && this.state.Sweet && !this.state.Xdrt && !this.state.Dry  ) {
+	        console.log(this.state.white)
+	     	console.log(this.state.Sweet)
+	     	console.log(this.state.Xdrt)
+	     	console.log(this.state.Dry)
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -303,6 +299,10 @@ class Bouton extends Component {
     }
 
          else if (this.state.white && !this.state.Sweet && this.state.Xdrt && !this.state.Dry  ) {
+         	console.log(this.state.white)
+	     	console.log(this.state.Sweet)
+	     	console.log(this.state.Xdrt)
+	     	console.log(this.state.Dry)
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -330,6 +330,10 @@ class Bouton extends Component {
     }
 
          else if (this.state.white && !this.state.Sweet && !this.state.Xdrt && this.state.Dry  ) {
+         	console.log(this.state.white)
+	     	console.log(this.state.Sweet)
+	     	console.log(this.state.Xdrt)
+	     	console.log(this.state.Dry)
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
