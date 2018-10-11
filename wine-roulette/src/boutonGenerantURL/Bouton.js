@@ -111,6 +111,15 @@ class Bouton extends Component {
 
   componentDidMount() {
 
+  	// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
+  		// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
+  			// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
+  				// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
+  					// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
+  						// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
+  							
+  
+
     fetch('https://lcboapi.com/products?page=1&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
       .then(res => res.json())
       .then((json) => {
