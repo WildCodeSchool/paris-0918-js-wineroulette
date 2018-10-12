@@ -9,10 +9,10 @@ class Bouton extends Component {
   constructor() {
     super();
     this.state = {
-      red:true,
+      red:false,
       white:false,
       pink: false,
-      champagne:false,
+      champagne:true,
 
       alcohol:false,
 
@@ -40,7 +40,8 @@ class Bouton extends Component {
 		            white:false,
 		            pink: false,
 		            champagne:false,
-		            })
+		            alcohol:false,
+    				Roulette:false})
 }
 
 	whiteWineSelection =() => {
@@ -48,7 +49,8 @@ class Bouton extends Component {
                     white:!this.state.white,
                     pink: false,
                     champagne:false,
-    				alcohol:false})
+    				alcohol:false,
+    				Roulette:false})
   //   console.log(this.state.white)
  	// console.log(this.state.Sweet)
  	// console.log(this.state.Xdry)
@@ -61,14 +63,18 @@ class Bouton extends Component {
     this.setState ({red: false,
                     white:false,
                     pink: !this.state.pink,
-                    champagne:false})
+                    champagne:false,
+                	alcohol:false,
+    				Roulette:false})
 }
 
 	champagneWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: false,
-                    champagne:!this.state.champagne})
+                    champagne:!this.state.champagne,
+                	alcohol:false,
+    				Roulette:false})
 }
 
 	alcoholSelection =() => {
