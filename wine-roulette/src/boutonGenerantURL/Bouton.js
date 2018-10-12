@@ -447,10 +447,18 @@ class Bouton extends Component {
 				<button onClick={this.whiteWineSelection}>Blanc</button>
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button onClick={this.champagneWineSelection}>Petillant</button>
-				
 
-				<p>Selectionne une COULEUR de vin pépé</p>
-            
+				<ul>	
+				
+	              {items.map((item, id) => (
+	                <li key={id}>
+	                    <p>Vin numero : {id+1}</p>
+	                    <p> Domaine :  {item.name}</p>
+	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={item.image_url} alt={item.name}/>
+	                </li>))}
+	             
+	            </ul>	
 			</div>
 
       );
