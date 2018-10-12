@@ -453,7 +453,7 @@ console.log(itemsred)
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
 
-				<p>-</p><p>-</p>
+				<p></p><p></p><p></p><p></p>
 
 				<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
 
@@ -467,7 +467,7 @@ console.log(itemsred)
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
 
-				<p>-</p><p>-</p>
+				<p></p><p></p><p></p><p></p>
 
 				<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
 
