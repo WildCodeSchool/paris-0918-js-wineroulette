@@ -10,8 +10,19 @@ button {
 button.selected{
 	color: red;
 }
-button.true{
+
+/*button.true{
 	color: red;
+}*/
+
+button.selectedRoulette {
+
+	/*padding: 30px;*/
+	border-radius: 100px;
+	height: 100px;
+	width: 100px;
+	border: 2px solid black;
+	box-shadow: 10px 5px 5px gray;
 }
 
 

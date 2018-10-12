@@ -19,6 +19,7 @@ class Bouton extends Component {
       Sweet:false,
       Xdry:false,
       Dry:false,
+      Roulette:false,
 
 
       isLoaded: false,
@@ -109,6 +110,22 @@ class Bouton extends Component {
 }
 
 
+	 // 	RouletteRed = () => {
+ 	// 	this.setState({result:this.state.itemsred[Math.floor(Math.random() * (200) + 1)]})
+ 	// 	console.log(this.state.itemsred[0])
+ 	// }
+
+ 	RouletteChampagne =() => {
+ 		this.setState({Roulette:true});
+ 		console.log(this.state.Roulette)
+ 		console.log('sdjhfgjhsdfg')
+ 	}
+
+
+
+
+
+
   componentDidMount() {
 
   	// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
@@ -179,15 +196,15 @@ class Bouton extends Component {
 
 
   render() {
-  	console.log('red       ',this.state.red)
-  	console.log('white     ',this.state.white)
-  	console.log('pink      ',this.state.pink)
-  	console.log('champagne ',this.state.champagne)
-  	console.log('alcohol   ',this.state.alcohol)
- 	console.log('Sweet     ',this.state.Sweet)
- 	console.log('Xdry      ',this.state.Xdry)
- 	console.log('Dry       ',this.state.Dry)
- 	console.log('--------------')
+  // 	console.log('red       ',this.state.red)
+  // 	console.log('white     ',this.state.white)
+  // 	console.log('pink      ',this.state.pink)
+  // 	console.log('champagne ',this.state.champagne)
+  // 	console.log('alcohol   ',this.state.alcohol)
+ 	// console.log('Sweet     ',this.state.Sweet)
+ 	// console.log('Xdry      ',this.state.Xdry)
+ 	// console.log('Dry       ',this.state.Dry)
+ 	// console.log('--------------')
 
   	const {isLoaded, items1, items2, items3, items4, items5, items6 } = this.state;
 
@@ -206,6 +223,11 @@ class Bouton extends Component {
 	const itemswhiteDry = itemswhite.filter((item,id) => item.sugar_content === "D - Dry")
 
 
+console.log(itemsred)
+
+
+
+
     if (!isLoaded) return <div>Loading...</div>;
 
      else if (this.state.red && !this.state.alcohol) {
@@ -218,7 +240,8 @@ class Bouton extends Component {
 				<button onClick={this.champagneWineSelection}>Petillant</button>
 				<p></p>
 				<button onClick={this.alcoholSelection}>alcohol = 13%</button>
-				
+
+			
 				<ul>
 	              {itemsred.map((item, id) => (
 	                <li key={id}>
@@ -416,7 +439,7 @@ class Bouton extends Component {
     }
 
 
-     else if (this.state.champagne) {
+     else if (this.state.champagne && !this.state.Roulette) {
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -424,17 +447,35 @@ class Bouton extends Component {
 				<button onClick={this.pinkWineSelection}>Rosé</button>
 				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
 
+				<p>-</p><p>-</p>
+
+				<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
+
+			</div>)}
+
+   else if (this.state.champagne && this.state.Roulette) {
+        return (
+			<div>
+				<button onClick={this.redWineSelection}>Rouge</button>
+				<button onClick={this.whiteWineSelection}>Blanc</button>
+				<button onClick={this.pinkWineSelection}>Rosé</button>
+				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
+
+				<p>-</p><p>-</p>
+
+				<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
+
 				<ul>	
-				
-	              {itemschampagne.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt={item.name}/>
-	                </li>))}
+
+	                <li>
+	                    <p>Votre vin au hasard !!!!!!</p>
+	                    <p> Domaine :  {(itemschampagne[ Math.floor(Math.random() * (40) + 1) ]).name}</p>
+	                    <p>Prix : {((itemschampagne[ Math.floor(Math.random() * (40) + 1) ]).price_in_cents/100).toFixed(2)} $</p> 
+	                    <img src={(itemschampagne[ Math.floor(Math.random() * (40) + 1) ]).image_url} alt="PHOTO INDISPONIBLE DESOLE KIKI"/>
+	                </li>
 	             
-	            </ul>	
+	            </ul>
+
 			</div>
 
       );
