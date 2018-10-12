@@ -38,5 +38,6 @@ ul {
 }
 
 li {
-	border-top : 3px solid gray;
+	border-bottom: 1px solid gray;
+	margin-top: 50px;
 }

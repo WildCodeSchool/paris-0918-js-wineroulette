@@ -12,18 +12,18 @@ class App extends Component {
 
 
       <div className="App">
-      <h3>Wine Roulette : votre bouteille sans prise de tête</h3>
 
-        <header className="App-header">
 
-          <img src='http://blog.mabouteille.fr/wp-content/uploads/2015/11/mon-vin-personnalise-1024x512.png' className="App-logo" alt="logo" />
-        
-        </header>
+      <img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="sfsdqsd" className="logoWine" />
 
-        
 
+      <h3>Votre bouteille sans prise de tête</h3>
 
         <Bouton />
+
+
+
+        
 
       </div>
     );
