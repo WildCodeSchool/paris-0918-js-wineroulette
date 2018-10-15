@@ -10,25 +10,21 @@ class Whitesubcriterion extends Component {
 				    Dry:false}
 }
 
-	SweetwhiteWineSelection = () => {
+SweetwhiteWineSelection = () => {
 	this.setState ({
 			        Sweet:false,
 				    Xdry:false,
 				    Dry:false})
 }
 
-	XdrywhiteWineSelection = () => {
+XdrywhiteWineSelection = () => {
 	this.setState ({
 			        Sweet:false,
 				    Xdry:false,
 				    Dry:false})
 }
 
-
-
-
-
-	DrywhiteWineSelection = () => {
+DrywhiteWineSelection = () => {
 	this.setState ({
 			        Sweet:false,
 				    Xdry:false,
@@ -36,11 +32,14 @@ class Whitesubcriterion extends Component {
 }
 
   render() {
+  	
   	return  (
 			<div>
 				<button onClick={this.SweetwhiteWineSelection}>Fruité</button>
 				<button onClick={this.XdrywhiteWineSelection}>léger</button>
 				<button onClick={this.DrywhiteWineSelection}>Riche</button>
+
+
 			</div>
 	)
   }

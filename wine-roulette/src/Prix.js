@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Whitesubcriterion from "./Whitesubcriterion"
 
 class Prix extends Component {
 
@@ -30,12 +31,11 @@ pascherWineSelection =() => {
 }
 
 render() {
-
-
 // const selectedprice = this.props.
 
   	return  (
 		<div>
+			<p>Composant prix</p>
 			<button onClick={this.tresWineSelection}>Plus de 20$</button>
 			<button onClick={this.cherWineSelection}>Entre 10 et 20$</button>
 			<button onClick={this.pascherWineSelection}>moins de 10$</button>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Redsubcriterion from "./Redsubcriterion"
 
 class Appelapi extends Component {
   constructor() {
@@ -30,6 +31,9 @@ class Appelapi extends Component {
 
   render() {
   	const {isLoaded, items} = this.state;
+  	const color = {this.props.name}
+  	console.log(color)
+
   	// console.log(items)
     // const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
 
@@ -37,7 +41,7 @@ class Appelapi extends Component {
 
 	else return (
 		<div>
-			Appelapi
+			
 
 		</div>
 		)

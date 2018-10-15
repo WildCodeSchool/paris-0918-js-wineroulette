@@ -45,28 +45,31 @@ champagneWineSelection =() => {
 
   	if (this.state.red) return  (
 		<div>
+			<p>Composant color</p>
 			<button onClick={this.redWineSelection}>Rouge</button>
 			<button onClick={this.whiteWineSelection}>Blanc</button>
 			<button onClick={this.pinkWineSelection}>Rosé</button>
 			<button onClick={this.champagneWineSelection}>Petillant</button>
-			<p> sous-critère ROUGE</p>
-			<Redsubcriterion onClick={()=> this.redWineSelection} />
+			<p> sous-Composant color if ROUGE </p>
+			<Redsubcriterion />
 		</div>
 		)
 
 	else if (this.state.white) return (
 		<div>
+			<p>Composant color</p>
 			<button onClick={this.redWineSelection}>Rouge</button>
 			<button onClick={this.whiteWineSelection}>Blanc</button>
 			<button onClick={this.pinkWineSelection}>Rosé</button>
 			<button onClick={this.champagneWineSelection}>Petillant</button>
-			<p> sous-critère BLANC</p>
+			<p> sous-Composant color if BLANC</p>
 			<Whitesubcriterion />
 		</div>
 		)
 
 	else return (
 		<div>
+			<p>Composant color</p>
 			<button onClick={this.redWineSelection}>Rouge</button>
 			<button onClick={this.whiteWineSelection}>Blanc</button>
 			<button onClick={this.pinkWineSelection}>Rosé</button>

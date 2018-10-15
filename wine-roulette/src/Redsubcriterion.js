@@ -65,7 +65,6 @@ MediumbodiedredWineSelection =() => {
 				<button onClick={this.RichredWineSelection}>Riche</button>
 				<button onClick={this.FullbodiedredWineSelection}>Corsé</button>
 				<button onClick={this.MediumbodiedredWineSelection}>Doux</button>
-				<p>elle est la ??{this.props.name}</p>
 			</div>
 	)
   }
