@@ -462,6 +462,8 @@ console.log(itemsred)
    else if (this.state.champagne && this.state.Roulette) {
 
    			let alea = Math.floor(Math.random() * (40) + 1)
+        
+
         return (
 			<div>
 				<button onClick={this.redWineSelection}>Rouge</button>
@@ -479,7 +481,7 @@ console.log(itemsred)
 	                    <h4>Hé voilà votre vin :)</h4>
 	                    <p> Domaine :  {(itemschampagne[ alea ]).name}</p>
 	                    <p>Prix : {((itemschampagne[ alea ]).price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={(itemschampagne[ alea ]).image_url} alt="PHOTO INDISPONIBLE DESOLE KIKI"/>
+	                    <img src={(itemschampagne[ alea ]).image_url} alt="PHOTO INDISPONIBLE"/>
 	                    <p>Taux d'alcool : {(itemschampagne[ alea ]).alcohol_content/100}</p> 
 	                    <p>Accord met-vin : {(itemschampagne[ alea ]).serving_suggestion}</p> 
 
