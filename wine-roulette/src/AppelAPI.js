@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-// import Bouton from "../boutonGenerantURL/Bouton"
-import Colorbutton from "../Colorbutton"
-import Prix from "../Prix"
-import "./bouton.css"
 
-
-class Bouton extends Component {
+class Appelapi extends Component {
   constructor() {
     super();
     this.state = {
@@ -36,27 +31,34 @@ class Bouton extends Component {
   render() {
   	const {isLoaded, items} = this.state;
   	// console.log(items)
-
-
-  	// console.log(items)
-
     // const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
-
 
     if (!isLoaded) return <div>Loading...</div>;
 
 	else return (
 		<div>
-			<Prix />
-			<Colorbutton />
+			Appelapi
 
 		</div>
 		)
     }
-
 }
 
-export default Bouton;
+export default Appelapi;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 			// <ul>

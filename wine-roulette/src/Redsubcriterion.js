@@ -11,60 +11,53 @@ class Redsubcriterion extends Component {
 			      Mediumbodied:false}
 }
 
-	FruityredWineSelection = () => {
+FruityredWineSelection = () => {
 	this.setState ({
-			      Fruity:!this.state.Fruity,
-			      Smooth: false,
-			      Rich:false,
-			      Fullbodied:false,
-			      Mediumbodied:false})
+		      Fruity:!this.state.Fruity,
+		      Smooth: false,
+		      Rich:false,
+		      Fullbodied:false,
+		      Mediumbodied:false})
 }
 
-	SmoothredWineSelection =() => {
-    this.setState ({
-			      Fruity:false,
-			      Smooth: !this.state.Smooth,
-			      Rich:false,
-			      Fullbodied:false,
-			      Mediumbodied:false})
+SmoothredWineSelection =() => {
+	this.setState ({
+		      Fruity:false,
+		      Smooth: !this.state.Smooth,
+		      Rich:false,
+		      Fullbodied:false,
+		      Mediumbodied:false})
 }
 
- 	RichredWineSelection =() => {
-    this.setState ({
-			      Fruity:false,
-			      Smooth: false,
-			      Rich:!this.state.Rich,
-			      Fullbodied:false,
-			      Mediumbodied:false})
+RichredWineSelection =() => {
+	this.setState ({
+		      Fruity:false,
+		      Smooth: false,
+		      Rich:!this.state.Rich,
+		      Fullbodied:false,
+		      Mediumbodied:false})
 }
 
-	FullbodiedredWineSelection =() => {
-	  this.setState ({
-				      Fruity:false,
-				      Smooth: false,
-				      Rich:false,
-				      Fullbodied:!this.state.chaFullbodiedmpagne,
-				      Mediumbodied:false})
+FullbodiedredWineSelection =() => {
+	this.setState ({
+		      Fruity:false,
+		      Smooth: false,
+		      Rich:false,
+		      Fullbodied:!this.state.chaFullbodiedmpagne,
+		      Mediumbodied:false})
 }
 
-    MediumbodiedredWineSelection =() => {
-		  this.setState ({
-					      Fruity:false,
-					      Smooth: false,
-					      Rich:false,
-					      Fullbodied:false,
-					      Mediumbodied:!this.state.Mediumbodied})
+MediumbodiedredWineSelection =() => {
+	this.setState ({
+		      Fruity:false,
+		      Smooth: false,
+		      Rich:false,
+		      Fullbodied:false,
+		      Mediumbodied:!this.state.Mediumbodied})
 }
-
-
 
   render() {
- 	console.log('Fruity       ',this.state.Fruity)
-  	console.log('Smooth     ',this.state.Smooth)
-  	console.log('Rich      ',this.state.Rich)
-  	console.log('Fullbodied ',this.state.Fullbodied)
-  	console.log('props====',this.props.name)
-
+  	// const name ={this.props.redWineSelection}
   	return  (
 			<div>
 				<button onClick={this.FruityredWineSelection}>Fruité</button>
@@ -75,7 +68,6 @@ class Redsubcriterion extends Component {
 				<p>elle est la ??{this.props.name}</p>
 			</div>
 	)
-
   }
 }
 

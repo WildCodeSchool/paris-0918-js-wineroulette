@@ -4,41 +4,37 @@ import Redsubcriterion from "./Redsubcriterion"
 import Whitesubcriterion from "./Whitesubcriterion"
 // import "./bouton.css"
 
-
-
 class Colorbutton extends Component {
     constructor() {
     super();
-    this.state = {red: false,
+    this.state = {red: true,
 		            white:false,
 		            pink: false,
 		            champagne:false}
 }
 
-	redWineSelection = () => {
+redWineSelection = () => {
 	this.setState ({red: !this.state.red,
 		            white:false,
 		            pink: false,
 		            champagne:false})
 }
 
-	whiteWineSelection =() => {
+whiteWineSelection =() => {
     this.setState ({red: false,
                     white:!this.state.white,
                     pink: false,
                     champagne:false})
-
-
 }
 
- 	pinkWineSelection =() => {
+pinkWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: !this.state.pink,
                     champagne:false})
 }
 
-	champagneWineSelection =() => {
+champagneWineSelection =() => {
     this.setState ({red: false,
                     white:false,
                     pink: false,
@@ -54,7 +50,7 @@ class Colorbutton extends Component {
 			<button onClick={this.pinkWineSelection}>Rosé</button>
 			<button onClick={this.champagneWineSelection}>Petillant</button>
 			<p> sous-critère ROUGE</p>
-			<Redsubcriterion name='{this.state.red}' />
+			<Redsubcriterion onClick={()=> this.redWineSelection} />
 		</div>
 		)
 
@@ -78,11 +74,8 @@ class Colorbutton extends Component {
 			<p> Select a COLOR</p>
 		</div>
 		)
-
-
   }
 }
-
 export default Colorbutton;
 
 
