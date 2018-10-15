@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
-//import Winelist from "../AffichageListeVin/Winelist"
+import Colorbutton from "../Colorbutton"
+import Redsubcriterion from "../Redsubcriterion"
 import "./bouton.css"
 
 // const url = 'https://lcboapi.com/products?q=red+wine+chile+Sauvignon&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm'
@@ -9,123 +10,64 @@ class Bouton extends Component {
   constructor() {
     super();
     this.state = {
-      red:false,
-      white:false,
-      pink: false,
-      champagne:true,
+    	// redstate:{this.props.color},
+      // red:true,
+      // white:false,
+      // pink: false,
+      // champagne:false,
 
-      alcohol:false,
+      // alcohol:false,
 
-      Sweet:false,
-      Xdry:false,
-      Dry:false,
-      Roulette:false,
-
+      // Sweet:false,
+      // Xdry:false,
+      // Dry:false,
+      // Roulette:false,
 
       isLoaded: false,
-      items1: [],
-      items2: [],
-      items3: [],
-      items4: [],
-      items5: [],
-      items6: [],
-      items7: []
+      items: []
 	};
 };
 
-  
 
-	redWineSelection = () => {
-	this.setState ({red: !this.state.red,
-		            white:false,
-		            pink: false,
-		            champagne:false,
-		            alcohol:false,
-    				Roulette:false})
-}
-
-	whiteWineSelection =() => {
-    this.setState ({red: false,
-                    white:!this.state.white,
-                    pink: false,
-                    champagne:false,
-    				alcohol:false,
-    				Roulette:false})
-  //   console.log(this.state.white)
- 	// console.log(this.state.Sweet)
- 	// console.log(this.state.Xdry)
- 	// console.log(this.state.Dry)
- 	// console.log('--------------')
-
-}
-
- 	pinkWineSelection =() => {
-    this.setState ({red: false,
-                    white:false,
-                    pink: !this.state.pink,
-                    champagne:false,
-                	alcohol:false,
-    				Roulette:false})
-}
-
-	champagneWineSelection =() => {
-    this.setState ({red: false,
-                    white:false,
-                    pink: false,
-                    champagne:!this.state.champagne,
-                	alcohol:false,
-    				Roulette:false})
-}
-
-	alcoholSelection =() => {
-    this.setState ({alcohol:!this.state.alcohol})
-}
+// 	alcoholSelection =() => {
+//     this.setState ({alcohol:!this.state.alcohol})
+// }
 
 
-	Sweetsugar_contentSelection =() => {
-    this.setState ({Sweet:!this.state.Sweet,
-				    Xdry:false,
-				    Dry:false})
-       //      console.log(this.state.white)
-	     	// console.log(this.state.Sweet)
-	     	// console.log(this.state.Xdry)
-	     	// console.log(this.state.Dry)
-	     	// console.log('--------------')
-}
+// 	Sweetsugar_contentSelection =() => {
+//     this.setState ({Sweet:!this.state.Sweet,
+// 				    Xdry:false,
+// 				    Dry:false})
+// }
 
-	Xdrysugar_contentSelection =() => {
-    this.setState ({Sweet:false,
-				    Xdry:!this.state.Xdry,
-				    Dry:false})
-       //   	console.log(this.state.white)
-	     	// console.log(this.state.Sweet)
-	     	// console.log(this.state.Xdry)
-	     	// console.log(this.state.Dry)
-	     	// console.log('--------------')
-}
+// 	Xdrysugar_contentSelection =() => {
+//     this.setState ({Sweet:false,
+// 				    Xdry:!this.state.Xdry,
+// 				    Dry:false})
+// }
 
-	Drysugar_contentSelection =() => {
-    this.setState ({Sweet:false,
-				    Xdry:false,
-				    Dry:!this.state.Dry})
-       //   	console.log(this.state.white)
-	     	// console.log(this.state.Sweet)
-	     	// console.log(this.state.Xdry)
-	     	// console.log(this.state.Dry)
-	     	// console.log('--------------')
-}
+// 	Drysugar_contentSelection =() => {
+//     this.setState ({Sweet:false,
+// 				    Xdry:false,
+// 				    Dry:!this.state.Dry})
+//        //   	console.log(this.state.white)
+// 	     	// console.log(this.state.Sweet)
+// 	     	// console.log(this.state.Xdry)
+// 	     	// console.log(this.state.Dry)
+// 	     	// console.log('--------------')
+// }
 
 
-	 // 	RouletteRed = () => {
- 	// 	this.setState({result:this.state.itemsred[Math.floor(Math.random() * (200) + 1)]})
- 	// 	console.log(this.state.itemsred[0])
- 	// }
+// 	 // 	RouletteRed = () => {
+//  	// 	this.setState({result:this.state.itemsred[Math.floor(Math.random() * (200) + 1)]})
+//  	// 	console.log(this.state.itemsred[0])
+//  	// }
 
- 	RouletteChampagne =() => {
- 		this.setState({Roulette:true});
- 		console.log(this.state.Roulette)
- 		console.log('sdjhfgjhsdfg')
- 	}
+//  	RouletteChampagne =() => {
+//  		this.setState({Roulette:true});
+//  		console.log(this.state.Roulette)
+//  		console.log('sdjhfgjhsdfg')
+//  	}
 
 
 
@@ -134,159 +76,68 @@ class Bouton extends Component {
 
   componentDidMount() {
 
-  	// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
-  		// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
-  			// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
-  				// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
-  					// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
-  						// this set state (precState => { return prevstate.item.concat(json) => recupe etant précedent pour boucler
-  							
+  	for (let i = 1; i < 11; i++) {
+  	
+	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
+	      .then(res => res.json())
+	      .then(json => {
+	          	this.setState( prevState => {
+	          		return {
+	          			items: prevState.items.concat(json)
+	          		}
+		            
+	                });
+		   })
+	      .then(this.setState({isLoaded: true}))
+  	}
+}
+
   
 
-    fetch('https://lcboapi.com/products?page=1&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
-      .then(res => res.json())
-      .then((json) => {
-          	this.setState({
-	            isLoaded: true,
-	            items1: json.result
-                });
-	   })
-
-      fetch('https://lcboapi.com/products?page=2&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
-      .then(res => res.json())
-      .then((json) => {
-          	this.setState({
-	            isLoaded2: true,
-	            items2: json.result
-                });
-	   })
-
-            fetch('https://lcboapi.com/products?page=3&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
-      .then(res => res.json())
-      .then((json) => {
-          	this.setState({
-	            isLoaded3: true,
-	            items3: json.result
-                });
-	   })
-
-            fetch('https://lcboapi.com/products?page=4&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
-      .then(res => res.json())
-      .then((json) => {
-          	this.setState({
-	            isLoaded4: true,
-	            items4: json.result
-                });
-	   })
-
-            fetch('https://lcboapi.com/products?page=5&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
-      .then(res => res.json())
-      .then((json) => {
-          	this.setState({
-	            isLoaded5: true,
-	            items5: json.result
-                });
-	   })
-
-            fetch('https://lcboapi.com/products?page=6&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm')
-      .then(res => res.json())
-      .then((json) => {
-          	this.setState({
-	            isLoaded6: true,
-	            items6: json.result
-                });
-	   })
-  }
-
-
-
-
   render() {
-  // 	console.log('red       ',this.state.red)
-  // 	console.log('white     ',this.state.white)
-  // 	console.log('pink      ',this.state.pink)
-  // 	console.log('champagne ',this.state.champagne)
-  // 	console.log('alcohol   ',this.state.alcohol)
- 	// console.log('Sweet     ',this.state.Sweet)
- 	// console.log('Xdry      ',this.state.Xdry)
- 	// console.log('Dry       ',this.state.Dry)
- 	// console.log('--------------')
-
-  	const {isLoaded, items1, items2, items3, items4, items5, items6 } = this.state;
-
-  	const items = items1.concat(items2).concat(items3).concat(items4).concat(items5).concat(items6)
+  	const {isLoaded, items} = this.state;
+  	console.log(items)
 
 
-  	const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
-	const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
-	const itemspink = items.filter((item,id) => item.secondary_category === "Rosé Wine")
-	const itemschampagne = items.filter((item,id) => item.secondary_category === "Champagne")
+  	// console.log(items)
 
-	const itemsredalcohol = itemsred.filter((item,id) => item.alcohol_content === 1300)
-
-	const itemswhiteSweet = itemswhite.filter((item,id) => item.sugar_content === "S - Sweet")
-	const itemswhiteXdry = itemswhite.filter((item,id) => item.sugar_content === "XD - Extra Dry")
-	const itemswhiteDry = itemswhite.filter((item,id) => item.sugar_content === "D - Dry")
-
-
-console.log(itemsred)
-
-
+    // const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
+	// const itemswhite = items.filter((item,id) => item.secondary_category === "White Wine")
+	// const itemspink = items.filter((item,id) => item.secondary_category === "Rosé Wine")
+	// const itemschampagne = items.filter((item,id) => item.secondary_category === "Champagne")
+	// const itemsredalcohol = itemsred.filter((item,id) => item.alcohol_content === 1300)
+	// const itemswhiteSweet = itemswhite.filter((item,id) => item.sugar_content === "S - Sweet")
+	// const itemswhiteXdry = itemswhite.filter((item,id) => item.sugar_content === "XD - Extra Dry")
+	// const itemswhiteDry = itemswhite.filter((item,id) => item.sugar_content === "D - Dry")
 
 
     if (!isLoaded) return <div>Loading...</div>;
 
-     else if (this.state.red && !this.state.alcohol) {
+	else return (
+		<div>
+			<Colorbutton />
+			<ul>
+			{items.map((item, id) => ( item.result.map( (item2,id) => 
+                 <li key={id}>
+                     <p>Vin numero : {id+1}</p>
+                     <p> Domaine :  {item2.name}</p>
+                     <p>Prix : {(item2.price_in_cents/100).toFixed(2)} $</p> 
+                     <img src={item2.image_url} alt={item2.name}/>
+                 </li>)))}
+            </ul>
 
-        return (
-			<div>
-				<button className='selected' onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
-				<p></p>
-				<button onClick={this.alcoholSelection}>alcohol = 13%</button>
 
-			
-				<ul>
-	              {itemsred.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p> ALCOOOOOOOL :  {(item.alcohol_content/100)} %</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt="photo du vin"/>
-	                </li>))}
-            	</ul>	
-			</div>
 
-      );
+		</div>
+		)
     }
 
-         else if (this.state.red && this.state.alcohol) {
-        return (
-			<div>
-				<button className='selected' onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
-				<p></p>
-				<button onClick={this.alcoholSelection}>alcohol = 13%</button>
-				
-				<ul>
-	              {itemsredalcohol.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p> ALCOOOOOOOL :  {(item.alcohol_content/100)} %</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt="photo du vin"/>
-	                </li>))}
-            	</ul>	
-			</div>
+}
 
-      );
-    }
+export default Bouton;
+
+     
+   
 
 
 
@@ -295,119 +146,116 @@ console.log(itemsred)
 
 
 
-
-     else if (this.state.white && !this.state.Sweet && !this.state.Xdry && !this.state.Dry  ) {
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
-				<p></p>
-				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
-				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+  //    else if (this.state.white && !this.state.Sweet && !this.state.Xdry && !this.state.Dry  ) {
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button onClick={this.champagneWineSelection}>Petillant</button>
+		// 		<p></p>
+		// 		<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+		// 		<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
+		// 		<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
-				<ul>
-				{itemswhite.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt={item.name}/>
-	                </li>))}
-	            </ul>	
-			</div>
+		// 		<ul>
+		// 		{itemswhite.map((item, id) => (
+	 //                <li key={id}>
+	 //                    <p>Vin numero : {id+1}</p>
+	 //                    <p> Domaine :  {item.name}</p>
+	 //                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	 //                    <img src={item.image_url} alt={item.name}/>
+	 //                </li>))}
+	 //            </ul>	
+		// 	</div>
 
-      );
-    }
+  //     );
+  //   }
 
-         else if (this.state.white && this.state.Sweet && !this.state.Xdry && !this.state.Dry  ) {
+  //        else if (this.state.white && this.state.Sweet && !this.state.Xdry && !this.state.Dry  ) {
 
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
-				<p></p>
-				<button className='selected' onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
-				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button onClick={this.champagneWineSelection}>Petillant</button>
+		// 		<p></p>
+		// 		<button className='selected' onClick={this.Sweetsugar_contentSelection}>Sec</button>
+		// 		<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
+		// 		<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
-				<ul>
-				{itemswhiteSweet.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt={item.name}/>
-	                </li>))}
-	            </ul>	
-			</div>
+		// 		<ul>
+		// 		{itemswhiteSweet.map((item, id) => (
+	 //                <li key={id}>
+	 //                    <p>Vin numero : {id+1}</p>
+	 //                    <p> Domaine :  {item.name}</p>
+	 //                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	 //                    <img src={item.image_url} alt={item.name}/>
+	 //                </li>))}
+	 //            </ul>	
+		// 	</div>
 
-      );
-    }
+  //     );
+  //   }
 
-         else if (this.state.white && !this.state.Sweet && this.state.Xdry && !this.state.Dry  ) {
+  //        else if (this.state.white && !this.state.Sweet && this.state.Xdry && !this.state.Dry  ) {
 
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
-				<p></p>
-				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button className='selected' onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
-				<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button onClick={this.champagneWineSelection}>Petillant</button>
+		// 		<p></p>
+		// 		<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+		// 		<button className='selected' onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
+		// 		<button onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
-				<ul>
-				{itemswhiteXdry.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt={item.name}/>
-	                </li>))}
-	            </ul>	
-			</div>
+		// 		<ul>
+		// 		{itemswhiteXdry.map((item, id) => (
+	 //                <li key={id}>
+	 //                    <p>Vin numero : {id+1}</p>
+	 //                    <p> Domaine :  {item.name}</p>
+	 //                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	 //                    <img src={item.image_url} alt={item.name}/>
+	 //                </li>))}
+	 //            </ul>	
+		// 	</div>
 
-      );
-    }
+  //     );
+  //   }
 
-         else if (this.state.white && !this.state.Sweet && !this.state.Xdry && this.state.Dry  ) {
+  //        else if (this.state.white && !this.state.Sweet && !this.state.Xdry && this.state.Dry  ) {
 
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
-				<p></p>
-				<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
-				<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
-				<button className='selected' onClick={this.Drysugar_contentSelection}>Moelleux</button>
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button className='selected' onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button onClick={this.champagneWineSelection}>Petillant</button>
+		// 		<p></p>
+		// 		<button onClick={this.Sweetsugar_contentSelection}>Sec</button>
+		// 		<button onClick={this.Xdrysugar_contentSelection}>Demi-sec</button>
+		// 		<button className='selected' onClick={this.Drysugar_contentSelection}>Moelleux</button>
 				
 
-				<ul>
-				{itemswhiteDry.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt={item.name}/>
-	                </li>))}
-	            </ul>	
-			</div>
+		// 		<ul>
+		// 		{itemswhiteDry.map((item, id) => (
+	 //                <li key={id}>
+	 //                    <p>Vin numero : {id+1}</p>
+	 //                    <p> Domaine :  {item.name}</p>
+	 //                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	 //                    <img src={item.image_url} alt={item.name}/>
+	 //                </li>))}
+	 //            </ul>	
+		// 	</div>
 
-      );
-    }
-
-
+  //     );
+  //   }
 
 
 
@@ -417,117 +265,117 @@ console.log(itemsred)
 
 
 
-         else if (this.state.pink) {
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button className='selected' onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
+
+
+  //        else if (this.state.pink) {
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button className='selected' onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button onClick={this.champagneWineSelection}>Petillant</button>
 				
 
-				<ul>
+		// 		<ul>
 				
 				
 
-              {itemspink.map((item, id) => (
-                <li key={id}>
-                    <p>Vin numero : {id+1}</p>
-                    <p> Domaine :  {item.name}</p>
-                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-                    <img src={item.image_url} alt={item.name}/>
-                </li>))}
+  //             {itemspink.map((item, id) => (
+  //               <li key={id}>
+  //                   <p>Vin numero : {id+1}</p>
+  //                   <p> Domaine :  {item.name}</p>
+  //                   <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+  //                   <img src={item.image_url} alt={item.name}/>
+  //               </li>))}
              
-            </ul>	
-			</div>
+  //           </ul>	
+		// 	</div>
 
-      );
-    }
+  //     );
+  //   }
 
 
-     else if (this.state.champagne && !this.state.Roulette) {
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
+  //    else if (this.state.champagne && !this.state.Roulette) {
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
 
-				<p></p><p></p><p></p><p></p>
+		// 		<p></p><p></p><p></p><p></p>
 
-				<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
+		// 		<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
 
-			</div>)}
+		// 	</div>)}
 
-   else if (this.state.champagne && this.state.Roulette) {
+  //  else if (this.state.champagne && this.state.Roulette) {
 
-   			let alea = Math.floor(Math.random() * (40) + 1)
+  //  			let alea = Math.floor(Math.random() * (40) + 1)
         
 
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button className='selected' onClick={this.champagneWineSelection}>Petillant</button>
 
-				<p></p><p></p><p></p><p></p>
+		// 		<p></p><p></p><p></p><p></p>
 
-				<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
+		// 		<button className='selectedRoulette' onClick={this.RouletteChampagne}>Roulette</button>
 
-				<ul>	
+		// 		<ul>	
 
-	                <li>
-	                    <h4>Hé voilà votre vin :)</h4>
-	                    <p> Domaine :  {(itemschampagne[ alea ]).name}</p>
-	                    <p>Prix : {((itemschampagne[ alea ]).price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={(itemschampagne[ alea ]).image_url} alt="PHOTO INDISPONIBLE"/>
-	                    <p>Taux d'alcool : {(itemschampagne[ alea ]).alcohol_content/100}</p> 
-	                    <p>Accord met-vin : {(itemschampagne[ alea ]).serving_suggestion}</p> 
+	 //                <li>
+	 //                    <h4>Hé voilà votre vin :)</h4>
+	 //                    <p> Domaine :  {(itemschampagne[ alea ]).name}</p>
+	 //                    <p>Prix : {((itemschampagne[ alea ]).price_in_cents/100).toFixed(2)} $</p> 
+	 //                    <img src={(itemschampagne[ alea ]).image_url} alt="PHOTO INDISPONIBLE"/>
+	 //                    <p>Taux d'alcool : {(itemschampagne[ alea ]).alcohol_content/100}</p> 
+	 //                    <p>Accord met-vin : {(itemschampagne[ alea ]).serving_suggestion}</p> 
 
 
 	                    
 
 
-	                </li>
+	 //                </li>
 	             
-	            </ul>
+	 //            </ul>
 
-			</div>
+		// 	</div>
 
-      );
-    }
+  //     );
+  //   }
 
-    else {
-        return (
-			<div>
-				<button onClick={this.redWineSelection}>Rouge</button>
-				<button onClick={this.whiteWineSelection}>Blanc</button>
-				<button onClick={this.pinkWineSelection}>Rosé</button>
-				<button onClick={this.champagneWineSelection}>Petillant</button>
+  //   else {
+  //       return (
+		// 	<div>
+		// 		<button onClick={this.redWineSelection}>Rouge</button>
+		// 		<button onClick={this.whiteWineSelection}>Blanc</button>
+		// 		<button onClick={this.pinkWineSelection}>Rosé</button>
+		// 		<button onClick={this.champagneWineSelection}>Petillant</button>
 
-				<ul>	
+		// 		<ul>	
 				
-	              {items.map((item, id) => (
-	                <li key={id}>
-	                    <p>Vin numero : {id+1}</p>
-	                    <p> Domaine :  {item.name}</p>
-	                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
-	                    <img src={item.image_url} alt={item.name}/>
-	                </li>))}
+	 //              {items.map((item, id) => (
+	 //                <li key={id}>
+	 //                    <p>Vin numero : {id+1}</p>
+	 //                    <p> Domaine :  {item.name}</p>
+	 //                    <p>Prix : {(item.price_in_cents/100).toFixed(2)} $</p> 
+	 //                    <img src={item.image_url} alt={item.name}/>
+	 //                </li>))}
 	             
-	            </ul>	
-			</div>
+	 //            </ul>	
+		// 	</div>
 
-      );
-    }
+  //     );
+  //   }
 
 
 
-  }
-}
+  // }
 
-export default Bouton;
 
 
 
