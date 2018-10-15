@@ -1,44 +1,33 @@
 import React, { Component } from 'react';
 import Whitesubcriterion from "./Whitesubcriterion"
+import Appelapi from "./AppelAPI"
 
 class Prix extends Component {
 
 	constructor() {
     super();
-    this.state = {trescher: false,
-		          cher:false,
-		          pascher: false,
-		      	  iftrescher:{cher:false,pascher:false},
-		      	  ifcher:{trescher:false,pascher:false},
-		      	  ifpascher:{cher:false,trescher:false},}
+    this.state = {minprice: 0,
+    			  maxprice:6000}
 }
 
-tresWineSelection = () => {
-	this.setState ({trescher: !this.state.trescher})
-	this.setState (this.state.iftrescher)
-}
+PriceSelection = (prixmin,prixmax) => {
+	this.setState ({minprice: prixmin,
+    			    maxprice: prixmax})
 
-cherWineSelection =() => {
-	this.setState ({cher: !this.state.cher})
-	this.setState (this.state.ifcher)
-
-
-}
-
-pascherWineSelection =() => {
-	this.setState ({pascher: !this.state.pascher})
-	this.setState (this.state.ifpascher)
 }
 
 render() {
-// const selectedprice = this.props.
-
+// balise html le fait : https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range
+// localstorage
   	return  (
 		<div>
 			<p>Composant prix</p>
-			<button onClick={this.tresWineSelection}>Plus de 20$</button>
-			<button onClick={this.cherWineSelection}>Entre 10 et 20$</button>
-			<button onClick={this.pascherWineSelection}>moins de 10$</button>
+			<button onClick={() => this.PriceSelection(2000,6000)}>Plus de 20$</button>
+			<button onClick={() => this.PriceSelection(1000,1999)}>Entre 10 et 20$</button>
+			<button onClick={() => this.PriceSelection(0,999)}>moins de 10$</button>
+			<Appelapi 
+				minprice={this.state.minprice} 
+				maxprice={this.state.maxprice} />
 		</div>
 		)
 	}

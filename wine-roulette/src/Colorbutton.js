@@ -7,61 +7,34 @@ import Whitesubcriterion from "./Whitesubcriterion"
 class Colorbutton extends Component {
     constructor() {
     super();
-    this.state = {red: true,
-		            white:false,
-		            pink: false,
-		            champagne:false}
+    this.state = {color: 'red'}
 }
 
-redWineSelection = () => {
-	this.setState ({red: !this.state.red,
-		            white:false,
-		            pink: false,
-		            champagne:false})
-}
-
-whiteWineSelection =() => {
-    this.setState ({red: false,
-                    white:!this.state.white,
-                    pink: false,
-                    champagne:false})
-}
-
-pinkWineSelection =() => {
-    this.setState ({red: false,
-                    white:false,
-                    pink: !this.state.pink,
-                    champagne:false})
-}
-
-champagneWineSelection =() => {
-    this.setState ({red: false,
-                    white:false,
-                    pink: false,
-                    champagne:!this.state.champagne})
+ColorSelection = (color) => {
+	this.setState ({color: color})
 }
 
   render() {
 
-  	if (this.state.red) return  (
+  	if (this.state.color === 'red') return  (
 		<div>
 			<p>Composant color</p>
-			<button onClick={this.redWineSelection}>Rouge</button>
-			<button onClick={this.whiteWineSelection}>Blanc</button>
-			<button onClick={this.pinkWineSelection}>Rosé</button>
-			<button onClick={this.champagneWineSelection}>Petillant</button>
+			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
+			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> sous-Composant color if ROUGE </p>
 			<Redsubcriterion />
 		</div>
 		)
 
-	else if (this.state.white) return (
+	else if (this.state.color === 'white') return (
 		<div>
 			<p>Composant color</p>
-			<button onClick={this.redWineSelection}>Rouge</button>
-			<button onClick={this.whiteWineSelection}>Blanc</button>
-			<button onClick={this.pinkWineSelection}>Rosé</button>
-			<button onClick={this.champagneWineSelection}>Petillant</button>
+			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
+			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> sous-Composant color if BLANC</p>
 			<Whitesubcriterion />
 		</div>
@@ -70,10 +43,10 @@ champagneWineSelection =() => {
 	else return (
 		<div>
 			<p>Composant color</p>
-			<button onClick={this.redWineSelection}>Rouge</button>
-			<button onClick={this.whiteWineSelection}>Blanc</button>
-			<button onClick={this.pinkWineSelection}>Rosé</button>
-			<button onClick={this.champagneWineSelection}>Petillant</button>
+			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
+			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> Select a COLOR</p>
 		</div>
 		)

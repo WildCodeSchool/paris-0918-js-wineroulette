@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Redsubcriterion from "./Redsubcriterion"
+import Prix from "./Prix"
+import Colorbutton from "./Colorbutton"
 
 class Appelapi extends Component {
   constructor() {
@@ -31,8 +33,8 @@ class Appelapi extends Component {
 
   render() {
   	const {isLoaded, items} = this.state;
-  	const color = {this.props.name}
-  	console.log(color)
+  	// const color = {this.props.name}
+  	// console.log(color)
 
   	// console.log(items)
     // const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
@@ -41,7 +43,17 @@ class Appelapi extends Component {
 
 	else return (
 		<div>
-			
+		<p>PRIX RECHERCHER = {this.props.minprice} / {this.props.maxprice}</p>
+			<ul>
+			{items.map((item, id) => ( item.result.map( (item2,id) => 
+                 <li key={id}>
+                     <p>Vin numero : {id+1}</p>
+                     <p> Domaine :  {item2.name}</p>
+                     <p>Prix : {(item2.price_in_cents/100).toFixed(2)} $</p> 
+                     <img src={item2.image_url} alt={item2.name}/>
+                 </li>)))}
+            </ul>
+
 
 		</div>
 		)
@@ -65,15 +77,6 @@ export default Appelapi;
 
 
 
-			// <ul>
-			// {items.map((item, id) => ( item.result.map( (item2,id) => 
-   //               <li key={id}>
-   //                   <p>Vin numero : {id+1}</p>
-   //                   <p> Domaine :  {item2.name}</p>
-   //                   <p>Prix : {(item2.price_in_cents/100).toFixed(2)} $</p> 
-   //                   <img src={item2.image_url} alt={item2.name}/>
-   //               </li>)))}
-   //          </ul>
 
      
    
