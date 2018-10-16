@@ -14,7 +14,7 @@ class Appelapi extends Component {
 };
 
   componentDidMount() {
-  	for (let i = 1; i < 5; i++) {
+  	for (let i = 1; i < 31; i++) {
 	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
 	      .then(res => res.json())
 	      .then(json => {
@@ -39,65 +39,20 @@ class Appelapi extends Component {
 		for (let i = 0; i < itemsResult.length; i++) {
 			fusionTable = [...itemsResult[i], ...fusionTable];
 		}	
-	console.log(fusionTable)	
-  	const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
-  	const Colorfilter = fusionTable.filter(item => item.secondary_category === this.props.color)
-  	const Stylefilter = fusionTable.filter(item => item.style.include(this.props.redSubCriterion))
+	return fusionTable
   	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
-  	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
+  	// const Colorfilter = fusionTable.filter(item => item.secondary_category === this.props.color)
+  	// const Stylefilter = fusionTable.filter(item => item.style.include(this.props.redSubCriterion))
 		
 	}
-
   	const promise1 = new Promise( (resolve, reject) => {
-	    resolve(itemsResultfusion());
+	    resolve(console.log(itemsResultfusion()));
 		});
-
- //  	promise1.then(function(value) {
- //  	itemsResultfusion()
- //  	console.log(pricefilter);
-	// });
-
-
-  	// const itemsResultfusin = itemsResultfusion()
-
-  	// console.log(this.props.color)
-
-
-
-  	// const itemsResultFiltered = itemsResultfusin
-  	// 	// .filter(item => item.secondary_category === this.props.color)
-  	// 	.filter(item => item.price_in_cents >= this.props.minprice)
-
-  	// console.log('itemsResultFiltered',itemsResultFiltered)
-
-
-	// const itemswhite = items.filter(item => item.secondary_category === )
-	// const itemspink = items.filter((item,id) => item.secondary_category === "Rosé Wine")
-	// const itemschampagne = items.filter((item,id) => item.secondary_category === "Champagne")
-
-	// const itemsredalcohol = itemsred.filter((item,id) => item.alcohol_content === 1300)
-
-	// const itemswhiteSweet = itemswhite.filter((item,id) => item.sugar_content === "S - Sweet")
-	// const itemswhiteXdry = itemswhite.filter((item,id) => item.sugar_content === "XD - Extra Dry")
- //   const itemswhiteDry = itemswhite.filter((item,id) => item.sugar_content === "D - Dry")
-
-  	
-
-
-
-
 
     if (!isLoaded) return <div>Loading...</div>;
 
-	else return (
-
-		<div>
-			<p>PRIX RECHERCHER = {this.props.minprice} / {this.props.maxprice}</p>
-			<p>COLOR = {this.props.color}</p>
-			<p>whiteSubCriterion = {this.props.whiteSubCriterion}</p>
-			<p>redSubCriterion = {this.props.redSubCriterion}</p>	
-		</div>
-		)
+	else return <div> ok </div>
+		
     }
 }
 

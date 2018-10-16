@@ -19,7 +19,7 @@ whiteSubCriterionSelection = (subStyle) => {
 				<button onClick={() => this.whiteSubCriterionSelection('Xdry')}>Sec</button>
 				<button onClick={() => this.whiteSubCriterionSelection('Dry')}>Demi-sec</button>
 				<button onClick={() => this.whiteSubCriterionSelection('Sweet')}>Moelleux</button>
-				<Appelapi whiteSubCriterion={this.state.whiteSubCriterion} />
+				{/*<Appelapi whiteSubCriterion={this.state.whiteSubCriterion} />*/}
 			</div>
 	)
   }

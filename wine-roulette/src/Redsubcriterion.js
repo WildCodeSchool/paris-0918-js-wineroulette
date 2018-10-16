@@ -21,7 +21,7 @@ redSubCriterionSelection = (subStyle) => {
 				<button onClick={() => this.redSubCriterionSelection('Rich')}>Riche</button>
 				<button onClick={() => this.redSubCriterionSelection('Fullbodied')}>Corsé</button>
 				<button onClick={() => this.redSubCriterionSelection('Mediumbodied')}>Doux</button>
-				<Appelapi redSubCriterion={this.state.redSubCriterion} />
+				{/*<Appelapi redSubCriterion={this.state.redSubCriterion} />*/}
 			</div>
 	)
   }

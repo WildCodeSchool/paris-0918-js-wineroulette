@@ -20,6 +20,8 @@ class App extends Component {
 			
 			<Colorbutton />
 
+			<Appelapi />
+
 
 
 		</div>

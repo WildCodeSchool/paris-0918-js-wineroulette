@@ -29,7 +29,7 @@ ColorSelection = (color) => {
 			<p> </p>
 			<Redsubcriterion />
 
-			<Appelapi color={this.state.color} />
+			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
@@ -42,7 +42,7 @@ ColorSelection = (color) => {
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> </p>
 			<Whitesubcriterion />
-			<Appelapi color={this.state.color} />
+			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
@@ -54,8 +54,7 @@ ColorSelection = (color) => {
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> </p>
-			
-			<Appelapi color={this.state.color} />
+			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
@@ -69,8 +68,7 @@ ColorSelection = (color) => {
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> </p>
-			
-			<Appelapi color={this.state.color} />
+			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
