@@ -8,7 +8,7 @@ import Appelapi from "./AppelAPI"
 class Colorbutton extends Component {
     constructor() {
     super();
-    this.state = {color: 'red'}
+    this.state = {color: 'Red Wine'}
 }
 
 ColorSelection = (color) => {
@@ -19,40 +19,69 @@ ColorSelection = (color) => {
 
   	
 
-  	if (this.state.color === 'red') return  (
+  	if (this.state.color === 'Red Wine') return  (
 		<div>
-			<p>Composant color</p>
-			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
+			<p></p>
+			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
-			<p> sous-Composant color if ROUGE </p>
+			<p> </p>
 			<Redsubcriterion />
+
 			<Appelapi color={this.state.color} />
 		</div>
 		)
 
-	else if (this.state.color === 'white') return (
+	else if (this.state.color === 'White Wine') return (
 		<div>
-			<p>Composant color</p>
-			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
+			<p></p>
+			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
-			<p> sous-Composant color if BLANC</p>
+			<p> </p>
 			<Whitesubcriterion />
+			<Appelapi color={this.state.color} />
+		</div>
+		)
+
+	else if (this.state.color === 'Rosé Wine') return (
+		<div>
+			<p></p>
+			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
+			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<p> </p>
+			
+			<Appelapi color={this.state.color} />
+		</div>
+		)
+
+
+
+	else if (this.state.color === 'champagne') return (
+		<div>
+			<p></p>
+			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
+			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
+			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
+			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<p> </p>
+			
 			<Appelapi color={this.state.color} />
 		</div>
 		)
 
 	else return (
 		<div>
-			<p>Composant color</p>
+			<p></p>
 			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
-			<p> Select a COLOR</p>
+			<p></p>
 		</div>
 		)
   }

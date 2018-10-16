@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Redsubcriterion from "./Redsubcriterion"
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
@@ -12,9 +13,8 @@ class Appelapi extends Component {
 	};
 };
 
-  componentWillMount() {
-
-  	for (let i = 1; i < 20; i++) {
+  componentDidMount() {
+  	for (let i = 1; i < 5; i++) {
 	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
 	      .then(res => res.json())
 	      .then(json => {
@@ -28,26 +28,61 @@ class Appelapi extends Component {
   	}
 }
 
+
   render() {
   	const {isLoaded, items} = this.state;
-  	// console.log('items',items)
   	const itemsResult = items.map(item => (item.result));
-  	// console.log('itemsResult',itemsResult)
 
-	const itemsResultfusion = ()=> {
+
+	const itemsResultfusion = () => {
 		let fusionTable = [];
 		for (let i = 0; i < itemsResult.length; i++) {
 			fusionTable = [...itemsResult[i], ...fusionTable];
-		}		
-		return fusionTable
+		}	
+	console.log(fusionTable)	
+  	const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
+  	const Colorfilter = fusionTable.filter(item => item.secondary_category === this.props.color)
+  	const Stylefilter = fusionTable.filter(item => item.style.include(this.props.redSubCriterion))
+  	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
+  	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
+		
 	}
 
   	const promise1 = new Promise( (resolve, reject) => {
 	    resolve(itemsResultfusion());
 		});
 
-  	const itemsResultfusin = itemsResultfusion()
-  	console.log(itemsResultfusin)
+ //  	promise1.then(function(value) {
+ //  	itemsResultfusion()
+ //  	console.log(pricefilter);
+	// });
+
+
+  	// const itemsResultfusin = itemsResultfusion()
+
+  	// console.log(this.props.color)
+
+
+
+  	// const itemsResultFiltered = itemsResultfusin
+  	// 	// .filter(item => item.secondary_category === this.props.color)
+  	// 	.filter(item => item.price_in_cents >= this.props.minprice)
+
+  	// console.log('itemsResultFiltered',itemsResultFiltered)
+
+
+	// const itemswhite = items.filter(item => item.secondary_category === )
+	// const itemspink = items.filter((item,id) => item.secondary_category === "Rosé Wine")
+	// const itemschampagne = items.filter((item,id) => item.secondary_category === "Champagne")
+
+	// const itemsredalcohol = itemsred.filter((item,id) => item.alcohol_content === 1300)
+
+	// const itemswhiteSweet = itemswhite.filter((item,id) => item.sugar_content === "S - Sweet")
+	// const itemswhiteXdry = itemswhite.filter((item,id) => item.sugar_content === "XD - Extra Dry")
+ //   const itemswhiteDry = itemswhite.filter((item,id) => item.sugar_content === "D - Dry")
+
+  	
+
 
 
 
@@ -57,7 +92,10 @@ class Appelapi extends Component {
 	else return (
 
 		<div>
-<p>salut</p>
+			<p>PRIX RECHERCHER = {this.props.minprice} / {this.props.maxprice}</p>
+			<p>COLOR = {this.props.color}</p>
+			<p>whiteSubCriterion = {this.props.whiteSubCriterion}</p>
+			<p>redSubCriterion = {this.props.redSubCriterion}</p>	
 		</div>
 		)
     }
@@ -66,10 +104,7 @@ class Appelapi extends Component {
 export default Appelapi;
 
 
-		// <p>PRIX RECHERCHER = {this.props.minprice} / {this.props.maxprice}</p>
-		// <p>COLOR = {this.props.color}</p>
-		// <p>whiteSubCriterion = {this.props.whiteSubCriterion}</p>
-		// <p>redSubCriterion = {this.props.redSubCriterion}</p>
+
 
 
 
