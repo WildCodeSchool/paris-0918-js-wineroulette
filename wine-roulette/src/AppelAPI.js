@@ -12,55 +12,64 @@ class Appelapi extends Component {
 	};
 };
 
-  componentDidMount() {
+  componentWillMount() {
 
-  	for (let i = 1; i < 11; i++) {
-  	
+  	for (let i = 1; i < 20; i++) {
 	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
 	      .then(res => res.json())
 	      .then(json => {
 	          	this.setState( prevState => {
 	          		return {
 	          			items: prevState.items.concat(json)
-	          		}
-		            
+	          			}
 	                });
 		   })
 	      .then(this.setState({isLoaded: true}))
   	}
 }
 
-
   render() {
   	const {isLoaded, items} = this.state;
-  	// const color = {this.props.name}
-  	// console.log(color)
+  	// console.log('items',items)
+  	const itemsResult = items.map(item => (item.result));
+  	// console.log('itemsResult',itemsResult)
 
-  	// console.log(items)
-    // const itemsred = items.filter((item,id) => item.secondary_category === "Red Wine")
+	const itemsResultfusion = ()=> {
+		let fusionTable = [];
+		for (let i = 0; i < itemsResult.length; i++) {
+			fusionTable = [...itemsResult[i], ...fusionTable];
+		}		
+		return fusionTable
+	}
+
+  	const promise1 = new Promise( (resolve, reject) => {
+	    resolve(itemsResultfusion());
+		});
+
+  	const itemsResultfusin = itemsResultfusion()
+  	console.log(itemsResultfusin)
+
+
+
 
     if (!isLoaded) return <div>Loading...</div>;
 
 	else return (
+
 		<div>
-		<p>PRIX RECHERCHER = {this.props.minprice} / {this.props.maxprice}</p>
-			<ul>
-			{items.map((item, id) => ( item.result.map( (item2,id) => 
-                 <li key={id}>
-                     <p>Vin numero : {id+1}</p>
-                     <p> Domaine :  {item2.name}</p>
-                     <p>Prix : {(item2.price_in_cents/100).toFixed(2)} $</p> 
-                     <img src={item2.image_url} alt={item2.name}/>
-                 </li>)))}
-            </ul>
-
-
+<p>salut</p>
 		</div>
 		)
     }
 }
 
 export default Appelapi;
+
+
+		// <p>PRIX RECHERCHER = {this.props.minprice} / {this.props.maxprice}</p>
+		// <p>COLOR = {this.props.color}</p>
+		// <p>whiteSubCriterion = {this.props.whiteSubCriterion}</p>
+		// <p>redSubCriterion = {this.props.redSubCriterion}</p>
 
 
 

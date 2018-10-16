@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
 import Redsubcriterion from "./Redsubcriterion"
 import Whitesubcriterion from "./Whitesubcriterion"
+import Appelapi from "./AppelAPI"
 // import "./bouton.css"
 
 class Colorbutton extends Component {
@@ -16,6 +17,8 @@ ColorSelection = (color) => {
 
   render() {
 
+  	
+
   	if (this.state.color === 'red') return  (
 		<div>
 			<p>Composant color</p>
@@ -25,6 +28,7 @@ ColorSelection = (color) => {
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> sous-Composant color if ROUGE </p>
 			<Redsubcriterion />
+			<Appelapi color={this.state.color} />
 		</div>
 		)
 
@@ -37,6 +41,7 @@ ColorSelection = (color) => {
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> sous-Composant color if BLANC</p>
 			<Whitesubcriterion />
+			<Appelapi color={this.state.color} />
 		</div>
 		)
 

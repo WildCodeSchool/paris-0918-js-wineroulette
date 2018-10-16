@@ -15,11 +15,12 @@ class App extends Component {
 			<h3>Votre bouteille sans prise de tête</h3>
 			
 			<Prix  />
+
 			<p></p>
 			
 			<Colorbutton />
 
-			<Appelapi />
+
 
 		</div>
     );

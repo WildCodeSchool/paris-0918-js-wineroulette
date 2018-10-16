@@ -1,48 +1,31 @@
 import React, { Component } from 'react';
+import Appelapi from "./AppelAPI"
 
 
 class Whitesubcriterion extends Component {
     constructor() {
     super();
-    this.state = {
-			        Sweet:false,
-				    Xdry:false,
-				    Dry:false}
+    this.state = {whiteSubCriterion: ""}
 }
 
-SweetwhiteWineSelection = () => {
-	this.setState ({
-			        Sweet:false,
-				    Xdry:false,
-				    Dry:false})
-}
-
-XdrywhiteWineSelection = () => {
-	this.setState ({
-			        Sweet:false,
-				    Xdry:false,
-				    Dry:false})
-}
-
-DrywhiteWineSelection = () => {
-	this.setState ({
-			        Sweet:false,
-				    Xdry:false,
-				    Dry:false})
+whiteSubCriterionSelection = (subStyle) => {
+	this.setState ({whiteSubCriterion: subStyle})
 }
 
   render() {
-  	
+
   	return  (
 			<div>
-				<button onClick={this.SweetwhiteWineSelection}>Fruité</button>
-				<button onClick={this.XdrywhiteWineSelection}>léger</button>
-				<button onClick={this.DrywhiteWineSelection}>Riche</button>
-
-
+				<button onClick={() => this.whiteSubCriterionSelection('Xdry')}>Sec</button>
+				<button onClick={() => this.whiteSubCriterionSelection('Dry')}>Demi-sec</button>
+				<button onClick={() => this.whiteSubCriterionSelection('Sweet')}>Moelleux</button>
+				<Appelapi whiteSubCriterion={this.state.whiteSubCriterion} />
 			</div>
 	)
   }
 }
+
+
+
 
 export default Whitesubcriterion;
