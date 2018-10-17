@@ -10,16 +10,16 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
+//import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import red from "@material-ui/core/colors/red";
-import yellow from "@material-ui/core/colors/yellow";
+//import yellow from "@material-ui/core/colors/yellow";
 //import deep orange from '@material-ui/core/colors/deep orange';
-import ShareIcon from "@material-ui/icons/Share";
+//import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+//import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Grid from "@material-ui/core/Grid";
 
 //CSS de ma carte
@@ -34,12 +34,13 @@ const styles = theme => ({
   vignes: {
     height: "0",
     paddingTop: "56.25%", // 16:9
-    border: "2px solid blue"
+    //border: "2px solid blue"
   },
   bouteille: {
     height: "0",
-    paddingTop: "100%", // 16:9
-    border: "2px solid red"
+    paddingTop: "56.25%", // 16:9
+    paddingBottom: "56.25%",
+    //border: "2px solid red"
   },
   actions: {
     display: "flex"
@@ -58,7 +59,7 @@ const styles = theme => ({
     transform: "rotate(180deg)"
   },
   avatar: {
-    width: "120%",
+    width: "150%",
     //height:'150%',
     backgroundColor: red[800] //vin rouge
     //backgroundColor: yellow[200], //vin blanc
@@ -98,9 +99,16 @@ class DisplayCarte extends Component {
               <CardHeader
                 action={
                   <IconButton>
-                    <Avatar aria-label="Recipe" className={classes.avatar}>
-                      Red
-                    </Avatar>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      {this.props.carteVin.couleurVin}
+                    </Button>
+                    {/* <Avatar aria-label="Recipe" className={classes.avatar}>
+                      {this.props.carteVin.couleurVin}
+                    </Avatar> */}
                   </IconButton>
                 }
                 title={this.props.carteVin.name}
@@ -131,6 +139,9 @@ class DisplayCarte extends Component {
                 <Typography component="p">
                   {this.props.carteVin.descriptionCourte}
                 </Typography>
+                <Typography component="p">
+                  {this.props.carteVin.tags}
+                </Typography>
               </CardContent>
               <CardActions className={classes.actions} disableActionSpacing>
                 <Button
@@ -140,9 +151,11 @@ class DisplayCarte extends Component {
                 >
                   Acheter
                 </Button>
-                <IconButton aria-label="Share">
+
+                <p>{this.props.carteVin.price}</p>
+                {/* <IconButton aria-label="Share">
                   <ShareIcon />
-                </IconButton>
+                </IconButton> */}
                 <IconButton
                   className={classnames(classes.expand, {
                     [classes.expandOpen]: this.state.expanded
