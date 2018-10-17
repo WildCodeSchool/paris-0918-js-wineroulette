@@ -15,13 +15,13 @@ class Appelapi extends Component {
 
   componentDidMount() {
   	// APPEL DE 30 PAGE PAGE DE 100 VINS
-  	for (let i = 1; i < 31; i++) {
-	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
+  	for (let i = 1; i < 95; i++) {
+	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
 	      .then(res => res.json())
 	      .then(json => {
-	          	this.setState( prevState => {
+	          	this.setState( (POULET) => {
 	          		return {
-	          			items: prevState.items.concat(json)
+	          			items: POULET.items.concat(json)
 	          			}
 	                });
 		   })
@@ -37,23 +37,31 @@ class Appelapi extends Component {
 
 
 	// LE TABLEAU ITEMSRESULT ETANT UN TABELAU DE TABLEAU, JE FUSIONNE LES TABLEAUX DANS UN SEUL
+
+
 	const itemsResultfusion = () => {
+
 		let fusionTable = [];
+
 		for (let i = 0; i < itemsResult.length; i++) {
-			fusionTable = [...itemsResult[i], ...fusionTable];
+
+			fusionTable = [...itemsResult[i]   , ...fusionTable];
 		}	
 	return fusionTable
+
 	}
 
 	// LA FUSION EST DECLANCHEE AVEC UNE PROMESSE, AFIN DE FUSIONNER SSI TOUT LE TABLEAU ITEMSRESULT EST BELLE ET BIEN COMPLET
   	const promise1 = new Promise( (resolve, reject) => {
-	    resolve(console.log(itemsResultfusion()));
+	    resolve(console.log('fusionTable',itemsResultfusion()));
 		});
 
 
+	
+
     if (!isLoaded) return <div>Loading...</div>;
 
-	else return <div> ok </div>
+	else return <div> OK </div>
 		
     }
 }
@@ -61,8 +69,8 @@ class Appelapi extends Component {
 export default Appelapi;
 
 
-// ENSUITE JE PENSE QU'ON PEUX ESSAYER DE FAIRE UN NOUVEAU COMPOSANT 
-// VA RECUPÉRER LES PROPS DES COMPOSANTS BOUTONS ET FILTRE LE TABLEAU FUSIONTABLE LUI MEME TRANSMIS EN PROPS
+// ENSUITE JE PENSE QU'ON PEUT ESSAYER DE FAIRE UN NOUVEAU COMPOSANT 
+// IL VA RECUPÉRER LES PROPS DES COMPOSANTS BOUTONS ET FILTRE LE TABLEAU FUSIONTABLE LUI MEME TRANSMIS EN PROPS
 
   	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
   	// const Colorfilter = fusionTable.filter(item => item.secondary_category === this.props.color)

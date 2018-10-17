@@ -13,7 +13,7 @@ redSubCriterionSelection = (subStyle) => {
 }
 
   render() {
-  	// const name ={this.props.redWineSelection}
+  	
   	return  (
 			<div>
 				<button onClick={() => this.redSubCriterionSelection('Fruity')}>Fruité</button>

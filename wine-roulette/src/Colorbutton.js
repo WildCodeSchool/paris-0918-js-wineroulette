@@ -11,13 +11,13 @@ class Colorbutton extends Component {
     this.state = {color: 'Red Wine'}
 }
 
-ColorSelection = (color) => {
-	this.setState ({color: color})
+ColorSelection = (poulet) => {
+	this.setState ({color: poulet})
 }
 
   render() {
 
-  	
+// ESSAYER DE METTRE DE NE PAS SE REPÉTER
 
   	if (this.state.color === 'Red Wine') return  (
 		<div>
