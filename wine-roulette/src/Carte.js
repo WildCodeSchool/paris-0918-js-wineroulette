@@ -41,7 +41,6 @@ class Carte extends Component {
       name: this.state.data[randomIndex].name,
       pays_region: enleverUndefined(this.state.data[randomIndex].origin),
       annee: this.state.data[randomIndex].released_on.slice(0,4), //ne sélectionne pas mois et jour
-      couleurVin: this.state.data[randomIndex].secondary_category,
       imageVignes: Vignes,
       imageBouteille: this.state.data[randomIndex].image_thumb_url,
       descriptionCourte: `Serving suggestion: ${this.state.data[randomIndex].serving_suggestion}`,

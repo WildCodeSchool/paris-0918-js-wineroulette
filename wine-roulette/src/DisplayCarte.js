@@ -97,20 +97,6 @@ class DisplayCarte extends Component {
             {/* Début de ma carte */}
             <Card className={classes.card}>
               <CardHeader
-                action={
-                  <IconButton>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.button}
-                    >
-                      {this.props.carteVin.couleurVin}
-                    </Button>
-                    {/* <Avatar aria-label="Recipe" className={classes.avatar}>
-                      {this.props.carteVin.couleurVin}
-                    </Avatar> */}
-                  </IconButton>
-                }
                 title={this.props.carteVin.name}
                 subheader={`${this.props.carteVin.pays_region}, ${
                   this.props.carteVin.annee
