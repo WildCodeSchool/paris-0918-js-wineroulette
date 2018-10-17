@@ -13,7 +13,6 @@ whiteSubCriterionSelection = (subStyle) => {
 }
 
   render() {
-
   	return  (
 			<div>
 				<button onClick={() => this.whiteSubCriterionSelection('Xdry')}>Sec</button>
