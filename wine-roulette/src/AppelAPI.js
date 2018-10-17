@@ -14,6 +14,7 @@ class Appelapi extends Component {
 };
 
   componentDidMount() {
+  	// APPEL DE 30 PAGE PAGE DE 100 VINS
   	for (let i = 1; i < 31; i++) {
 	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=france+wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
 	      .then(res => res.json())
@@ -31,23 +32,24 @@ class Appelapi extends Component {
 
   render() {
   	const {isLoaded, items} = this.state;
+  	// LE TABLEAU ITEM COMPRENANT TOUTES LES DONNÉES, JE CREE UN NOUVEAU TABLEAU AVEC LES SOUS OBJETS RESULT (QUI SONT DES TABLEAU)
   	const itemsResult = items.map(item => (item.result));
 
 
+	// LE TABLEAU ITEMSRESULT ETANT UN TABELAU DE TABLEAU, JE FUSIONNE LES TABLEAUX DANS UN SEUL
 	const itemsResultfusion = () => {
 		let fusionTable = [];
 		for (let i = 0; i < itemsResult.length; i++) {
 			fusionTable = [...itemsResult[i], ...fusionTable];
 		}	
 	return fusionTable
-  	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
-  	// const Colorfilter = fusionTable.filter(item => item.secondary_category === this.props.color)
-  	// const Stylefilter = fusionTable.filter(item => item.style.include(this.props.redSubCriterion))
-		
 	}
+
+	// LA FUSION EST DECLANCHEE AVEC UNE PROMESSE, AFIN DE FUSIONNER SSI TOUT LE TABLEAU ITEMSRESULT EST BELLE ET BIEN COMPLET
   	const promise1 = new Promise( (resolve, reject) => {
 	    resolve(console.log(itemsResultfusion()));
 		});
+
 
     if (!isLoaded) return <div>Loading...</div>;
 
@@ -58,6 +60,13 @@ class Appelapi extends Component {
 
 export default Appelapi;
 
+
+// ENSUITE JE PENSE QU'ON PEUX ESSAYER DE FAIRE UN NOUVEAU COMPOSANT 
+// VA RECUPÉRER LES PROPS DES COMPOSANTS BOUTONS ET FILTRE LE TABLEAU FUSIONTABLE LUI MEME TRANSMIS EN PROPS
+
+  	// const pricefilter = fusionTable.filter(item => item.price_in_cents >= this.props.minprice && item.price_in_cents <= this.props.maxprice)
+  	// const Colorfilter = fusionTable.filter(item => item.secondary_category === this.props.color)
+  	// const Stylefilter = fusionTable.filter(item => item.style.include(this.props.redSubCriterion))
 
 
 
