@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
 import Redsubcriterion from "./Redsubcriterion"
 import Whitesubcriterion from "./Whitesubcriterion"
+import Champsubcriterion from "./Champsubcriterion"
 import Appelapi from "./AppelAPI"
 // import "./bouton.css"
 
@@ -68,6 +69,7 @@ ColorSelection = (poulet) => {
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
 			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
 			<p> </p>
+			<Champsubcriterion />
 			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
