@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 import DisplayCarte from "./DisplayCarte"
 import Vignes from "./imageVignes.jpg";
-//import Bouteille from "./chat.jpeg"
+import myWines from "./myWineList.json"
+//import Bouteille from "./chat.jpeg" 
 
 class Carte extends Component {
 
   state={
-    data: null
+    data: null,
   }
 
-  componentDidMount(){
-    fetch('https://lcboapi.com/products?q=wine&where_not=is_dead&per_page=100&access_key=MDoyOTgwZTZhNi1jNzFjLTExZTgtYTI4Yi0yYjk0MTk2ZTlkMGQ6UkkwcjMzSHF5MW9NMEFxUk9OYXE2V3Y5dFlYRnBiell5THJX')
-    .then(res => res.json())
-    .then(obj => this.setState({data:obj.result}))
-  }
+  // componentDidMount(){
+  //   fetch('https://lcboapi.com/products?q=wine&where_not=is_dead&per_page=100&access_key=MDoyOTgwZTZhNi1jNzFjLTExZTgtYTI4Yi0yYjk0MTk2ZTlkMGQ6UkkwcjMzSHF5MW9NMEFxUk9OYXE2V3Y5dFlYRnBiell5THJX')
+  //   .then(res => res.json())
+  //   .then(obj => this.setState({data:obj.result}))
+  //   componentDidMount()}
 
+  componentDidMount(){this.setState({
+    data: myWines
+  })
+  }
 
   render() {
 
