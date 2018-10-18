@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Appelapi from "./AppelAPI"
+//import Appelapi from "./AppelAPI"
 
 
 class Whitesubcriterion extends Component {
@@ -8,8 +8,9 @@ class Whitesubcriterion extends Component {
     this.state = {whiteSubCriterion: ""}
 }
 
-whiteSubCriterionSelection = (subStyle) => {
-	this.setState ({whiteSubCriterion: subStyle})
+whiteSubCriterionSelection = subStyle => {
+	this.setState ({whiteSubCriterion: subStyle});
+	this.props.liftsubStyle(subStyle);
 }
 
   render() {

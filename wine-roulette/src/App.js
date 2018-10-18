@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-=======
 import Header from "./Header";
-import Carte from "./Carte";
->>>>>>> 620f24f4574211b475aee74feb81e1769f5e8818
-import logo from './logo.svg';
+//import Carte from "./Carte";
+//import logo from './logo.svg';
 import Prix from "./Prix"
 import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
-<<<<<<< HEAD
-=======
-
->>>>>>> 620f24f4574211b475aee74feb81e1769f5e8818
 import './App.css';
 
 class App extends Component {
+  state = {
+    color: "Red Wine",
+    subStyle: ""
+  };
+  liftColor = color => {
+    this.setState({ color: color });
+  };
+  liftsubStyle = subStyle => {
+    this.setState({ subStyle: subStyle });
+  };
   render() {
   // const selectedprice = (prix) => {}
     return (
 		<div className="App">
-<<<<<<< HEAD
-
-=======
-      <Header />
->>>>>>> 620f24f4574211b475aee74feb81e1769f5e8818
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
 			
@@ -31,16 +29,10 @@ class App extends Component {
 
 			<p></p>
 			
-			<Colorbutton />
+			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
 
-			<Appelapi />
-<<<<<<< HEAD
-
-      <BoutonPulse />
-
-=======
-      <Carte />
->>>>>>> 620f24f4574211b475aee74feb81e1769f5e8818
+			<Appelapi color={this.state.color} subStyle={this.state.subStyle} />
+     
 
 
 		</div>
