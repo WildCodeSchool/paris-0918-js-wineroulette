@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Carte from "./Carte";
 //import logo from './logo.svg';
 import Prix from "./Prix"
-import Appelapi from "./AppelAPI"
+//import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
 import './App.css';
 
@@ -33,7 +33,7 @@ class App extends Component {
 			
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
 
-			<Appelapi color={this.state.color} subStyle={this.state.subStyle} />
+			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />
      
 

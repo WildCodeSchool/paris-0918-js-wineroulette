@@ -70,6 +70,11 @@ const styles = theme => ({
   //   }
 });
 
+
+const DisplayCarte = ({name, pays_region}) => {
+
+}
+
 class DisplayCarte extends Component {
   state = { expanded: false };
 

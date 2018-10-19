@@ -8,6 +8,10 @@
 }
 
 .photoBouteille{
-    /* margin-right: 5%;
-    margin-left: 5%; */
+    border: 1px solid white;
+    margin-top: 25%;
+} 
+
+.moreInfo{
+    border: 2px solid pink;
 }
