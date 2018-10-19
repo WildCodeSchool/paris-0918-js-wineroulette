@@ -4,22 +4,21 @@ class Champsubscriterion extends Component {
 
     constructor() {
         super();
-        this.state = {ChampSub: ""}
+        this.state = {champSubCriterion: ""}
     }
 
-    ChampSubSelect = (Style) => {
-        this.setState({
-            ChampSub: Style
-        })
-    }
+    champSubCriterionSelection = subStyle => {
+        this.setState({champSubCriterion: subStyle});
+        this.props.liftsubStyle(subStyle);
+    };
 
     render() {
         return(
             <div>
-				<button onClick={() => this.ChampSubSelect('Rich')}> Riche </button>
-				<button onClick={() => this.ChampSubSelect('Complex')}> Complexe </button>
-                <button onClick={() => this.ChampSubSelect('Medium-bodied')}> Mi-Corsée </button>
-				<button onClick={() => this.ChampSubSelect('Flavourful')}> Savoureux </button>
+				<button onClick={() => this.champSubCriterionSelection('Rich')}> Riche </button>
+				<button onClick={() => this.champSubCriterionSelection('Complex')}> Complexe </button>
+                <button onClick={() => this.champSubCriterionSelection('Medium-bodied')}> Mi-Corsée </button>
+				<button onClick={() => this.champSubCriterionSelection('Flavourful')}> Savoureux </button>
             </div>
         )
     }

@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import Header from "./Header";
-
-
+//import Carte from "./Carte";
+//import logo from './logo.svg';
 import Prix from "./Prix"
 import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
-import BoutonPulse from "./BoutonPulse"
-
 import './App.css';
 
 class App extends Component {
+  state = {
+    color: "Red Wine",
+    subStyle: ""
+  };
+  liftColor = color => {
+    this.setState({ color: color });
+  };
+  liftsubStyle = subStyle => {
+    this.setState({ subStyle: subStyle });
+  };
   render() {
   // const selectedprice = (prix) => {}
     return (
@@ -22,12 +30,10 @@ class App extends Component {
 
 			<p></p>
 			
-			<Colorbutton />
+			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
 
-			<Appelapi />
-
-      <BoutonPulse />
-
+			<Appelapi color={this.state.color} subStyle={this.state.subStyle} />
+     
 
 
 		</div>
