@@ -22,6 +22,7 @@ class App extends Component {
   // const selectedprice = (prix) => {}
     return (
 		<div className="App">
+
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
 			
