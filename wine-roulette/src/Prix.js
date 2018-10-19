@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Whitesubcriterion from "./Whitesubcriterion"
-import Appelapi from "./AppelAPI"
+// import Whitesubcriterion from "./Whitesubcriterion"
+// import Appelapi from "./AppelAPI"
 
 class Prix extends Component {
 

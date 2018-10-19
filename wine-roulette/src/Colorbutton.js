@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
 import Redsubcriterion from "./Redsubcriterion"
 import Whitesubcriterion from "./Whitesubcriterion"
-import Appelapi from "./AppelAPI"
+//import Appelapi from "./AppelAPI"
 // import "./bouton.css"
 
 class Colorbutton extends Component {

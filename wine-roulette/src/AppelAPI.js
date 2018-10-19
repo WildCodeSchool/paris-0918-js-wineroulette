@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import Redsubcriterion from "./Redsubcriterion"
-import Prix from "./Prix"
-import Colorbutton from "./Colorbutton"
+// import axios from 'axios';
+// import Redsubcriterion from "./Redsubcriterion"
+// import Prix from "./Prix"
+// import Colorbutton from "./Colorbutton"
 
 class Appelapi extends Component {
   constructor() {
@@ -33,28 +33,28 @@ class Appelapi extends Component {
   render() {
   	const {isLoaded, items} = this.state;
   	// LE TABLEAU ITEM COMPRENANT TOUTES LES DONNÉES, JE CREE UN NOUVEAU TABLEAU AVEC LES SOUS OBJETS RESULT (QUI SONT DES TABLEAU)
-  	const itemsResult = items.map(item => (item.result));
+  	//const itemsResult = items.map(item => (item.result));
 
 
 	// LE TABLEAU ITEMSRESULT ETANT UN TABELAU DE TABLEAU, JE FUSIONNE LES TABLEAUX DANS UN SEUL
 
 
-	const itemsResultfusion = () => {
+	// const itemsResultfusion = () => {
 
-		let fusionTable = [];
+	// 	let fusionTable = [];
 
-		for (let i = 0; i < itemsResult.length; i++) {
+	// 	for (let i = 0; i < itemsResult.length; i++) {
 
-			fusionTable = [...itemsResult[i]   , ...fusionTable];
-		}	
-	return fusionTable
+	// 		fusionTable = [...itemsResult[i]   , ...fusionTable];
+	// 	}	
+	// return fusionTable
 
-	}
+	// }
 
 	// LA FUSION EST DECLANCHEE AVEC UNE PROMESSE, AFIN DE FUSIONNER SSI TOUT LE TABLEAU ITEMSRESULT EST BELLE ET BIEN COMPLET
-  	const promise1 = new Promise( (resolve, reject) => {
-	    resolve(console.log('fusionTable',itemsResultfusion()));
-		});
+  	// const promise1 = new Promise( (resolve, reject) => {
+	//     resolve(console.log('fusionTable',itemsResultfusion()));
+	// 	});
 
 
 	
