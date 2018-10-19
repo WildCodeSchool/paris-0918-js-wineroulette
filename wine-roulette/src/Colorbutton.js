@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import Bouton from "../boutonGenerantURL/Bouton"
-import Redsubcriterion from "./Redsubcriterion"
-import Whitesubcriterion from "./Whitesubcriterion"
+import Redsubcriterion from "./Redsubcriterion";
+import Whitesubcriterion from "./Whitesubcriterion";
+import Rosesubcriterion from "./Rosesubcriterion";
+import Champsubcriterion from "./Champsubcriterion";
 //import Appelapi from "./AppelAPI"
 // import "./bouton.css"
 
@@ -11,9 +13,11 @@ class Colorbutton extends Component {
     this.state = {color: 'Red Wine'}
 }
 
-ColorSelection = (poulet) => {
-	this.setState ({color: poulet})
-}
+ColorSelection = color => {
+	this.setState({color: color});
+	this.props.liftColor(color);
+	this.props.liftsubStyle('')
+};
 
   render() {
 
@@ -25,9 +29,9 @@ ColorSelection = (poulet) => {
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
 			<p> </p>
-			<Redsubcriterion />
+			<Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
 
 			{/* <Appelapi color={this.state.color} /> */}
 		</div>
@@ -39,9 +43,9 @@ ColorSelection = (poulet) => {
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
 			<p> </p>
-			<Whitesubcriterion />
+			<Whitesubcriterion  liftsubStyle={this.props.liftsubStyle}/>
 			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
@@ -52,22 +56,24 @@ ColorSelection = (poulet) => {
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
 			<p> </p>
+			<Rosesubcriterion liftsubStyle={this.props.liftsubStyle}/>
 			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
 
 
-	else if (this.state.color === 'champagne') return (
+	else if (this.state.color === 'Champagne') return (
 		<div>
 			<p></p>
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
 			<p> </p>
+			<Champsubcriterion liftsubStyle={this.props.liftsubStyle}/>
 			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
@@ -78,7 +84,7 @@ ColorSelection = (poulet) => {
 			<button onClick={() => this.ColorSelection('red')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('white')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('pink')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
 			<p></p>
 		</div>
 		)

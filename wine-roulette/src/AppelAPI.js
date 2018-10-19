@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import Redsubcriterion from "./Redsubcriterion"
-// import Prix from "./Prix"
-// import Colorbutton from "./Colorbutton"
+//import axios from 'axios';
+//import Redsubcriterion from "./Redsubcriterion"
+//import Prix from "./Prix"
+//import Colorbutton from "./Colorbutton"
 
 class Appelapi extends Component {
   constructor() {
@@ -14,14 +14,14 @@ class Appelapi extends Component {
 };
 
   componentDidMount() {
-  	// APPEL DE 30 PAGE PAGE DE 100 VINS
+  	// APPEL DE 94 PAGES DE 100 VINS
   	for (let i = 1; i < 95; i++) {
 	    fetch(`https://lcboapi.com/products?page=${i}&per_page=100&where_not=is_dead&q=wine&access_key=MDoyNjlmZmU0OC1jNjUxLTExZTgtOWY5Mi0yYjJmNjhlYmVlM2M6bERDcURrS3ZtekVLWU1RYzBQQ2dWdEx6dGRlcjl3RnVhemlm`)
 	      .then(res => res.json())
 	      .then(json => {
-	          	this.setState( (POULET) => {
+	          	this.setState( prevState => {
 	          		return {
-	          			items: POULET.items.concat(json)
+	          			items: prevState.items.concat(json)
 	          			}
 	                });
 		   })
@@ -33,29 +33,32 @@ class Appelapi extends Component {
   render() {
   	const {isLoaded, items} = this.state;
   	// LE TABLEAU ITEM COMPRENANT TOUTES LES DONNÉES, JE CREE UN NOUVEAU TABLEAU AVEC LES SOUS OBJETS RESULT (QUI SONT DES TABLEAU)
-  	//const itemsResult = items.map(item => (item.result));
+  	const itemsResult = items.map(item => (item.result));
 
 
 	// LE TABLEAU ITEMSRESULT ETANT UN TABELAU DE TABLEAU, JE FUSIONNE LES TABLEAUX DANS UN SEUL
 
 
-	// const itemsResultfusion = () => {
+	const itemsResultfusion = () => {
 
-	// 	let fusionTable = [];
+		let fusionTable = [];
 
-	// 	for (let i = 0; i < itemsResult.length; i++) {
+		for (let i = 0; i < itemsResult.length; i++) {
 
-	// 		fusionTable = [...itemsResult[i]   , ...fusionTable];
-	// 	}	
-	// return fusionTable
-
-	// }
+			fusionTable = [...itemsResult[i]   , ...fusionTable];
+		}	
+	return fusionTable.filter(
+        bottle =>
+          bottle.secondary_category == this.props.color &&
+          (!bottle.style || bottle.style.includes(this.props.subStyle))
+	);
+};
 
 	// LA FUSION EST DECLANCHEE AVEC UNE PROMESSE, AFIN DE FUSIONNER SSI TOUT LE TABLEAU ITEMSRESULT EST BELLE ET BIEN COMPLET
-  	// const promise1 = new Promise( (resolve, reject) => {
-	//     resolve(console.log('fusionTable',itemsResultfusion()));
-	// 	});
-
+  	const promise1 = new Promise( (resolve, reject) => {
+	    resolve(console.log(itemsResultfusion()));
+		});
+		console.log(this.props.color, this.props.subStyle)
 
 	
 

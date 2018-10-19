@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Appelapi from "./AppelAPI"
+//import Appelapi from "./AppelAPI"
 
 
 class Rosesubcriterion extends Component {
@@ -9,8 +9,9 @@ class Rosesubcriterion extends Component {
 }
 
 roseSubCriterionSelection = (subStyle) => {
-	this.setState ({roseSubCriterion: subStyle})
-}
+	this.setState ({roseSubCriterion: subStyle});
+	this.props.liftsubStyle(subStyle);
+};
 
   render() {
 

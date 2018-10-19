@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Appelapi from "./AppelAPI"
+//import Appelapi from "./AppelAPI"
 
 class Redsubcriterion extends Component {
     constructor() {
@@ -8,9 +8,10 @@ class Redsubcriterion extends Component {
 
 }
 
-redSubCriterionSelection = (subStyle) => {
-	this.setState ({redSubCriterion: subStyle})
-}
+redSubCriterionSelection = subStyle => {
+	this.setState ({redSubCriterion: subStyle});
+	this.props.liftsubStyle(subStyle);
+};
 
   render() {
   	
