@@ -6,6 +6,7 @@ import Prix from "./Prix"
 //import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
 import './App.css';
+import IntegrationReactSelect from "./IntegrationReactSelect"
 
 class App extends Component {
   state = {
@@ -33,7 +34,8 @@ class App extends Component {
 			
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
 
-			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
+      {/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
+      <IntegrationReactSelect />
       <Carte />
      
 
