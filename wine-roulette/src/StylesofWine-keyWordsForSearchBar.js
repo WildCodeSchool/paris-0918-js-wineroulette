@@ -39,20 +39,21 @@ function cleanArray(array) {
     } return out;
   }
 
-// la variable stock tous les mots contenant dans myWine.name, ensuite on dédoublonne et on garde que les mot supérieur à 3 lettre
-let KeyWordInWinesName = [];
-myWines.map(items => items.name).map(item => KeyWordInWinesName.push(...item.split(' ')));
-cleanArray(KeyWordInWinesName).filter(item => item.length > 3)
+// la variable keyWord stock tous les mots contenant dans myWine.varietal, 
+// ensuite on dédoublonne les mots supérieurs à 4 lettre
+let keyWord = [];
+myWines.map(items => items.varietal).filter(item => item !==null).map(item => keyWord.push(...item.split(' ')));
+const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 4));
 
-const suggestions = [];
-
-//on place les mots clès dans un objet de la forme { Label : motclé }, objet que l'on met dans un tableau.
+//on place ces mots  dans un objet de la forme { Label : motclé }, objet que l'on met dans un tableau.
 // ce tableau est destiné a etre lu par le composant SearchBar
-for (let i = 0; i < KeyWordInWinesName.length; i++) {
-    let ObjWithLabel = new Object;
-    ObjWithLabel.label = KeyWordInWinesName[i];
+const suggestions = [];
+for (let i = 0; i < cleanedkeyWord.length; i++) {
+    let ObjWithLabel = {};
+    ObjWithLabel.label = cleanedkeyWord[i];
     suggestions.push(ObjWithLabel)
 }
 
+export default suggestions;
 
 

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 //import Header from "./Header";
 import Carte from "./Carte";
-//import logo from './logo.svg';
 import Prix from "./Prix"
-//import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
 import './App.css';
-import BoutonReset from "./BoutonReset"
+// import BoutonReset from "./BoutonReset"
+import  Searchbar from './Searchbar';
 
 class App extends Component {
   state = {
@@ -28,16 +27,16 @@ class App extends Component {
 			<h3>Votre bouteille sans prise de tête</h3>
 			
 			
-			 <Prix  />
-
+			<Prix  />
 			<p></p>
-			
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
-
+      <p></p>
+      <Searchbar />
+      <p></p>
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />
      
-      <BoutonReset />
+      {/* <BoutonReset /> */}
 
 		</div>
     );

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types, react/jsx-handler-names */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -15,9 +16,9 @@ import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import suggestions from './StylesofWine-keyWordsForSearchBar'
 
 suggestions.map(suggestion => ({
-    value: suggestion.label,
-    label: suggestion.label,
-  }));
+  value: suggestion.label,
+  label: suggestion.label,
+}));
 
 const styles = theme => ({
   root: {
@@ -173,7 +174,7 @@ const components = {
   ValueContainer,
 };
 
-class Searchbar extends React {
+class Searchbar extends React.Component {
   state = {
     single: null,
     multi: null,
