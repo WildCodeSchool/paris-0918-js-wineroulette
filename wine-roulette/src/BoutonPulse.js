@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
@@ -21,8 +20,8 @@ function BoutonPulse(props) {
       <Button 
         variant="fab" 
         mini 
-        color="primary" a
-        ria-label="Add" 
+        color="primary" 
+        aria-label="Add" 
         className="button">
         <AddIcon />
       </Button>
@@ -31,8 +30,6 @@ function BoutonPulse(props) {
   );
 }
 
-BoutonPulse.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+
 
 export default BoutonPulse;
