@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import "./DisplayCarte.css";
 
@@ -15,13 +14,14 @@ import Collapse from "@material-ui/core/Collapse";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import red from "@material-ui/core/colors/red";
+//import red from "@material-ui/core/colors/red";
 //import yellow from "@material-ui/core/colors/yellow";
 //import deep orange from '@material-ui/core/colors/deep orange';
 //import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 //import MoreVertIcon from "@material-ui/icons/MoreVert";
 import Grid from "@material-ui/core/Grid";
+//import Paper from '@material-ui/core/Paper';
 
 //CSS de ma carte
 const styles = theme => ({
@@ -34,13 +34,13 @@ const styles = theme => ({
   },
   vignes: {
     height: "0",
-    paddingTop: "56.25%", // 16:9
+    paddingTop: "56.25%" // 16:9
     //border: "2px solid blue"
   },
   bouteille: {
     height: "0",
     paddingTop: "56.25%", // 16:9
-    paddingBottom: "56.25%",
+    paddingBottom: "56.25%"
     //border: "2px solid red"
   },
   actions: {
@@ -58,14 +58,6 @@ const styles = theme => ({
   },
   expandOpen: {
     transform: "rotate(180deg)"
-  },
-  avatar: {
-    width: "150%",
-    //height:'150%',
-    backgroundColor: red[800] //vin rouge
-    //backgroundColor: yellow[200], //vin blanc
-    //backgroundColor: red[800], //rosé
-    //backgroundColor: yellow[400], //champagne
   },
 
   //CSS de mon bouton Acheter
@@ -106,19 +98,23 @@ class DisplayCarte extends Component {
 
               {/* Gère la taille à l'intérieur de la carte */}
               <Grid container spacing={0}>
-                <Grid className="vignes" item xs={8}>
-                  <CardMedia
-                    className={classes.vignes}
-                    image={this.props.carteVin.imageVignes}
-                    title="Vignobles"
-                  />
+                <Grid className="vignes" item xs={9}>
+                  <div className="photoVignes">
+                    <CardMedia
+                      className={classes.vignes}
+                      image={this.props.carteVin.imageVignes}
+                      title="Vignobles"
+                    />
+                  </div>
                 </Grid>
-                <Grid className="bouteille" item xs={4}>
-                  <CardMedia
-                    className={classes.bouteille}
-                    image={this.props.carteVin.imageBouteille}
-                    title="Vignobles"
-                  />
+                <Grid className="bouteille" item xs={3}>
+                  <div className="photoBouteille">
+                    <CardMedia
+                      className={classes.bouteille}
+                      image={this.props.carteVin.imageBouteille}
+                      title="Sélection de vin"
+                    />
+                  </div>
                 </Grid>
               </Grid>
 
@@ -131,18 +127,12 @@ class DisplayCarte extends Component {
                 </Typography>
               </CardContent>
               <CardActions className={classes.actions} disableActionSpacing>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                >
-                  Acheter
-                </Button>
-
+                
+                {/* PRIX DE LA BOUTEILLE */}
                 <p>{this.props.carteVin.price}</p>
-                {/* <IconButton aria-label="Share">
-                  <ShareIcon />
-                </IconButton> */}
+
+
+                {/* BOUTON PLUS D'INFOS */}
                 <IconButton
                   className={classnames(classes.expand, {
                     [classes.expandOpen]: this.state.expanded
@@ -152,6 +142,16 @@ class DisplayCarte extends Component {
                   aria-label="Show more"
                 >
                   <ExpandMoreIcon />
+
+
+                  {/* BOUTON ACHETER */}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                  >
+                    Acheter
+                  </Button>
                 </IconButton>
               </CardActions>
               <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>

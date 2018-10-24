@@ -1,3 +1,17 @@
 .resultatSelection{
     text-align: center;
 }
+
+.photoVignes{
+    border: 1px solid white;
+    padding-left: 5%;
+}
+
+.photoBouteille{
+    border: 1px solid white;
+    margin-top: 25%;
+} 
+
+.moreInfo{
+    border: 2px solid pink;
+}
