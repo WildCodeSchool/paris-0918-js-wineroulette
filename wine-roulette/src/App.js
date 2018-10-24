@@ -6,6 +6,7 @@ import Prix from "./Prix"
 //import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
 import './App.css';
+import BoutonReset from "./BoutonReset"
 
 class App extends Component {
   state = {
@@ -36,7 +37,7 @@ class App extends Component {
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />
      
-
+      <BoutonReset />
 
 		</div>
     );
