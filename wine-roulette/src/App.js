@@ -26,18 +26,19 @@ class App extends Component {
 
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
-			
-			
+
 			 <Prix  />
 
 			<p></p>
-			
+
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
+      
+      <BoutonReset />
 
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />
      
-      <BoutonReset />
+      
 
 		</div>
     );
