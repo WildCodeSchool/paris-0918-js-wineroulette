@@ -6,7 +6,6 @@ import makeAnimated from 'react-select/lib/animated';
 import suggestions from './StylesofWine-keyWordsForSearchBar'
 
 
-
 class Searchbar extends React.Component {
 
   state = {
@@ -14,7 +13,7 @@ class Searchbar extends React.Component {
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+    this.props.liftsearchbar(selectedOption);
   }
   render() {
     const { selectedOption } = this.state;

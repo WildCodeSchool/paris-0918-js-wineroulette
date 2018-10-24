@@ -1,32 +1,3 @@
-// Red Wine :
-// Full-bodied
-// Smooth
-// Full-bodied & Firm
-// Full-bodied & Smooth
-// Light-bodied & Fruity
-// Medium-bodied & Fruity
-// ------------------------------------
-// White Wine :
-// aromatic & flavourful
-// Full-bodied & Rich
-// Light & Crisp
-// Off-dry & Fruity
-// ------------------------------------
-// RoséWine :
-// Easygoing & Fruity
-// Medium-bodied & Dry
-// Soft & Off-dry
-// ------------------------------------
-// Champagne :
-// Medium-bodied & Flavourful
-// Rich & Complex
-// ------------------------------------
-// Sparkling Wine :
-// Light & Fruity
-// Medium-bodied & Flavourful
-// Rich & Complex
-
-
 const myWines = require("./myWineList.json")
 
 // Fonction qui déboublonne
@@ -56,5 +27,34 @@ for (let i = 0; i < cleanedkeyWord.length; i++) {
 }
 
 export default suggestions;
+
+
+// Red Wine :
+// Full-bodied
+// Smooth
+// Full-bodied & Firm
+// Full-bodied & Smooth
+// Light-bodied & Fruity
+// Medium-bodied & Fruity
+// ------------------------------------
+// White Wine :
+// aromatic & flavourful
+// Full-bodied & Rich
+// Light & Crisp
+// Off-dry & Fruity
+// ------------------------------------
+// RoséWine :
+// Easygoing & Fruity
+// Medium-bodied & Dry
+// Soft & Off-dry
+// ------------------------------------
+// Champagne :
+// Medium-bodied & Flavourful
+// Rich & Complex
+// ------------------------------------
+// Sparkling Wine :
+// Light & Fruity
+// Medium-bodied & Flavourful
+// Rich & Complex
 
 

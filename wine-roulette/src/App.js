@@ -4,22 +4,27 @@ import Carte from "./Carte";
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
-// import BoutonReset from "./BoutonReset"
+import BoutonReset from "./BoutonReset"
 import  Searchbar from './Searchbar';
 
 class App extends Component {
   state = {
     color: "Red Wine",
-    subStyle: ""
+    subStyle: "",
+    searchbar: ""
   };
+
   liftColor = color => {
     this.setState({ color: color });
   };
   liftsubStyle = subStyle => {
     this.setState({ subStyle: subStyle });
   };
+  liftsearchbar = searchbar => {
+    this.setState({searchbar: searchbar});
+  }
+
   render() {
-  //const selectedprice = (prix) => {}
     return (
 		<div className="App">
 
@@ -32,14 +37,17 @@ class App extends Component {
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
       <div className="Searchbar">
-      <Searchbar />
+      <Searchbar liftsearchbar={this.liftsearchbar} />
       </div>
-      
       <p></p>
+
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />
      
-      {/* <BoutonReset /> */}
+
+{/* BoutonReset crée une alerte en console */}
+      <BoutonReset />
+{/* BoutonReset crée une alerte en console */}
 
 		</div>
     );
