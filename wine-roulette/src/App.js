@@ -4,7 +4,7 @@ import Carte from "./Carte";
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
-import IntegrationReactSelect from "./IntegrationReactSelect"
+// import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
 import  Searchbar from './Searchbar';
 
@@ -43,7 +43,7 @@ class App extends Component {
       <p></p>
 
       {/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
-      <IntegrationReactSelect />
+      {/* <IntegrationReactSelect /> */}
       <Carte />
      
 
