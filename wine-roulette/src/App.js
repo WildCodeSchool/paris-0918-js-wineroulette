@@ -7,6 +7,7 @@ import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
 import IntegrationReactSelect from "./IntegrationReactSelect"
+import BoutonReset from "./BoutonReset"
 
 class App extends Component {
   state = {
@@ -38,7 +39,7 @@ class App extends Component {
       <IntegrationReactSelect />
       <Carte />
      
-
+      <BoutonReset />
 
 		</div>
     );

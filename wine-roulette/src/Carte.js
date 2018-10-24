@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import DisplayCarte from "./DisplayCarte"
+import React, { Component } from "react";
+import DisplayCarte from "./DisplayCarte";
 //import Vignes from "./1.jpg"
-import myWines from "./myWineList.json"
+import myWines from "./myWineList.json";
 
 class Carte extends Component {
   state = {
     data: null
   };
- 
+
   //UTILISATION DU FETCH
   // componentDidMount(){
   //   fetch('https://lcboapi.com/products?q=wine&where_not=is_dead&per_page=100&access_key=MDoyOTgwZTZhNi1jNzFjLTExZTgtYTI4Yi0yYjk0MTk2ZTlkMGQ6UkkwcjMzSHF5MW9NMEFxUk9OYXE2V3Y5dFlYRnBiell5THJX')
@@ -26,8 +26,8 @@ class Carte extends Component {
     if (this.state.data === null) return "Wine is coming...";
 
     //GÉNÈRE UN INDEX AU HASARD
-    let randomIndex = Math.floor(Math.random() * Math.floor(100))
-    let randomImageVigne = Math.floor(Math.random() * Math.floor(25))
+    let randomIndex = Math.floor(Math.random() * Math.floor(100));
+    let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
 
     //ENLEVE LA PARTIE "RÉGION" SI NULL
     const enleverUndefined = paysRegion => {
@@ -46,27 +46,34 @@ class Carte extends Component {
         .join(" ");
     };
 
+    const sansPointVirgule = descriptionDetaillee => {
+      return descriptionDetaillee
+        .split("; ")
+        .map(e => e.charAt(0).toUpperCase() + e.slice(1));
+    }
 
     // FILTRER POUR N'AVOIR QUE DES PACKAGES = BOUTEILLE & CATEGORY = WINE & SERVING SUGGESTION != NULL
     const selectedBottle = this.state.data.filter(element => {
-      return element.package !== null && element.serving_suggestion !== null && element.package.split(" ")[2] === "bottle" && element.primary_category === "Wine"
-    })[randomIndex]
-   
+      return (
+        element.package !== null &&
+        element.serving_suggestion !== null &&
+        element.package.split(" ")[2] === "bottle" &&
+        element.primary_category === "Wine"
+      )})[randomIndex]
+
     //FICHE IDENTITÉ DE MA CARTE
     let carteVin = {
       name: selectedBottle.name,
       pays_region: enleverUndefined(selectedBottle.origin),
       annee: selectedBottle.released_on.slice(0, 4), //ne sélectionne que l'année
-
-//************************************************************************************************
-      imageVignes: `./photos-vigne/${randomImageVigne}.jpg`,
-//************************************************************************************************
-
-      imageBouteille: selectedBottle.image_thumb_url,
-      descriptionCourte: `Serving suggestion: ${selectedBottle.serving_suggestion}`,
-      tags: `${hashtagMyTags(selectedBottle.style)}`,
       price: `${selectedBottle.price_in_cents / 100} $`, //transforme prix centimes en prix euro
-      descriptionDetaillee: selectedBottle.tasting_note
+      imageVignes: `./photos-vigne/${randomImageVigne}.jpg`,
+      imageBouteille: selectedBottle.image_thumb_url,
+      descriptionCourte: `Serving suggestion: ${
+        selectedBottle.serving_suggestion
+      }`,
+      tags: `${hashtagMyTags(selectedBottle.style)}`,
+      descriptionDetaillee: sansPointVirgule(selectedBottle.tasting_note)
     };
 
     //CONSOLE LOG DE MON FILTER MAP
@@ -77,9 +84,7 @@ class Carte extends Component {
     // console.log(wineName)
 
     return (
-      
       <div>
-
         {/* AFFICHER TOUS LES STYLES POUR LES VINS BLANC UNIQUEMENT
         {this.state.data
           .filter(element => element.secondary_category === "White Wine")
