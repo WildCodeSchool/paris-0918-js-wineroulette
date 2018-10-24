@@ -6,9 +6,21 @@ import makeAnimated from 'react-select/lib/animated';
 import suggestions from './StylesofWine-keyWordsForSearchBar'
 
 
-export default function Searchbar() {
-  return (
-    <Select
+
+class Searchbar extends React.Component {
+
+  state = {
+    selectedOption: null,
+  }
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    console.log(`Option selected:`, selectedOption);
+  }
+  render() {
+    const { selectedOption } = this.state;
+ 
+    return (
+      <Select
       key={suggestions.label}
       closeMenuOnSelect={false}
       components={makeAnimated()}
@@ -16,6 +28,11 @@ export default function Searchbar() {
       options={suggestions}
       className="basic-multi-select"
       classNamePrefix="select"
-    />
-  );
+      value={selectedOption}
+      onChange={this.handleChange}
+      />
+    );
+  }
 }
+
+export default Searchbar;

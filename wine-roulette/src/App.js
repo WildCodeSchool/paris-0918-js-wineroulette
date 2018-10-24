@@ -31,7 +31,10 @@ class App extends Component {
 			<p></p>
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
+      <div className="Searchbar">
       <Searchbar />
+      </div>
+      
       <p></p>
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />

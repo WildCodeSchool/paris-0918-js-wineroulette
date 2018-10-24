@@ -39,11 +39,11 @@ function cleanArray(array) {
     } return out;
   }
 
-// la variable keyWord stock tous les mots contenant dans myWine.varietal, 
-// ensuite on dédoublonne les mots supérieurs à 4 lettre
+// la variable keyWord stock tous les mots contenus dans myWine.varietal, 
+// ensuite on dédoublonne les mots supérieurs à 6 lettre
 let keyWord = [];
 myWines.map(items => items.varietal).filter(item => item !==null).map(item => keyWord.push(...item.split(' ')));
-const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 4));
+const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
 
 //on place ces mots  dans un objet de la forme { value: motclé, Label : motclé }, objet que l'on met dans un tableau.
 // ce tableau est destiné a etre lu par le composant SearchBar
