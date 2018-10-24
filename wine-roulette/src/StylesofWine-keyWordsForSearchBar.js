@@ -45,11 +45,12 @@ let keyWord = [];
 myWines.map(items => items.varietal).filter(item => item !==null).map(item => keyWord.push(...item.split(' ')));
 const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 4));
 
-//on place ces mots  dans un objet de la forme { Label : motclé }, objet que l'on met dans un tableau.
+//on place ces mots  dans un objet de la forme { value: motclé, Label : motclé }, objet que l'on met dans un tableau.
 // ce tableau est destiné a etre lu par le composant SearchBar
 const suggestions = [];
 for (let i = 0; i < cleanedkeyWord.length; i++) {
     let ObjWithLabel = {};
+    ObjWithLabel.value = cleanedkeyWord[i];
     ObjWithLabel.label = cleanedkeyWord[i];
     suggestions.push(ObjWithLabel)
 }
