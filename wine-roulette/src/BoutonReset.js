@@ -1,8 +1,7 @@
 import React from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
-
+import './BoutonReset.css'
 
 const theme = createMuiTheme({
     palette: {
@@ -13,7 +12,7 @@ const theme = createMuiTheme({
 
 const BoutonReset = () => {
     return(
-        <div className="BoutonPulse">
+        <div className="BoutonReset">
         <MuiThemeProvider theme={theme}>
           <Button 
             variant="fab" 

@@ -17,7 +17,6 @@ class Searchbar extends Component {
   }
   render() {
     const { selectedOption } = this.state;
- 
     return (
       <Select
       key={suggestions.label}

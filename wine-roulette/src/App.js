@@ -6,8 +6,9 @@ import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
 // import IntegrationReactSelect from "./IntegrationReactSelect"
-// import BoutonReset from "./BoutonReset"
-import  Searchbar from './Searchbar';
+import BoutonReset from "./BoutonReset"
+import Searchbar from './Searchbar';
+import Footer from './Footer/Footer'
 
 class App extends Component {
   state = {
@@ -37,29 +38,27 @@ class App extends Component {
 
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
+      <BoutonReset />
+      <p></p>
+      <Prix liftPrice={this.liftPrice} />
 			<p></p>
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
       <div className="Searchbar">
       <Searchbar liftsearchbar={this.liftsearchbar} />
       </div>
-      <p></p>
-      <Prix liftPrice={this.liftPrice} />
+      <NbWinePossible color={this.state.color}
+                      subStyle={this.state.subStyle}
+                      minprix={this.state.minprix}
+                      maxprix={this.state.maxprix}
+                      searchbar={this.state.searchbar}/>
       <p></p>
       <Carte color={this.state.color}
              subStyle={this.state.subStyle}
              minprix={this.state.minprix}
              maxprix={this.state.maxprix}
              searchbar={this.state.searchbar}/>
-
-      <NbWinePossible color={this.state.color}
-                      subStyle={this.state.subStyle}
-                      minprix={this.state.minprix}
-                      maxprix={this.state.maxprix}
-                      searchbar={this.state.searchbar}/>
-{/* BoutonReset crée une alerte en console */}
-      {/* <BoutonReset /> */}
-{/* BoutonReset crée une alerte en console */}
+      <Footer />
 		</div>
     );
   }
