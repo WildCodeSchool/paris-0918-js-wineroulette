@@ -7,6 +7,7 @@ import './App.css';
 // import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
 import  Searchbar from './Searchbar';
+import Footer from './Footer/Footer'
 
 class App extends Component {
   state = {
@@ -60,7 +61,7 @@ class App extends Component {
 {/* BoutonReset crée une alerte en console */}
       <BoutonReset />
 {/* BoutonReset crée une alerte en console */}
-
+      <Footer />
 		</div>
     );
   }
