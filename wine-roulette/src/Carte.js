@@ -8,12 +8,6 @@ class Carte extends Component {
     data: null
   };
 
-  //UTILISATION DU FETCH
-  // componentDidMount(){
-  //   fetch('https://lcboapi.com/products?q=wine&where_not=is_dead&per_page=100&access_key=MDoyOTgwZTZhNi1jNzFjLTExZTgtYTI4Yi0yYjk0MTk2ZTlkMGQ6UkkwcjMzSHF5MW9NMEFxUk9OYXE2V3Y5dFlYRnBiell5THJX')
-  //   .then(res => res.json())
-  //   .then(obj => this.setState({data:obj.result}))
-  //   componentDidMount()}
 
   componentDidMount() {
     this.setState({
