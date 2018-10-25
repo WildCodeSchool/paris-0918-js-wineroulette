@@ -4,8 +4,7 @@ import myWines from "./myWineList.json";
 class NbWinePossible extends Component {
   state = {
     data: null,
-    criterions: [],
-    wineSelectedWithCriterions: [],
+    wineListFiltered: [],
 };
 
   componentDidMount() {
@@ -14,42 +13,51 @@ class NbWinePossible extends Component {
     });
   }
 
-  criterionsRecovery() {
-    this.setState({
-      criterions: { color: this.props.color,
-                    subStyle: this.props.subStyle, 
-                    minprix: this.props.minprix, 
-                    maxprix: this.props.maxprix, 
-                    searchbar: this.props.searchbar}
-    })
-  };
-
-//   ColorNB(color) {
-//     return `${color}=${(this.state.data.filter(item => item.secondary_category === `${color}`))}`
+//   criterionsRecovery() {
+//     this.setState({
+//       criterions: { color: this.props.color,
+//                     subStyle: this.props.subStyle, 
+//                     minprix: this.props.minprix, 
+//                     maxprix: this.props.maxprix, 
+//                     searchbar: this.props.searchbar}
+//     })
 //   };
 
-  ColorNB(color) {
-    return this.state.data.filter(item => item.secondary_category === color)
-  };
-              
-  champagneNb() {
-    return this.state.data.filter(item => {
-      if (item.secondary_category === "Champagne" || 
-          item.secondary_category === "Sparkling Wine") 
-          return true;
-      else return false;
-    })
+
+  FilteringByColor = () => {
+    if (this.props.color === "Champagne") {
+        const table = this.state.data.filter(item => {
+            if (item.secondary_category === "Champagne" ||  item.secondary_category === "Sparkling Wine") 
+                return true;
+            else return false;
+          });
+        this.setState({wineListFiltered: table});
+    } else {
+      const table = this.state.data.filter(item => item.secondary_category === this.props.color);
+      this.setState({wineListFiltered: table});
+    }
   };
 
-  wineAffichageWithSubStyle(color, subStyle = "Medium-bodied & Fruity", subStylecategory = "style") {
-    return `${color} - ${subStyle}=
-    ${(this.state.data.filter(item => {
-      if (item.secondary_category === `${color}` && 
-          item[`${subStylecategory}`] === `${subStyle}`) 
-          return true;
-      else return false;
-    })).length}`
+
+  FilteringBySubStyle = (subStyle, subStylecategory) => {
+      const table = this.state.wineListFiltered.filter(item =>item[`${subStylecategory}`] === `${subStyle}`)
+      this.setState({wineListFiltered: table});
+      
   };
+
+
+  TotalFilter = () => {
+      console.log(this.props.subStyle)
+    this.FilteringByColor();
+    console.log(this.state.wineListFiltered);
+    if (this.props.subStyle !== "") {
+        this.FilteringBySubStyle(this.props.subStyle, 'style');
+        console.log(this.state.wineListFiltered);
+    }
+}
+
+
+
 
   champagneAffichageWithSubStyle(color, subStyle, subStylecategory) {
   return `${color} - ${subStyle}=
@@ -63,9 +71,65 @@ class NbWinePossible extends Component {
 
   }
 
-  allWinesNb() {
-    console.log(this.ColorNB(this.state.criterions.color));
-    // console.log(this.ColorNB("White Wine"));
+
+
+  render() {
+    if (this.state.data === null) return "Wine is coming...";
+
+    return (
+      <div>
+        {/* <p></p>
+        <button onClick={() => this.criterionsRecovery()}>criterionsRecovery</button>
+        <p></p> */}
+        <button onClick={() => this.TotalFilter()}>wineAffichage</button>
+        <p></p>
+      </div>
+    );
+  }
+}
+
+export default NbWinePossible;
+
+
+
+// subcriterionsofchampagne(color, subStyle, subStylecategory) {
+//   console.log(`${color} - ${subStyle}====`,
+//       cleanArray((this.state.data.filter(item => {
+//           if ((item.secondary_category === "Champagne" || 
+//               item.secondary_category === "Sparkling Wine") &&
+//               item[`${subStylecategory}`] === `${subStyle}`) 
+//               return true;
+//           else return false;
+//     })).map(item => item.sugar_content)))
+//   }
+
+
+
+// wineAffichageWithSubStyle(color, subStyle = "Medium-bodied & Fruity", subStylecategory = "style") {
+//     return `${color} - ${subStyle}=
+//     ${(this.state.data.filter(item => {
+//       if (item.secondary_category === `${color}` && 
+//           item[`${subStylecategory}`] === `${subStyle}`) 
+//           return true;
+//       else return false;
+//     })).length}`
+//   };
+
+//   champagneAffichageWithSubStyle(color, subStyle, subStylecategory) {
+//   return `${color} - ${subStyle}=
+//       ${(this.state.data.filter(item => {
+//           if ((item.secondary_category === "Champagne" || 
+//               item.secondary_category === "Sparkling Wine") &&
+//               item[`${subStylecategory}`] === `${subStyle}`) 
+//               return true;
+//           else return false;
+//     })).length}`
+
+//   }
+
+
+
+   // console.log(this.ColorNB("White Wine"));
     // console.log(this.ColorNB("Rosé Wine"));
     // console.log(this.champagneNb());
     // console.log("----------------------------------------------")
@@ -118,7 +182,7 @@ class NbWinePossible extends Component {
 //     this.champagneAffichageWithSubStyle("Champagne", "Medium-bodied & Flavourful", "style");
 //     this.champagneAffichageWithSubStyle("Champagne", null, "style");
 //     this.champagneAffichageWithSubStyle("Champagne", "Rich & Complex", "style");            
-  };
+// };
 
 //     console.log(cleanArray(this.state.data.map(item => item.secondary_category)))
 
@@ -140,35 +204,3 @@ class NbWinePossible extends Component {
 
     //   }
     // }
-
-
-  render() {
-    console.log(this.state.criterions);
-    if (this.state.data === null) return "Wine is coming...";
-
-    return (
-      <div>
-        <p></p>
-        <button onClick={() => this.criterionsRecovery()}>criterionsRecovery</button>
-        <p></p>
-        <button onClick={() => this.allWinesNb()}>wineAffichage</button>
-        <p></p>
-      </div>
-    );
-  }
-}
-
-export default NbWinePossible;
-
-
-
-// subcriterionsofchampagne(color, subStyle, subStylecategory) {
-//   console.log(`${color} - ${subStyle}====`,
-//       cleanArray((this.state.data.filter(item => {
-//           if ((item.secondary_category === "Champagne" || 
-//               item.secondary_category === "Sparkling Wine") &&
-//               item[`${subStylecategory}`] === `${subStyle}`) 
-//               return true;
-//           else return false;
-//     })).map(item => item.sugar_content)))
-//   }

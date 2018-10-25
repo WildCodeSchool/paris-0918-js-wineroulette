@@ -40,7 +40,8 @@ class App extends Component {
       <p></p>
       <Prix liftPrice={this.liftPrice} />
 			<p></p>
-			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
+      <Colorbutton liftColor={this.liftColor} 
+                   liftsubStyle={this.liftsubStyle} />
       <p></p>
       <div className="Searchbar">
       <Searchbar liftsearchbar={this.liftsearchbar} />
