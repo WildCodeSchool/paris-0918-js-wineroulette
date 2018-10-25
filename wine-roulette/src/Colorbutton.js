@@ -8,24 +8,20 @@ class Colorbutton extends Component {
     constructor() {
     super();
 	this.state = {color: 'Red Wine',
-				  subCategory: 'style'}
+				  subCategory: ''}
 }
 
 ColorSelection = (color, subCategory) => {
 	this.setState({color: color});
 	this.setState({subCategory: subCategory})
 	this.props.liftColor(color);
-	this.props.liftsubStyle(subCategory);
-	// this.props.liftsubCategory(subCategory);
+	this.props.liftsubStyle("");
+	this.props.liftsubCategory(subCategory);
 	
 };
 
-// subCategoryChange() {
-	
-// 	}
 
   render() {
-	// sugar_content
 
 // ESSAYER DE METTRE DE NE PAS SE REPÉTER
   	if (this.state.color === 'Red Wine') return  (

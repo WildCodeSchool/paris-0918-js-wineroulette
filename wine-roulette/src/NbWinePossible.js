@@ -13,7 +13,7 @@ class NbWinePossible extends Component {
     });
   }
 
-TotalFilter2(color, subStyle, minprix, maxprix, searchbar) {
+TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 console.log(this.props.color, this.props.subStyle, this.props.minprix, this.props.maxprix, this.props.searchbar);
     
 
@@ -30,10 +30,7 @@ console.log(this.props.color, this.props.subStyle, this.props.minprix, this.prop
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
-                (item.sugar_content === subStyle[0] || item.style === subStyle[1])
-                // (subStyle.map(criterion => {
-                //     if (criterion === item.style) return 'ok';
-                //     else return 'nop';})).filter(i => i.includes('ok'))
+                (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1])
             )
         else return false
     })
@@ -48,7 +45,8 @@ console.log(this.props.color, this.props.subStyle, this.props.minprix, this.prop
       <div>
         <p></p>
         <button onClick={() => this.TotalFilter2(this.props.color, 
-                                                this.props.subStyle, 
+                                                this.props.subStyle,
+                                                this.props.subCategory, 
                                                 this.props.minprix, 
                                                 this.props.maxprix, 
                                                 this.props.searchbar)

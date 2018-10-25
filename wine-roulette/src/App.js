@@ -30,7 +30,6 @@ class App extends Component {
   liftsearchbar = searchbar => {
     this.setState({searchbar: searchbar});
   }
-
   liftsubCategory = subCategory => {
     this.setState({subCategory: subCategory});
   }
