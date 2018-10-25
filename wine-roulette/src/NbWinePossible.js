@@ -13,75 +13,46 @@ class NbWinePossible extends Component {
     });
   }
 
-//   criterionsRecovery() {
-//     this.setState({
-//       criterions: { color: this.props.color,
-//                     subStyle: this.props.subStyle, 
-//                     minprix: this.props.minprix, 
-//                     maxprix: this.props.maxprix, 
-//                     searchbar: this.props.searchbar}
-//     })
-//   };
+TotalFilter2(color, subStyle, minprix, maxprix, searchbar) {
+console.log(this.props.color, this.props.subStyle, this.props.minprix, this.props.maxprix, this.props.searchbar);
+    
 
+    const wineListFiltered = this.state.data.filter(item => {
 
-  FilteringByColor = () => {
-    if (this.props.color === "Champagne") {
-        const table = this.state.data.filter(item => {
-            if (item.secondary_category === "Champagne" ||  item.secondary_category === "Sparkling Wine") 
-                return true;
-            else return false;
-          });
-        this.setState({wineListFiltered: table});
-    } else {
-      const table = this.state.data.filter(item => item.secondary_category === this.props.color);
-      this.setState({wineListFiltered: table});
-    }
+        if ((subStyle === '') && (searchbar === ''))
+            return (
+                item.secondary_category === `${color}` &&
+                item.price_in_cents >= minprix &&
+                item.price_in_cents <= maxprix
+            )
+        else if ((subStyle !== "")  && (subStyle !== null) && (searchbar === ''))
+            return ( 
+                item.secondary_category === `${color}` &&
+                item.price_in_cents >= minprix &&
+                item.price_in_cents <= maxprix &&
+                (item.sugar_content === subStyle[0] || item.style === subStyle[1])
+                // (subStyle.map(criterion => {
+                //     if (criterion === item.style) return 'ok';
+                //     else return 'nop';})).filter(i => i.includes('ok'))
+            )
+        else return false
+    })
+    this.setState({wineListFiltered: wineListFiltered })
+    console.log(this.state.wineListFiltered)
   };
-
-
-  FilteringBySubStyle = (subStyle, subStylecategory) => {
-      const table = this.state.wineListFiltered.filter(item =>item[`${subStylecategory}`] === `${subStyle}`)
-      this.setState({wineListFiltered: table});
-      
-  };
-
-
-  TotalFilter = () => {
-      console.log(this.props.subStyle)
-    this.FilteringByColor();
-    console.log(this.state.wineListFiltered);
-    if (this.props.subStyle !== "") {
-        this.FilteringBySubStyle(this.props.subStyle, 'style');
-        console.log(this.state.wineListFiltered);
-    }
-}
-
-
-
-
-  champagneAffichageWithSubStyle(color, subStyle, subStylecategory) {
-  return `${color} - ${subStyle}=
-      ${(this.state.data.filter(item => {
-          if ((item.secondary_category === "Champagne" || 
-              item.secondary_category === "Sparkling Wine") &&
-              item[`${subStylecategory}`] === `${subStyle}`) 
-              return true;
-          else return false;
-    })).length}`
-
-  }
-
-
 
   render() {
     if (this.state.data === null) return "Wine is coming...";
 
     return (
       <div>
-        {/* <p></p>
-        <button onClick={() => this.criterionsRecovery()}>criterionsRecovery</button>
-        <p></p> */}
-        <button onClick={() => this.TotalFilter()}>wineAffichage</button>
+        <p></p>
+        <button onClick={() => this.TotalFilter2(this.props.color, 
+                                                this.props.subStyle, 
+                                                this.props.minprix, 
+                                                this.props.maxprix, 
+                                                this.props.searchbar)
+                        }>wineAffichage</button>
         <p></p>
       </div>
     );
@@ -204,3 +175,84 @@ export default NbWinePossible;
 
     //   }
     // }
+
+
+    // champagneAffichageWithSubStyle(color, subStyle, subStylecategory) {
+    //     return `${color} - ${subStyle}=
+    //         ${(this.state.data.filter(item => {
+    //             if ((item.secondary_category === "Champagne" || 
+    //                 item.secondary_category === "Sparkling Wine") &&
+    //                 item[`${subStylecategory}`] === `${subStyle}`) 
+    //                 return true;
+    //             else return false;
+    //       })).length}`
+      
+    //     }
+
+
+      // Full-bodied & Firm
+// Full-bodied & Smooth
+
+
+//   FilteringBySubStyle = () => {
+//     if (this.props.subStyle === "Full-bodied") {
+//             const table = this.state.wineListFiltered.filter(item => {
+//                 if (item.style === "Full-bodied & Firm" ||  item.style === "Full-bodied & Smooth") 
+//                     return true;
+//                 else return false;
+//             });
+//         this.setState({wineListFiltered: table});
+//     } else if 
+//         (this.props.subStyle === "Medium-bodied") {
+//             const table = this.state.wineListFiltered.filter(item => {
+//                 if (item.style === "Light-bodied & Fruity" ||  item.style === "Medium-bodied & Fruity") 
+//                     return true;
+//                 else return false;
+//               });
+//         this.setState({wineListFiltered: table});
+//     } else {
+//         const table = this.state.wineListFiltered.filter(item => item.style === null)
+//         this.setState({wineListFiltered: table});
+//     }
+//     //   const table = this.state.wineListFiltered.filter(item =>item[`${subStylecategory}`] === `${subStyle}`)
+//     //   this.setState({wineListFiltered: table});
+      
+//   };
+
+
+//   TotalFilter = () => {
+//     // console.log(this.props.subStyle)
+//     this.FilteringByColor();
+//         console.log(this.props.color,this.props.subStyle, this.state.wineListFiltered);
+    
+//     if (this.props.subStyle !== "") {
+//         this.FilteringBySubStyle();
+//         console.log(this.props.color,this.props.subStyle, this.state.wineListFiltered);
+//     }
+// }
+
+
+//   criterionsRecovery() {
+//     this.setState({
+//       criterions: { color: this.props.color,
+//                     subStyle: this.props.subStyle, 
+//                     minprix: this.props.minprix, 
+//                     maxprix: this.props.maxprix, 
+//                     searchbar: this.props.searchbar}
+//     })
+//   };
+
+
+// FilteringByColor = () => {
+//     if (this.props.color === "Champagne") {
+//         const table = this.state.data.filter(item => {
+//             if (item.secondary_category === "Champagne" ||  item.secondary_category === "Sparkling Wine") 
+//                 return true;
+//             else return false;
+//           });
+//         this.setState({wineListFiltered: table});
+//     } else {
+//       const table = this.state.data.filter(item => item.secondary_category === this.props.color);
+//       this.setState({wineListFiltered: table});
+//     }
+//   };

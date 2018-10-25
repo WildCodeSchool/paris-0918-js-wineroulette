@@ -12,6 +12,7 @@ class App extends Component {
   state = {
     color: "Red Wine",
     subStyle: "",
+    subCategory: "style",
     minprix: 0,
     maxprix: 10000,
     searchbar: ""
@@ -30,6 +31,11 @@ class App extends Component {
     this.setState({searchbar: searchbar});
   }
 
+  liftsubCategory = subCategory => {
+    this.setState({subCategory: subCategory});
+  }
+
+
   render() {
     return (
 		<div className="App">
@@ -41,13 +47,15 @@ class App extends Component {
       <Prix liftPrice={this.liftPrice} />
 			<p></p>
       <Colorbutton liftColor={this.liftColor} 
-                   liftsubStyle={this.liftsubStyle} />
+                   liftsubStyle={this.liftsubStyle}
+                   liftsubCategory={this.liftsubCategory} />
       <p></p>
       <div className="Searchbar">
       <Searchbar liftsearchbar={this.liftsearchbar} />
       </div>
       <NbWinePossible color={this.state.color}
                       subStyle={this.state.subStyle}
+                      subCategory={this.state.subCategory}
                       minprix={this.state.minprix}
                       maxprix={this.state.maxprix}
                       searchbar={this.state.searchbar}/>
