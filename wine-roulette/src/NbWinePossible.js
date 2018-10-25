@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import myWines from "./myWineList.json";
-import SelectInput from "@material-ui/core/Select/SelectInput";
 
 class NbWinePossible extends Component {
   state = {
@@ -17,106 +16,108 @@ class NbWinePossible extends Component {
 
   criterionsRecovery() {
     this.setState({
-      criterions: [this.props.color,
-                   this.props.subStyle, 
-                   this.props.minprix, 
-                   this.props.maxprix, 
-                   ...this.props.searchbar]
+      criterions: { color: this.props.color,
+                    subStyle: this.props.subStyle, 
+                    minprix: this.props.minprix, 
+                    maxprix: this.props.maxprix, 
+                    searchbar: this.props.searchbar}
     })
   };
 
+//   ColorNB(color) {
+//     return `${color}=${(this.state.data.filter(item => item.secondary_category === `${color}`))}`
+//   };
+
   ColorNB(color) {
-    console.log(`${color}====`,
-    (this.state.data.filter(item => item.secondary_category === `${color}`)).length)
+    return this.state.data.filter(item => item.secondary_category === color)
   };
               
   champagneNb() {
-    console.log(`Champagne====`,
-    (this.state.data.filter(item => {
+    return this.state.data.filter(item => {
       if (item.secondary_category === "Champagne" || 
           item.secondary_category === "Sparkling Wine") 
           return true;
       else return false;
-    })).length)
+    })
   };
 
   wineAffichageWithSubStyle(color, subStyle = "Medium-bodied & Fruity", subStylecategory = "style") {
-    console.log(`${color} - ${subStyle}====`,
-    (this.state.data.filter(item => {
+    return `${color} - ${subStyle}=
+    ${(this.state.data.filter(item => {
       if (item.secondary_category === `${color}` && 
           item[`${subStylecategory}`] === `${subStyle}`) 
           return true;
       else return false;
-    })).length)
+    })).length}`
   };
 
   champagneAffichageWithSubStyle(color, subStyle, subStylecategory) {
-  console.log(`${color} - ${subStyle}====`,
-      (this.state.data.filter(item => {
+  return `${color} - ${subStyle}=
+      ${(this.state.data.filter(item => {
           if ((item.secondary_category === "Champagne" || 
               item.secondary_category === "Sparkling Wine") &&
               item[`${subStylecategory}`] === `${subStyle}`) 
               return true;
           else return false;
-    })).length)
+    })).length}`
 
   }
 
   allWinesNb() {
-    this.ColorNB("Red Wine");
-    this.ColorNB("White Wine");
-    this.ColorNB("Rosé Wine");
-    this.champagneNb();
-    console.log("----------------------------------------------")
-    console.log("----------------------------------------------")
-    this.wineAffichageWithSubStyle("Red Wine", "Full-bodied & Smooth", "style");
-    this.wineAffichageWithSubStyle("Red Wine", "Medium-bodied & Fruity", "style");
-    this.wineAffichageWithSubStyle("Red Wine", "Light-bodied & Fruity", "style");
-    this.wineAffichageWithSubStyle("Red Wine", "Full-bodied & Firm", "style");
-    this.wineAffichageWithSubStyle("Red Wine", null, "style");
-    this.wineAffichageWithSubStyle("Red Wine", "Full-bodied  Smooth", "style");
-    console.log("----------------------------------------------")
-    console.log("----------------------------------------------")
-    this.wineAffichageWithSubStyle("White Wine", "Light & Crisp", "style");
-    this.wineAffichageWithSubStyle("White Wine", "Aromatic & Flavourful", "style");
-    this.wineAffichageWithSubStyle("White Wine", "Off-dry & Fruity", "style");
-    this.wineAffichageWithSubStyle("White Wine", "Full-bodied & Rich", "style");
-    this.wineAffichageWithSubStyle("White Wine", null, "style");
-    console.log("----------------------------------------------")
-    this.wineAffichageWithSubStyle("White Wine", "XD - Extra Dry", "sugar_content");
-    this.wineAffichageWithSubStyle("White Wine", "D - Dry", "sugar_content");
-    this.wineAffichageWithSubStyle("White Wine", "M - Medium", "sugar_content");
-    this.wineAffichageWithSubStyle("White Wine", "S - Sweet", "sugar_content");
-    this.wineAffichageWithSubStyle("White Wine", null, "sugar_content");
-    this.wineAffichageWithSubStyle("White Wine", "-", "sugar_content");
-    console.log("----------------------------------------------")
-    console.log("----------------------------------------------")
-    this.wineAffichageWithSubStyle("Rosé Wine", "XD - Extra Dry", "sugar_content");
-    this.wineAffichageWithSubStyle("Rosé Wine", "D - Dry", "sugar_content");
-    this.wineAffichageWithSubStyle("Rosé Wine", "M - Medium", "sugar_content");
-    this.wineAffichageWithSubStyle("Rosé Wine", "S - Sweet", "sugar_content");
-    this.wineAffichageWithSubStyle("Rosé Wine", null, "sugar_content");
-    this.wineAffichageWithSubStyle("Rosé Wine", "-", "sugar_content");
-    this.wineAffichageWithSubStyle("Rosé Wine", "MS - Medium Sweet", "sugar_content");
-    console.log("----------------------------------------------")
-    this.wineAffichageWithSubStyle("Rosé Wine", "Soft & Off-dry", "style");
-    this.wineAffichageWithSubStyle("Rosé Wine", "Medium-bodied & Dry", "style");
-    this.wineAffichageWithSubStyle("Rosé Wine", "Easygoing & Fruity", "style");
-    this.wineAffichageWithSubStyle("Rosé Wine", null, "style");
-    console.log("----------------------------------------------")
-    console.log("----------------------------------------------")
-    this.champagneAffichageWithSubStyle("Champagne", "XD - Extra Dry", "sugar_content");
-    this.champagneAffichageWithSubStyle("Champagne"         , "D - Dry", "sugar_content");
-    this.champagneAffichageWithSubStyle("Champagne", "M - Medium", "sugar_content");
-    this.champagneAffichageWithSubStyle("Champagne", "S - Sweet", "sugar_content");
-    this.champagneAffichageWithSubStyle("Champagne", null, "sugar_content");
-    this.champagneAffichageWithSubStyle("Champagne", "-", "sugar_content");
-    this.champagneAffichageWithSubStyle("Champagne", "MS - Medium Sweet", "sugar_content");
-    console.log("----------------------------------------------")
-    this.champagneAffichageWithSubStyle("Champagne", "Light & Fruity", "style");
-    this.champagneAffichageWithSubStyle("Champagne", "Medium-bodied & Flavourful", "style");
-    this.champagneAffichageWithSubStyle("Champagne", null, "style");
-    this.champagneAffichageWithSubStyle("Champagne", "Rich & Complex", "style");            
+    console.log(this.ColorNB(this.state.criterions.color));
+    // console.log(this.ColorNB("White Wine"));
+    // console.log(this.ColorNB("Rosé Wine"));
+    // console.log(this.champagneNb());
+    // console.log("----------------------------------------------")
+    // console.log("----------------------------------------------")
+    // console.log(this.wineAffichageWithSubStyle("Red Wine", "Full-bodied & Smooth", "style"));
+    // console.log(this.wineAffichageWithSubStyle("Red Wine", "Medium-bodied & Fruity", "style"));
+    // console.log(this.wineAffichageWithSubStyle("Red Wine", "Light-bodied & Fruity", "style"));
+    // console.log(this.wineAffichageWithSubStyle("Red Wine", "Full-bodied & Firm", "style"));
+    // console.log(this.wineAffichageWithSubStyle("Red Wine", null, "style"));
+    // console.log(this.wineAffichageWithSubStyle("Red Wine", "Full-bodied  Smooth", "style"));
+    // console.log("----------------------------------------------")
+    // console.log("----------------------------------------------")
+//     this.wineAffichageWithSubStyle("White Wine", "Light & Crisp", "style");
+//     this.wineAffichageWithSubStyle("White Wine", "Aromatic & Flavourful", "style");
+//     this.wineAffichageWithSubStyle("White Wine", "Off-dry & Fruity", "style");
+//     this.wineAffichageWithSubStyle("White Wine", "Full-bodied & Rich", "style");
+//     this.wineAffichageWithSubStyle("White Wine", null, "style");
+//     console.log("----------------------------------------------")
+//     this.wineAffichageWithSubStyle("White Wine", "XD - Extra Dry", "sugar_content");
+//     this.wineAffichageWithSubStyle("White Wine", "D - Dry", "sugar_content");
+//     this.wineAffichageWithSubStyle("White Wine", "M - Medium", "sugar_content");
+//     this.wineAffichageWithSubStyle("White Wine", "S - Sweet", "sugar_content");
+//     this.wineAffichageWithSubStyle("White Wine", null, "sugar_content");
+//     this.wineAffichageWithSubStyle("White Wine", "-", "sugar_content");
+//     console.log("----------------------------------------------")
+//     console.log("----------------------------------------------")
+//     this.wineAffichageWithSubStyle("Rosé Wine", "XD - Extra Dry", "sugar_content");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "D - Dry", "sugar_content");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "M - Medium", "sugar_content");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "S - Sweet", "sugar_content");
+//     this.wineAffichageWithSubStyle("Rosé Wine", null, "sugar_content");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "-", "sugar_content");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "MS - Medium Sweet", "sugar_content");
+//     console.log("----------------------------------------------")
+//     this.wineAffichageWithSubStyle("Rosé Wine", "Soft & Off-dry", "style");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "Medium-bodied & Dry", "style");
+//     this.wineAffichageWithSubStyle("Rosé Wine", "Easygoing & Fruity", "style");
+//     this.wineAffichageWithSubStyle("Rosé Wine", null, "style");
+//     console.log("----------------------------------------------")
+//     console.log("----------------------------------------------")
+//     this.champagneAffichageWithSubStyle("Champagne", "XD - Extra Dry", "sugar_content");
+//     this.champagneAffichageWithSubStyle("Champagne"         , "D - Dry", "sugar_content");
+//     this.champagneAffichageWithSubStyle("Champagne", "M - Medium", "sugar_content");
+//     this.champagneAffichageWithSubStyle("Champagne", "S - Sweet", "sugar_content");
+//     this.champagneAffichageWithSubStyle("Champagne", null, "sugar_content");
+//     this.champagneAffichageWithSubStyle("Champagne", "-", "sugar_content");
+//     this.champagneAffichageWithSubStyle("Champagne", "MS - Medium Sweet", "sugar_content");
+//     console.log("----------------------------------------------")
+//     this.champagneAffichageWithSubStyle("Champagne", "Light & Fruity", "style");
+//     this.champagneAffichageWithSubStyle("Champagne", "Medium-bodied & Flavourful", "style");
+//     this.champagneAffichageWithSubStyle("Champagne", null, "style");
+//     this.champagneAffichageWithSubStyle("Champagne", "Rich & Complex", "style");            
   };
 
 //     console.log(cleanArray(this.state.data.map(item => item.secondary_category)))

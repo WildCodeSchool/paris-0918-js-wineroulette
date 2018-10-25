@@ -69,7 +69,7 @@ class Carte extends Component {
     });
     //[random];
 
-    console.log(selectedBottle);
+    // console.log(selectedBottle);
     // console.log();
     let isWorking = false;
     let carteVin = {};

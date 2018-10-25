@@ -42,7 +42,6 @@ ColorSelection = color => {
 			<button onClick={() => this.ColorSelection(['Sparkling Wine', 'Champagne'])}>Petillant</button>
 			<p> </p>
 			<Whitesubcriterion  liftsubStyle={this.props.liftsubStyle}/>
-			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
@@ -55,13 +54,12 @@ ColorSelection = color => {
 			<button onClick={() => this.ColorSelection(['Sparkling Wine', 'Champagne'])}>Petillant</button>
 			<p> </p>
 			<Rosesubcriterion liftsubStyle={this.props.liftsubStyle}/>
-			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
 
 
-	else if (this.state.color === 'Sparkling Wine') return (
+	else if (this.state.color === ['Sparkling Wine', 'Champagne']) return (
 		<div>
 			<p></p>
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
@@ -70,7 +68,6 @@ ColorSelection = color => {
 			<button onClick={() => this.ColorSelection(['Sparkling Wine', 'Champagne'])}>Petillant</button>
 			<p> </p>
 			<Champsubcriterion liftsubStyle={this.props.liftsubStyle}/>
-			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
