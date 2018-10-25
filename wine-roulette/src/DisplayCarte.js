@@ -79,24 +79,46 @@ class DisplayCarte extends Component {
 
   render() {
     const { classes } = this.props;
+    
+    // const maj2 = () => {
+    //   let table = []
+    //   for (let i = 0; i < sansPointVirgule.length; i++) {
+    //     table.push(sansPointVirgule[i].toUpperCase().slice(0,2))
+    //   }
+    //   return table
+    // }
+    // console.log(maj2())
+
 
     return (
-      <div>
+      <div className="card">
         <h2 className="resultatSelection">Voici votre sélection</h2>
 
-        {/* Gère la taille générale de la carte */}
+        {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid item xs={12} sm={10} md={8} lg={6}>
-            {/* Début de ma carte */}
             <Card className={classes.card}>
-              <CardHeader
-                title={this.props.carteVin.name}
-                subheader={`${this.props.carteVin.pays_region}, ${
-                  this.props.carteVin.annee
-                }`}
-              />
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item xs={9}>
+                  <CardHeader
+                    className="nameOrigin"
+                    title={this.props.carteVin.name}
+                    subheader={`${this.props.carteVin.pays_region}, ${
+                      this.props.carteVin.annee
+                    }`}
+                  />
+                </Grid>
+                <Grid item xs={3}>
+                  <p className="price">{this.props.carteVin.price}</p>
+                </Grid>
+              </Grid>
 
-              {/* Gère la taille à l'intérieur de la carte */}
+              {/* GRILLE PRENANT EN COMPTE IMAGE VIGNES ET IMAGE BOUTEILLE */}
               <Grid container spacing={0}>
                 <Grid className="vignes" item xs={9}>
                   <div className="photoVignes">
@@ -126,38 +148,51 @@ class DisplayCarte extends Component {
                   {this.props.carteVin.tags}
                 </Typography>
               </CardContent>
+
               <CardActions className={classes.actions} disableActionSpacing>
-                
-                {/* PRIX DE LA BOUTEILLE */}
-                <p>{this.props.carteVin.price}</p>
-
-
-                {/* BOUTON PLUS D'INFOS */}
-                <IconButton
-                  className={classnames(classes.expand, {
-                    [classes.expandOpen]: this.state.expanded
-                  })}
-                  onClick={this.handleExpandClick}
-                  aria-expanded={this.state.expanded}
-                  aria-label="Show more"
+                {/* GRILLE GERANT L'EXPAND ET LE BOUTON ACHETER */}
+                <Grid
+                  container
+                  direction="row"
+                  justify="space-between"
+                  alignItems="center"
                 >
-                  <ExpandMoreIcon />
+                  {/* PRIX DE LA BOUTEILLE */}
+                  <Grid className="price" item xs={2}>
+                    <p />
+                  </Grid>
 
+                  {/* BOUTON PLUS D'INFOS */}
+                  <Grid className="moreInfo" item xs={2}>
+                    <IconButton
+                      className={classnames(classes.expand, {
+                        [classes.expandOpen]: this.state.expanded
+                      })}
+                      onClick={this.handleExpandClick}
+                      aria-expanded={this.state.expanded}
+                      aria-label="Show more"
+                    >
+                      <ExpandMoreIcon />
+                    </IconButton>
+                  </Grid>
 
                   {/* BOUTON ACHETER */}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                    Acheter
-                  </Button>
-                </IconButton>
+                  <Grid className="acheterButton" item xs={2}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                    >
+                      Acheter
+                    </Button>
+                  </Grid>
+                </Grid>
               </CardActions>
+
               <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                   <Typography paragraph>
-                    {this.props.carteVin.descriptionDetaillee}
+                    {this.props.carteVin.descriptionDetaillee.map(e => <p>{e}</p>)}
                   </Typography>
                 </CardContent>
               </Collapse>

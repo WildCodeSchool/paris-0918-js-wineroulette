@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 //import Header from "./Header";
 import Carte from "./Carte";
-//import logo from './logo.svg';
 import Prix from "./Prix"
-//import Appelapi from "./AppelAPI"
 import Colorbutton from "./Colorbutton"
 import './App.css';
+// import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
+import  Searchbar from './Searchbar';
 
 class App extends Component {
   state = {
     color: "Red Wine",
     subStyle: "",
     minprix: 2000,
-    maxprix: 50000
+    maxprix: 50000,
+    searchbar: ""
   };
+
   liftColor = color => {
     this.setState({ color: color });
   };
@@ -24,8 +26,11 @@ class App extends Component {
   liftPrice = (minprix, maxprix) => {
     this.setState({ minprix: minprix, maxprix: maxprix });
   };
+  liftsearchbar = searchbar => {
+    this.setState({searchbar: searchbar});
+  }
+
   render() {
-  //const selectedprice = (prix) => {}
     return (
 		<div className="App">
 
@@ -36,8 +41,12 @@ class App extends Component {
 			 
 
 			<p></p>
-			
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
+      <p></p>
+      <div className="Searchbar">
+      <Searchbar liftsearchbar={this.liftsearchbar} />
+      </div>
+      <p></p>
 
       <Prix liftPrice={this.liftPrice} />
 
@@ -47,7 +56,10 @@ class App extends Component {
           minprix={this.state.minprix}
           maxprix={this.state.maxprix}/>
      
+
+{/* BoutonReset crée une alerte en console */}
       <BoutonReset />
+{/* BoutonReset crée une alerte en console */}
 
 		</div>
     );

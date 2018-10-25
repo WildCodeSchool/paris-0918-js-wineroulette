@@ -1,5 +1,13 @@
+.card{
+    margin-bottom: 50px;
+}
+
 .resultatSelection{
     text-align: center;
+}
+
+.nameOrigin{
+    margin-left:5%;
 }
 
 .photoVignes{
@@ -12,6 +20,11 @@
     margin-top: 25%;
 } 
 
+.price{
+    font-size: 26px;
+    font-weight: bold;
+}
+
 .moreInfo{
-    border: 2px solid pink;
+    border: 2px solid white;
 }

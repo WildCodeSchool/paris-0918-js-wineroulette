@@ -50,10 +50,10 @@ class Carte extends Component {
     };
 
     const sansPointVirgule = descriptionDetaillee => {
-        return descriptionDetaillee
-          .split("; ")
-          .map(e => e.charAt(0).toUpperCase() + e.slice(1));
-      }
+      return descriptionDetaillee
+        .split("; ")
+        .map(e => e.charAt(0).toUpperCase() + e.slice(1));
+    }
 
     // FILTRER POUR N'AVOIR QUE DES PACKAGES = BOUTEILLE & CATEGORY = WINE & SERVING SUGGESTION != NULL
     const selectedBottle = this.state.data.filter(element => {
