@@ -61,6 +61,7 @@ class Carte extends Component {
         element.primary_category === "Wine"
       )})[randomIndex]
 
+
     //FICHE IDENTITÉ DE MA CARTE
     let carteVin = {
       name: selectedBottle.name,
