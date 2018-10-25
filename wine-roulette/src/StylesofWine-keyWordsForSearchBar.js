@@ -1,7 +1,7 @@
 const myWines = require("./myWineList.json")
 
 // Fonction qui déboublonne
-function cleanArray(array) {
+const cleanArray = (array) => {
     let i, j, len = array.length, out = [], obj = {};
     for (i = 0; i < len; i++) {
       obj[array[i]] = 0;

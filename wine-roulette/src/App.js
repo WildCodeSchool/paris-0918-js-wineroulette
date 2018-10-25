@@ -12,8 +12,8 @@ class App extends Component {
   state = {
     color: "Red Wine",
     subStyle: "",
-    minprix: 2000,
-    maxprix: 50000,
+    minprix: 0,
+    maxprix: 10000,
     searchbar: ""
   };
 
@@ -46,9 +46,10 @@ class App extends Component {
       <Prix liftPrice={this.liftPrice} />
       <p></p>
       <Carte color={this.state.color}
-          subStyle={this.state.subStyle}
-          minprix={this.state.minprix}
-          maxprix={this.state.maxprix}/>
+             subStyle={this.state.subStyle}
+             minprix={this.state.minprix}
+             maxprix={this.state.maxprix}
+             searchbar={this.state.searchbar}/>
 {/* BoutonReset crée une alerte en console */}
       {/* <BoutonReset /> */}
 {/* BoutonReset crée une alerte en console */}
