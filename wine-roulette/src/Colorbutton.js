@@ -29,7 +29,7 @@ ColorSelection = color => {
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Sparkling Wine')}>Petillant</button>
 			<p> </p>
 			<Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
 
@@ -43,7 +43,7 @@ ColorSelection = color => {
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Sparkling Wine')}>Petillant</button>
 			<p> </p>
 			<Whitesubcriterion  liftsubStyle={this.props.liftsubStyle}/>
 			{/* <Appelapi color={this.state.color} /> */}
@@ -56,7 +56,7 @@ ColorSelection = color => {
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Sparkling Wine')}>Petillant</button>
 			<p> </p>
 			<Rosesubcriterion liftsubStyle={this.props.liftsubStyle}/>
 			{/* <Appelapi color={this.state.color} /> */}
@@ -65,13 +65,13 @@ ColorSelection = color => {
 
 
 
-	else if (this.state.color === 'Champagne') return (
+	else if (this.state.color === 'Sparkling Wine') return (
 		<div>
 			<p></p>
 			<button onClick={() => this.ColorSelection('Red Wine')}>Rouge</button>
 			<button onClick={() => this.ColorSelection('White Wine')}>Blanc</button>
 			<button onClick={() => this.ColorSelection('Rosé Wine')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne')}>Petillant</button>
+			<button onClick={() => this.ColorSelection('Sparkling Wine')}>Petillant</button>
 			<p> </p>
 			<Champsubcriterion liftsubStyle={this.props.liftsubStyle}/>
 			{/* <Appelapi color={this.state.color} /> */}

@@ -12,6 +12,8 @@ class App extends Component {
   state = {
     color: "Red Wine",
     subStyle: "",
+    minprix: 2000,
+    maxprix: 50000,
     searchbar: ""
   };
 
@@ -20,6 +22,9 @@ class App extends Component {
   };
   liftsubStyle = subStyle => {
     this.setState({ subStyle: subStyle });
+  };
+  liftPrice = (minprix, maxprix) => {
+    this.setState({ minprix: minprix, maxprix: maxprix });
   };
   liftsearchbar = searchbar => {
     this.setState({searchbar: searchbar});
@@ -33,7 +38,8 @@ class App extends Component {
 			<h3>Votre bouteille sans prise de tête</h3>
 			
 			
-			<Prix  />
+			 
+
 			<p></p>
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
@@ -42,9 +48,13 @@ class App extends Component {
       </div>
       <p></p>
 
-      {/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
-      {/* <IntegrationReactSelect /> */}
-      <Carte />
+      <Prix liftPrice={this.liftPrice} />
+
+			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
+      <Carte color={this.state.color}
+          subStyle={this.state.subStyle}
+          minprix={this.state.minprix}
+          maxprix={this.state.maxprix}/>
      
 
 {/* BoutonReset crée une alerte en console */}

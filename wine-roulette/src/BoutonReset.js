@@ -22,7 +22,7 @@ const BoutonReset = () => {
             ria-label="Add" 
             className="button"
             >
-            <i class="material-icons">
+            <i className="material-icons">
                 360
             </i>
           </Button>

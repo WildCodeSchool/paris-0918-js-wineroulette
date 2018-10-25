@@ -215,7 +215,7 @@ const components = {
 
 class IntegrationReactSelect extends React.Component {
   state = {
-    single: null,
+    // single: null,
     multi: null,
   };
 
