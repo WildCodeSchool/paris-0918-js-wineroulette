@@ -6,8 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { createMuiTheme } from '@material-ui/core/styles';
-import pink from '@material-ui/core/colors/pink';
+import blue from '@material-ui/core/colors/blue';
 import './Footer.css';
+import Modal from './Modal'
 
 
 const styles = {
@@ -18,9 +19,9 @@ const styles = {
 
 const theme = createMuiTheme({
   palette: {
-    primary: pink,
+    primary: blue,
     secondary: {
-      main: '#E91E63',
+      main: '#f6c1a0',
     },
   },
 });
@@ -30,17 +31,17 @@ function Footer(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="relative" color="secondary">
+      <AppBar position="relative" color="primary" className="foot">
         <Toolbar>
           <Grid container spacing={24}>
 
             <Grid item xs={3}>
               <Typography variant="body1" color="inherit">
-                <a href="#">Link 1</a>
+                <Modal />
               </Typography>
             </Grid>
 
-            <Grid item xs={3}>
+            {/* <Grid item xs={3}>
               <Typography variant="body1" color="inheritc">
                 <a href="#">Link 2</a>
               </Typography>
@@ -56,7 +57,7 @@ function Footer(props) {
                 <Typography variant="body1" color="inherit">
                   <a href="#">Link 4</a>
                 </Typography>
-            </Grid>
+            </Grid> */}
 
           </Grid>
 

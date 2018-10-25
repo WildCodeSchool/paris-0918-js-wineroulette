@@ -1,3 +1,7 @@
 .BoutonReset {
-    margin-top: 3%;
+    margin-top: 2%;
+}
+
+.MuiButton-fab-18 {
+    border-radius: 90% !important;
 }

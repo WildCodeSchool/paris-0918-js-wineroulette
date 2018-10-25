@@ -1,25 +1,13 @@
 import React, { Component } from 'react';
 //import Header from "./Header";
 import Carte from "./Carte";
-<<<<<<< HEAD
-//import logo from './logo.svg';
-import Prix from "./Prix";
-//import Appelapi from "./AppelAPI"
-import Colorbutton from "./Colorbutton";
-import './App.css';
-import BoutonReset from "./BoutonReset";
-
-
-
-=======
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
 // import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
-import  Searchbar from './Searchbar';
+import Searchbar from './Searchbar';
 import Footer from './Footer/Footer'
->>>>>>> bac372cc176a8f57bd9877d96ea1bb3f49a24ec9
 
 class App extends Component {
   state = {
@@ -59,17 +47,15 @@ class App extends Component {
       <Searchbar liftsearchbar={this.liftsearchbar} />
       </div>
       <p></p>
+      {/* BoutonReset crée une alerte en console */}
 
       <Prix liftPrice={this.liftPrice} />
-
+      <BoutonReset />
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte color={this.state.color}
           subStyle={this.state.subStyle}
           minprix={this.state.minprix}
           maxprix={this.state.maxprix}/>
-
-{/* BoutonReset crée une alerte en console */}
-      <BoutonReset />
 {/* BoutonReset crée une alerte en console */}
       <Footer />
 		</div>
