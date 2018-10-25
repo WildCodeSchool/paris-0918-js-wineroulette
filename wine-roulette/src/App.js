@@ -11,13 +11,18 @@ import BoutonReset from "./BoutonReset"
 class App extends Component {
   state = {
     color: "Red Wine",
-    subStyle: ""
+    subStyle: "",
+    minprix: 2000,
+    maxprix: 50000
   };
   liftColor = color => {
     this.setState({ color: color });
   };
   liftsubStyle = subStyle => {
     this.setState({ subStyle: subStyle });
+  };
+  liftPrice = (minprix, maxprix) => {
+    this.setState({ minprix: minprix, maxprix: maxprix });
   };
   render() {
   //const selectedprice = (prix) => {}
@@ -28,14 +33,19 @@ class App extends Component {
 			<h3>Votre bouteille sans prise de tête</h3>
 			
 			
-			 <Prix  />
+			 
 
 			<p></p>
 			
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
 
+      <Prix liftPrice={this.liftPrice} />
+
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
-      <Carte />
+      <Carte color={this.state.color}
+          subStyle={this.state.subStyle}
+          minprix={this.state.minprix}
+          maxprix={this.state.maxprix}/>
      
       <BoutonReset />
 
