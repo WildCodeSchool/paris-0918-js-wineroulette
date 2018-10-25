@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 //import Header from "./Header";
 import Carte from "./Carte";
 //import logo from './logo.svg';
-import Prix from "./Prix"
+import Prix from "./Prix";
 //import Appelapi from "./AppelAPI"
-import Colorbutton from "./Colorbutton"
+import Colorbutton from "./Colorbutton";
 import './App.css';
-import BoutonReset from "./BoutonReset"
+import BoutonReset from "./BoutonReset";
+
+
+
 
 class App extends Component {
   state = {
@@ -27,7 +30,7 @@ class App extends Component {
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
 
-			 <Prix  />
+			<Prix  />
 
 			<p></p>
 
@@ -37,9 +40,8 @@ class App extends Component {
 
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte />
-     
+    
       
-
 		</div>
     );
   }
