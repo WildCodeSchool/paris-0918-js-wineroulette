@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DisplayCarte from "./DisplayCarte";
+// import DisplayCarte from "./DisplayCarte";
 //import Vignes from "./1.jpg"
 import myWines from "./myWineList.json";
 
@@ -76,15 +76,76 @@ class Carte extends Component {
   
 
   wineAffichage() {
-
-
-    console.log('tabe====',(this.state.data.filter(item => {
-      if (item.secondary_category === "Champagne" || item.secondary_category === "Sparkling Wine") return true;
+    console.log('Red Wine====',(this.state.data.filter(item => {
+      return item.secondary_category === "Red Wine"
+    })).length)
+    console.log('White Wine====',(this.state.data.filter(item => {
+      return item.secondary_category === "White Wine"
+    })).length)
+    console.log('Rosé Wine====',(this.state.data.filter(item => {
+      return item.secondary_category === "Rosé Wine"
+    })).length)
+    console.log('Champagne====',(this.state.data.filter(item => {
+      if (item.secondary_category === "Champagne" || 
+          item.secondary_category === "Sparkling Wine") 
+          return true;
       else return false;
-    })))
+    })).length)
 
 
-    // console.log(cleanArray(this.state.data.filter(item => item.secondary_category === this.props.color[0][0]).map(item => item.style)));
+console.log('Red Wine & Full-bodied & Smooth====',(this.state.data.filter(item => {
+  if (item.secondary_category === "Red Wine" && 
+      item.style === "Full-bodied & Smooth") 
+      return true;
+  else return false;
+})).length)
+
+console.log('Red Wine & Medium-bodied & Fruity====',(this.state.data.filter(item => {
+  if (item.secondary_category === "Red Wine" && 
+      item.style === "Medium-bodied & Fruity") 
+      return true;
+  else return false;
+})).length)
+
+console.log('Red Wine & Light-bodied & Fruity====',(this.state.data.filter(item => {
+  if (item.secondary_category === "Red Wine" && 
+      item.style === "Light-bodied & Fruity") 
+      return true;
+  else return false;
+})).length)
+
+
+console.log('Red Wine & Full-bodied & Firm====',(this.state.data.filter(item => {
+  if (item.secondary_category === "Red Wine" && 
+      item.style === "Full-bodied & Firm") 
+      return true;
+  else return false;
+})).length)
+
+console.log('Red Wine & null====',(this.state.data.filter(item => {
+  if (item.secondary_category === "Red Wine" && 
+      item.style === null) 
+      return true;
+  else return false;
+})).length)
+
+console.log('Red Wine & Full-bodied  Smooth====',(this.state.data.filter(item => {
+  if (item.secondary_category === "Red Wine" && 
+      item.style === "Full-bodied  Smooth") 
+      return true;
+  else return false;
+})).length)
+
+
+    // white => style
+              //   0: "Light & Crisp"
+              // 1: "Aromatic & Flavourful"
+              // 2: "Off-dry & Fruity"
+              // 3: "Full-bodied & Rich"
+              // 4: "null"
+
+
+    console.log(cleanArray(this.state.data.map(item => item.secondary_category)))
 
     // console.log('tabe====',cleanArray(this.state.data.filter(item => {
     //   if (item.secondary_category === "Champagne" || item.secondary_category === "Champagne") return true;
@@ -92,9 +153,6 @@ class Carte extends Component {
     // })))
     // .map(item => item.style)));
 
-    console.log(this.props.color)
-    console.log(this.props.color[0])
-    console.log(this.props.color[1])
     // console.log(cleanArray(this.state.data.map(item => item.secondary_category)));
     if (this.props.subStyle !== "") {
       if (this.props.color === "Red Wine") {
