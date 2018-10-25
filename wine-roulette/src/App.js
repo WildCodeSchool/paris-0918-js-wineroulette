@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-//import Header from "./Header";
 import Carte from "./Carte";
 import NbWinePossible from "./NbWinePossible";
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
-// import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
 import Searchbar from './Searchbar';
 import Footer from './Footer/Footer'
