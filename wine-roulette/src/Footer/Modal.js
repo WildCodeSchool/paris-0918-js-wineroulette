@@ -38,37 +38,27 @@ class ScrollDialog extends React.Component {
                 parcourir. En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.
                 Editeur du site</p>
 
-                <p>Site Internet Qualité</p>
-                <p>par Natural-net</p>
-                <p>49 boulevard Antoine Gautier</p>
-                <p>33000 Bordeaux</p>
+                <p>Wine Roulette</p>
+                <p>par Thomas, Elise, Philippe, Donovan, Romain, Ben et Camille</p>
+                <p>Wild Code School</p>
+                <p>75005 Paris</p>
                 <p>France</p>
-                <p>Tél. : + 33 (0)6 62 79 25 55</p>
-                <p>Fax : + 33 (0)5 40 00 02 66</p>
-                <p>https://www.site-internet-qualite.fr</p>
+                <p>Tél. : + 33 (0)6 64 79 25 55</p>
+                <p>Fax : + 33 (0)5 41 00 02 66</p>
+                <p>https://www.wine-roulette.com</p>
 
-                <p>Natural-net est une EURL au capital de 3500€</p>
+                <p>Wine Roulette est une SAS  au capital de 35000€</p>
                 <p>RCS B 497 553 71 - Siret : 49755371900020 - APE : 6201Z</p>
                 <p>N° déclaration CNIL : 1522193</p>
                 <p>Conditions d'utilisation</p>
-                <p>Le site accessible par les url suivants : www.site-internet-qualite.fr est exploité dans 
+                <p>Le site accessible par les url suivants : www.wine-roulette.com est exploité dans 
                 le respect de la législation française. L'utilisation de ce site est régie par les présentes 
                 conditions générales. En utilisant le site, vous reconnaissez avoir pris connaissance de ces 
                 conditions et les avoir acceptées. Celles-ci pourront êtres modifiées à tout moment et sans 
                 préavis par la société Natural-net.
                 Natural-net ne saurait être tenu pour responsable en aucune manière d’une mauvaise utilisation 
                 du service.</p>
-                <p>Responsable éditorial</p>
-
-                <p>Eric Emery</p>
-                <p>Site Internet Qualité</p>
-                <p>par Natural-net</p>
-                <p>49 boulevard Antoine Gautier</p>
-                <p>33000 Bordeaux</p>
-                <p>France</p>
-                <p>Tél. : + 33 (0)6 62 79 25 55</p>
-                <p>Fax : + 33 (0)5 40 00 02 66</p>
-                <p>http://www.site-internet-qualite.fr</p>
+                
                 <p>Limitation de responsabilité</p>
                 <p>Les informations contenues sur ce site sont aussi précises que possibles et le site est 
                 périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des
@@ -140,9 +130,9 @@ class ScrollDialog extends React.Component {
                 Multi-Purpose HTML 5 / CSS 3 Corporate Template. </p>  
                 
 
-                    <p>Créé le : 24/05/2016</p>
-                    <p>Auteur : Dankov</p>
-                    <p>E-mail de l'auteur : dankov.theme@gmail.com</p>
+                    <p>Créé le : 25/10/2018</p>
+                    <p>Auteur : Nous</p>
+                    <p>E-mail de l'auteur : nous@gmail.com</p>
 
                 <p>Hébergeur</p>
                 <p>Kiubi</p>
