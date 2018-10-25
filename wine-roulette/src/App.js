@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import Header from "./Header";
 import Carte from "./Carte";
+import NbWinePossible from "./NbWinePossible";
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
@@ -50,6 +51,12 @@ class App extends Component {
              minprix={this.state.minprix}
              maxprix={this.state.maxprix}
              searchbar={this.state.searchbar}/>
+
+      <NbWinePossible color={this.state.color}
+                      subStyle={this.state.subStyle}
+                      minprix={this.state.minprix}
+                      maxprix={this.state.maxprix}
+                      searchbar={this.state.searchbar}/>
 {/* BoutonReset crée une alerte en console */}
       {/* <BoutonReset /> */}
 {/* BoutonReset crée une alerte en console */}
