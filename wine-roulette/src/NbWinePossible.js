@@ -21,6 +21,7 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
+                item.name !== null &&
                 item.package_unit_type === "bottle" &&
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
@@ -29,6 +30,7 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
             )
         else if ((subStyle !== "")  && (subStyle !== null) && (searchbar === ''))
             return ( 
+                item.name !== null &&
                 item.package_unit_type === "bottle" &&
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
