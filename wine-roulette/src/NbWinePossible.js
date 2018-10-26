@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import myWines from "./myWineList.json";
 import Carte from "./Carte";
+import "./NbWinePossible.css"
 
 class NbWinePossible extends Component {
   state = {
     data: null,
     wineListFiltered: [''],
+    randomImageVigne :0,
 };
 
   componentDidMount() {
@@ -19,6 +21,7 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
+                item.name !== null &&
                 item.package_unit_type === "bottle" &&
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
@@ -27,6 +30,7 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
             )
         else if ((subStyle !== "")  && (subStyle !== null) && (searchbar === ''))
             return ( 
+                item.name !== null &&
                 item.package_unit_type === "bottle" &&
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
@@ -37,25 +41,26 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
         else return false
     })
     let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
-    this.setState({wineListFiltered: wineListFiltered[random] })
-    console.log(this.state.wineListFiltered)
+    let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
+    this.setState({wineListFiltered: wineListFiltered[random],
+                   randomImageVigne: randomImageVigne})    
   };
 
   render() {
     if (this.state.data === null) return "Wine is coming...";
-
     return (
       <div>
         <p></p>
-        <button onClick={() => this.TotalFilter2(this.props.color, 
+        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(this.props.color, 
                                                 this.props.subStyle,
                                                 this.props.subCategory, 
                                                 this.props.minprix, 
                                                 this.props.maxprix, 
                                                 this.props.searchbar)
-                        }>wineAffichage</button>
+                        }>Roulette</button>
         <p></p>
-        <Carte wineListFiltered={this.state.wineListFiltered} />
+        <Carte wineListFiltered={this.state.wineListFiltered}
+               randomImageVigne={this.state.randomImageVigne} />
       </div>
     );
   }

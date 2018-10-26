@@ -1,16 +1,8 @@
 import React, { Component } from "react";
 import DisplayCarte from "./DisplayCarte";
-// import myWines from "./myWineList.json";
 
 class Carte extends Component {
-  // state = {
-  //   data: null
-  // };
-
   render() {
-    //GÉNÈRE UN INDEX AU HASARD
-    let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
-
     //ENLEVE LA PARTIE "RÉGION" SI NULL
     const enleverUndefined = paysRegion => {
       if (paysRegion) {
@@ -43,18 +35,15 @@ class Carte extends Component {
         return [];
       }
     };
-    // FILTRER POUR N'AVOIR QUE DES PACKAGES = BOUTEILLE & CATEGORY = WINE & SERVING SUGGESTION != NULL
     const selectedBottle = this.props.wineListFiltered;
-    // let isWorking = true;
     let carteVin = {};
-
     carteVin = {
       name: selectedBottle.name,
       pays_region: enleverUndefined(selectedBottle.origin) || "Pas d'origine",
       annee: selectedBottle.released_on
         ? selectedBottle.released_on.slice(0, 4)
         : "Année non renseignée", //ne sélectionne que l'année
-      imageVignes: `./photos-vigne/${randomImageVigne}.jpg`,
+      imageVignes: `./photos-vigne/${this.props.randomImageVigne}.jpg`,
       imageBouteille: selectedBottle.image_thumb_url
         ? selectedBottle.image_thumb_url
         : "http://static.hitek.fr/img/actualite/2016/10/07/w_capture-d-e-cran-2016-10-07-a-09-25-20.png",
@@ -71,23 +60,11 @@ class Carte extends Component {
       id: selectedBottle.id
     };
 
-    // if (Array.isArray(this.props.wineListFiltered)) return (<p>"Wine is coming..."</p>)
-
     if (this.props.wineListFiltered[0] === "")
       return <p>"Wine is coming..."</p>;
-    else
-      return (
-        <div>
-          {/* {isWorking ? ( */}
-          <DisplayCarte carteVin={carteVin} />
-          {/* ) : ( */}
-          {/* "Pas de wine, tabarnak ! Relance la roulette hostie d'calice !" */}
-          {/* )} */}
-        </div>
-      );
+    else return <DisplayCarte carteVin={carteVin} />;
   }
 }
-
 export default Carte;
 
 // .filter(element => {

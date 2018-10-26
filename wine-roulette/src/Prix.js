@@ -74,8 +74,7 @@ class Prix extends Component {
 }
 
 Prix.propTypes = {
-	classes: PropTypes.object.isRequired
-  };
-  
-  export default withStyles(styles)(Prix);
-  
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Prix);
