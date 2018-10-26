@@ -8,6 +8,7 @@ import './App.css';
 import BoutonReset from "./BoutonReset"
 import  Searchbar from './Searchbar';
 
+
 class App extends Component {
   state = {
     color: "Red Wine",
@@ -36,10 +37,8 @@ class App extends Component {
 
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
-			
-			
-			 
-
+						 
+      
 			<p></p>
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
