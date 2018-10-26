@@ -15,10 +15,14 @@ class Champsubscriterion extends Component {
     render() {
         return(
             <div>
-				<button onClick={() => this.champSubCriterionSelection('Rich')}> Riche </button>
-				<button onClick={() => this.champSubCriterionSelection('Complex')}> Complexe </button>
-                <button onClick={() => this.champSubCriterionSelection('Medium-bodied')}> Mi-Corsée </button>
-				<button onClick={() => this.champSubCriterionSelection('Flavourful')}> Savoureux </button>
+				<button onClick={() => this.champSubCriterionSelection(['XD - Extra Dry'])}> Sec </button>
+				<button onClick={() => this.champSubCriterionSelection(['D - Dry'])}> Demi-sec </button>
+                <button onClick={() => this.champSubCriterionSelection([null])}>Surprise !</button>
+
+                {/* <button onClick={() => this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
+				<button onClick={() => this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
+				<button onClick={() => this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
+				<button onClick={() => this.whiteSubCriterionSelection([null])}>Surprise !</button> */}
             </div>
         )
     }

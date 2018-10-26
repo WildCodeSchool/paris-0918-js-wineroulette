@@ -14,11 +14,9 @@ class NbWinePossible extends Component {
   }
 
 TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
-console.log(this.props.color, this.props.subStyle, this.props.minprix, this.props.maxprix, this.props.searchbar);
+console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
     
-
     const wineListFiltered = this.state.data.filter(item => {
-
         if ((subStyle === '') && (searchbar === ''))
             return (
                 item.secondary_category === `${color}` &&

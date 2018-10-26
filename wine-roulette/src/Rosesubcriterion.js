@@ -17,11 +17,9 @@ roseSubCriterionSelection = (subStyle) => {
 
   	return  (
 			<div>
-				<button onClick={() => this.roseSubCriterionSelection('Light')}>Light</button>
-				<button onClick={() => this.roseSubCriterionSelection('Full-bodied')}>Full-bodied</button>
-				<button onClick={() => this.roseSubCriterionSelection('Aromatic & Flavourful')}>Aromatic and Flavourful</button>
-				{/*<Appelapi roseSubCriterion={this.state.roseSubCriterion} />*/}
-
+				<button onClick={() => this.roseSubCriterionSelection(['Easygoing & Fruity'])}>Fruité</button>
+				<button onClick={() => this.roseSubCriterionSelection(['Medium-bodied & Dry'])}>Sec</button>
+				<button onClick={() => this.roseSubCriterionSelection(['Soft & Off-dry', null])}>Surprise !l</button>
 			</div>
 	)
   }

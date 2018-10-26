@@ -33,8 +33,6 @@ ColorSelection = (color, subCategory) => {
 			<button onClick={() => this.ColorSelection('Champagne', 'sugar_content')}>Petillant</button>
 			<p> </p>
 			<Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
-
-			{/* <Appelapi color={this.state.color} /> */}
 		</div>
 		)
 
