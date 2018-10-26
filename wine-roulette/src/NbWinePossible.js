@@ -15,17 +15,20 @@ class NbWinePossible extends Component {
   }
 
 TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
-console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
-    
+// console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
+                item.package_unit_type === "bottle" &&
+                item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix
             )
         else if ((subStyle !== "")  && (subStyle !== null) && (searchbar === ''))
             return ( 
+                item.package_unit_type === "bottle" &&
+                item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
@@ -33,7 +36,8 @@ console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.
             )
         else return false
     })
-    this.setState({wineListFiltered: wineListFiltered })
+    let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
+    this.setState({wineListFiltered: wineListFiltered[random] })
     console.log(this.state.wineListFiltered)
   };
 
