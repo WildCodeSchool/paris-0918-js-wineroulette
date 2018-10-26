@@ -21,7 +21,7 @@ class Carte extends Component {
     // if (this.props.wineListFiltered === []) return "Wine is coming...";
 
     //GÉNÈRE UN INDEX AU HASARD
-    let random = Math.floor(Math.random() * Math.floor(20));
+    let random = Math.floor(Math.random() * Math.floor(this.props.wineListFiltered.length));
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
 
     //ENLEVE LA PARTIE "RÉGION" SI NULL
@@ -62,16 +62,16 @@ class Carte extends Component {
     // FILTRER POUR N'AVOIR QUE DES PACKAGES = BOUTEILLE & CATEGORY = WINE & SERVING SUGGESTION != NULL
     const selectedBottle = this.props.wineListFiltered.filter(element => {
       return (
-        element.package_unit_type === "bottle" &&
-        element.primary_category === "Wine" &&
-        element.secondary_category === this.props.color &&
-        (!element.style || element.style.includes(this.props.subStyle)) &&
-        element.price_in_cents >= this.props.minprix &&
-        element.price_in_cents <= this.props.maxprix
+         element.package_unit_type === "bottle" &&
+         element.primary_category === "Wine"  
+        // element.secondary_category === this.props.color 
+        // (!element.style || element.style.includes(this.props.subStyle)) &&
+        // element.price_in_cents >= this.props.minprix &&
+        // element.price_in_cents <= this.props.maxprix
       );
-    });
-    //[random];
-
+      
+    })[random]
+    console.log(random)
     // console.log(selectedBottle);
     // console.log();
     let isWorking = false;
@@ -93,7 +93,7 @@ class Carte extends Component {
           "Pas de description",
         tags: hashtagMyTags(selectedBottle.style) || "Pas de tags, mamene",
         price: selectedBottle.price_in_cents
-          ? `${selectedBottle.price_in_cents.toFixed(2)} $`
+          ? `${selectedBottle.price_in_cents /100} $`
           : "Pas de price $$$",
         descriptionDetaillee: sansPointVirgule(selectedBottle.tasting_note)
       };
