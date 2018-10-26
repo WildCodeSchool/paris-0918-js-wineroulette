@@ -8,6 +8,7 @@ import './App.css';
 import BoutonReset from "./BoutonReset"
 import Searchbar from './Searchbar';
 import Footer from './Footer/Footer'
+import ExpansionPanel from './ExpansionPanel';
 
 class App extends Component {
   state = {
@@ -44,12 +45,14 @@ class App extends Component {
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
       <div className="Searchbar">
-      <Searchbar liftsearchbar={this.liftsearchbar} />
+      {/* <Searchbar liftsearchbar={this.liftsearchbar} /> */}
+      <Prix liftPrice={this.liftPrice} />
+      <ExpansionPanel />
       </div>
       <p></p>
       {/* BoutonReset crée une alerte en console */}
 
-      <Prix liftPrice={this.liftPrice} />
+      
       <BoutonReset />
 			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
       <Carte color={this.state.color}
