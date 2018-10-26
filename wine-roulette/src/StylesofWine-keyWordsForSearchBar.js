@@ -1,7 +1,7 @@
 const myWines = require("./myWineList.json")
 
 // Fonction qui déboublonne
-function cleanArray(array) {
+const cleanArray = (array) => {
     let i, j, len = array.length, out = [], obj = {};
     for (i = 0; i < len; i++) {
       obj[array[i]] = 0;
@@ -16,7 +16,8 @@ let keyWord = [];
 myWines.map(items => items.varietal).filter(item => item !==null).map(item => keyWord.push(...item.split(' ')));
 const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
 
-//on place ces mots  dans un objet de la forme { value: motclé, Label : motclé }, objet que l'on met dans un tableau.
+//on place ces mots  dans un objet de la forme { value: motclé, Label : motclé }, 
+// on met ces objets dans un tableau.
 // ce tableau est destiné a etre lu par le composant SearchBar
 const suggestions = [];
 for (let i = 0; i < cleanedkeyWord.length; i++) {

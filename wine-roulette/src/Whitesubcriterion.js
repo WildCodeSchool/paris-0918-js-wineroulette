@@ -16,10 +16,10 @@ whiteSubCriterionSelection = subStyle => {
   render() {
   	return  (
 			<div>
-				<button onClick={() => this.whiteSubCriterionSelection('Xdry')}>Sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection('Dry')}>Demi-sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection('Sweet')}>Moelleux</button>
-				{/*<Appelapi whiteSubCriterion={this.state.whiteSubCriterion} />*/}
+				<button onClick={() => this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
+				<button onClick={() => this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
+				<button onClick={() => this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
+				<button onClick={() => this.whiteSubCriterionSelection([null])}>Surprise !</button>
 			</div>
 	)
   }

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-//import Header from "./Header";
-import Carte from "./Carte";
+// import Carte from "./Carte";
+import NbWinePossible from "./NbWinePossible";
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
-// import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
-import  Searchbar from './Searchbar';
+import Searchbar from './Searchbar';
+import Footer from './Footer/Footer'
 
 
 class App extends Component {
   state = {
     color: "Red Wine",
     subStyle: "",
-    minprix: 2000,
-    maxprix: 50000,
+    subCategory: "style",
+    minprix: 0,
+    maxprix: 10000,
     searchbar: ""
   };
 
@@ -30,6 +31,10 @@ class App extends Component {
   liftsearchbar = searchbar => {
     this.setState({searchbar: searchbar});
   }
+  liftsubCategory = subCategory => {
+    this.setState({subCategory: subCategory});
+  }
+
 
   render() {
     return (
@@ -37,29 +42,30 @@ class App extends Component {
 
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
 			<h3>Votre bouteille sans prise de tête</h3>
-						 
-      
+      <BoutonReset />
+      <p></p>
+      <Prix liftPrice={this.liftPrice} />
 			<p></p>
-			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
+      <Colorbutton liftColor={this.liftColor} 
+                   liftsubStyle={this.liftsubStyle}
+                   liftsubCategory={this.liftsubCategory} />
       <p></p>
       <div className="Searchbar">
       <Searchbar liftsearchbar={this.liftsearchbar} />
       </div>
+      <NbWinePossible color={this.state.color}
+                      subStyle={this.state.subStyle}
+                      subCategory={this.state.subCategory}
+                      minprix={this.state.minprix}
+                      maxprix={this.state.maxprix}
+                      searchbar={this.state.searchbar}/>
       <p></p>
-
-      <Prix liftPrice={this.liftPrice} />
-
-			{/* <Appelapi color={this.state.color} subStyle={this.state.subStyle} /> */}
-      <Carte color={this.state.color}
-          subStyle={this.state.subStyle}
-          minprix={this.state.minprix}
-          maxprix={this.state.maxprix}/>
-     
-
-{/* BoutonReset crée une alerte en console */}
-      <BoutonReset />
-{/* BoutonReset crée une alerte en console */}
-
+      {/* <Carte color={this.state.color}
+             subStyle={this.state.subStyle}
+             minprix={this.state.minprix}
+             maxprix={this.state.maxprix}
+             searchbar={this.state.searchbar}/> */}
+      <Footer />
 		</div>
     );
   }

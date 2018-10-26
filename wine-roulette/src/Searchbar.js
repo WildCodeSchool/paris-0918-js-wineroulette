@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types, react/jsx-handler-names */
 
-import React from 'react';
+import React, { Component } from 'react';
 import Select from 'react-select';
 import makeAnimated from 'react-select/lib/animated';
 import suggestions from './StylesofWine-keyWordsForSearchBar'
 
 
-class Searchbar extends React.Component {
+class Searchbar extends Component {
 
   state = {
     selectedOption: null,
@@ -17,7 +17,6 @@ class Searchbar extends React.Component {
   }
   render() {
     const { selectedOption } = this.state;
- 
     return (
       <Select
       key={suggestions.label}
@@ -26,7 +25,7 @@ class Searchbar extends React.Component {
       isMulti={true}
       options={suggestions}
       className="basic-multi-select"
-      classNamePrefix="select"
+      classNamePrefix="Du pinard Non de Dieu !!!"
       value={selectedOption}
       onChange={this.handleChange}
       />
