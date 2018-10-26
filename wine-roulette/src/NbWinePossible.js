@@ -6,7 +6,7 @@ import "./NbWinePossible.css"
 class NbWinePossible extends Component {
   state = {
     data: null,
-    wineListFiltered: [],
+    wineListFiltered: [''],
     randomImageVigne :0,
 };
 
@@ -42,16 +42,12 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
     })
     let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
-
     this.setState({wineListFiltered: wineListFiltered[random],
-                   randomImageVigne: randomImageVigne})
-    
-    console.log('yyyy',this.state.wineListFiltered) 
+                   randomImageVigne: randomImageVigne})    
   };
 
   render() {
     if (this.state.data === null) return "Wine is coming...";
-
     return (
       <div>
         <p></p>

@@ -56,6 +56,7 @@ class Carte extends Component {
       };
 
     if (this.props.wineListFiltered[0] === '') return (<p>"Wine is coming..."</p>)
+    
     else return (
           <DisplayCarte carteVin={carteVin} />      
     );
