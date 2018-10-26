@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import DisplayCarte from "./DisplayCarte";
-import myWines from "./myWineList.json";
+// import myWines from "./myWineList.json";
 
 class Carte extends Component {
   state = {
     data: null
   };
 
-  componentDidMount() {
-    this.setState({
-      data: myWines
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     data: myWines
+  //   });
+  // }
 
   render() {
+    
+    console.log('wineListFiltered[0]==',this.props.wineListFiltered[0])
+    console.log('wineListFiltered===',this.props.wineListFiltered)
     //MESSAGE DE CHARGEMENT DE PAGE
-    if (this.state.data === null) return "Wine is coming...";
+    // if (this.props.wineListFiltered === []) return "Wine is coming...";
 
     //GÉNÈRE UN INDEX AU HASARD
     let random = Math.floor(Math.random() * Math.floor(20));
@@ -57,7 +60,7 @@ class Carte extends Component {
     };
 
     // FILTRER POUR N'AVOIR QUE DES PACKAGES = BOUTEILLE & CATEGORY = WINE & SERVING SUGGESTION != NULL
-    const selectedBottle = this.state.data.filter(element => {
+    const selectedBottle = this.props.wineListFiltered.filter(element => {
       return (
         element.package_unit_type === "bottle" &&
         element.primary_category === "Wine" &&
@@ -96,14 +99,20 @@ class Carte extends Component {
       };
     }
 
-    return (
+
+    // if (Array.isArray(this.props.wineListFiltered)) return (<p>"Wine is coming..."</p>)
+
+    if (this.props.wineListFiltered[0] === '') return (<p>"Wine is coming..."</p>)
+    else return (
       <div>
         {isWorking ? (
           <DisplayCarte carteVin={carteVin} />
         ) : (
           "Pas de wine, tabarnak ! Relance la roulette hostie d'calice !"
         )}
-      </div>
+
+        </div>
+      
     );
   }
 }

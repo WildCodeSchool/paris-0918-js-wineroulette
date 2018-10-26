@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import myWines from "./myWineList.json";
+import Carte from "./Carte";
 
 class NbWinePossible extends Component {
   state = {
     data: null,
-    wineListFiltered: [],
+    wineListFiltered: [''],
 };
 
   componentDidMount() {
@@ -50,6 +51,7 @@ console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.
                                                 this.props.searchbar)
                         }>wineAffichage</button>
         <p></p>
+        <Carte wineListFiltered={this.state.wineListFiltered} />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Carte from "./Carte";
+// import Carte from "./Carte";
 import NbWinePossible from "./NbWinePossible";
 import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
@@ -59,11 +59,11 @@ class App extends Component {
                       maxprix={this.state.maxprix}
                       searchbar={this.state.searchbar}/>
       <p></p>
-      <Carte color={this.state.color}
+      {/* <Carte color={this.state.color}
              subStyle={this.state.subStyle}
              minprix={this.state.minprix}
              maxprix={this.state.maxprix}
-             searchbar={this.state.searchbar}/>
+             searchbar={this.state.searchbar}/> */}
       <Footer />
 		</div>
     );
