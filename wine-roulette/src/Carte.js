@@ -63,18 +63,17 @@ class Carte extends Component {
 }
 export default Carte;
 
-    
-    // .filter(element => {
-    //   return (
-    //      element.package_unit_type === "bottle" &&
-    //      element.primary_category === "Wine"  
-    //     element.secondary_category === this.props.color 
-    //     (!element.style || element.style.includes(this.props.subStyle)) &&
-    //     element.price_in_cents >= this.props.minprix &&
-    //     element.price_in_cents <= this.props.maxprix
-    //   );
-      
-    // })[random]
-    // console.log(random)
-    // console.log(selectedBottle);
-    // console.log();
+// .filter(element => {
+//   return (
+//      element.package_unit_type === "bottle" &&
+//      element.primary_category === "Wine"
+//     element.secondary_category === this.props.color
+//     (!element.style || element.style.includes(this.props.subStyle)) &&
+//     element.price_in_cents >= this.props.minprix &&
+//     element.price_in_cents <= this.props.maxprix
+//   );
+
+// })[random]
+// console.log(random)
+// console.log(selectedBottle);
+// console.log();
