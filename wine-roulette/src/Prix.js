@@ -19,7 +19,7 @@ PriceSelection = (minprix, maxprix) => {
 render() {
 // balise html le fait : https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range
 // localstorage
-  	return  (
+return  (
 		<div>
 			<p></p>
 			<button onClick={() => this.PriceSelection(2000,50000)}>Plus de 20$</button>

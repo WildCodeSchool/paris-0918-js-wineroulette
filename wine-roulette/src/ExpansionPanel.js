@@ -32,7 +32,7 @@ const styles = theme => ({
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
             <Typography>
-                <Searchbar />
+                <Searchbar liftsearchbar={this.liftsearchbar}/>
             </Typography>
             </ExpansionPanelDetails>
         </ExpansionPanel>

@@ -6,7 +6,6 @@ import Colorbutton from "./Colorbutton"
 import './App.css';
 // import IntegrationReactSelect from "./IntegrationReactSelect"
 import BoutonReset from "./BoutonReset"
-import Searchbar from './Searchbar';
 import Footer from './Footer/Footer'
 import ExpansionPanel from './ExpansionPanel';
 
@@ -47,7 +46,7 @@ class App extends Component {
       <div className="Searchbar">
       {/* <Searchbar liftsearchbar={this.liftsearchbar} /> */}
       <Prix liftPrice={this.liftPrice} />
-      <ExpansionPanel />
+      <ExpansionPanel liftsearchbar={this.liftsearchbar}/>
       </div>
       <p></p>
       {/* BoutonReset crée une alerte en console */}
