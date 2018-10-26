@@ -13,8 +13,8 @@ whiteSubCriterionSelection = subStyle => {
 	this.props.liftsubStyle(subStyle);
 }
 
-  render() {
-  	return  (
+render() {
+	return  (
 			<div>
 				<button onClick={() => this.whiteSubCriterionSelection('Xdry')}>Sec</button>
 				<button onClick={() => this.whiteSubCriterionSelection('Dry')}>Demi-sec</button>
@@ -22,7 +22,7 @@ whiteSubCriterionSelection = subStyle => {
 				{/*<Appelapi whiteSubCriterion={this.state.whiteSubCriterion} />*/}
 			</div>
 	)
-  }
+}
 }
 
 

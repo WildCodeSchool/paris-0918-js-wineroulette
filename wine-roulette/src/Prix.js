@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Whitesubcriterion from "./Whitesubcriterion"
 // import Appelapi from "./AppelAPI"
+import './Prix.css'
 
 class Prix extends Component {
 
@@ -20,7 +21,7 @@ render() {
 // balise html le fait : https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range
 // localstorage
 return  (
-		<div>
+		<div className="LesBoutonsPrix">
 			<p></p>
 			<button onClick={() => this.PriceSelection(2000,50000)}>Plus de 20$</button>
 			<button onClick={() => this.PriceSelection(1000,1999)}>Entre 10 et 20$</button>

@@ -24,7 +24,7 @@ const styles = theme => ({
     const { classes } = props;
     return (
         <div className={classes.root}>
-        <ExpansionPanel>
+        <ExpansionPanel className="test">
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>
                 <BoutonPulse />
@@ -32,7 +32,8 @@ const styles = theme => ({
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
             <Typography>
-                <Searchbar liftsearchbar={this.liftsearchbar}/>
+                <Searchbar />
+                {/* <Searchbar liftsearchbar={this.liftsearchbar}/> */}
             </Typography>
             </ExpansionPanelDetails>
         </ExpansionPanel>

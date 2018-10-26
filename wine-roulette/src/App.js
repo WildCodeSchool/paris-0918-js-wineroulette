@@ -34,13 +34,13 @@ class App extends Component {
   render() {
     return (
 		<div className="App">
-
+      <div>
 			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
+      </div>
 			<h3>Votre bouteille sans prise de tête</h3>
 			
 			
-
-			<p></p>
+    
 			<Colorbutton liftColor={this.liftColor} liftsubStyle={this.liftsubStyle} />
       <p></p>
       <div className="Searchbar">
@@ -49,7 +49,6 @@ class App extends Component {
       <ExpansionPanel liftsearchbar={this.liftsearchbar}/>
       </div>
       <p></p>
-      {/* BoutonReset crée une alerte en console */}
 
       
       <BoutonReset />
@@ -58,7 +57,7 @@ class App extends Component {
           subStyle={this.state.subStyle}
           minprix={this.state.minprix}
           maxprix={this.state.maxprix}/>
-{/* BoutonReset crée une alerte en console */}
+
       <Footer />
 		</div>
     );

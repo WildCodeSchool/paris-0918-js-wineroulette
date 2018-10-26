@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-image: url('background.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat; 
 }
 
 .App-logo {
@@ -41,4 +44,8 @@ h3 {
   to {
     transform: rotate(360deg);
   }
+}
+
+.logoWine {
+  background: url('wine-final.png')
 }

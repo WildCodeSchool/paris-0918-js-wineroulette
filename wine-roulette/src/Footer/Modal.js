@@ -38,7 +38,7 @@ class ScrollDialog extends React.Component {
                 parcourir. En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.
                 Editeur du site</p>
 
-                <p>Wine Roulette</p>
+                <p><b>Wine Roulette</b></p>
                 <p>par Thomas, Elise, Philippe, Donovan, Romain, Ben et Camille</p>
                 <p>Wild Code School</p>
                 <p>75005 Paris</p>
@@ -50,7 +50,7 @@ class ScrollDialog extends React.Component {
                 <p>Wine Roulette est une SAS  au capital de 35000€</p>
                 <p>RCS B 497 553 71 - Siret : 49755371900020 - APE : 6201Z</p>
                 <p>N° déclaration CNIL : 1522193</p>
-                <p>Conditions d'utilisation</p>
+                <p><b>Conditions d'utilisation</b></p>
                 <p>Le site accessible par les url suivants : www.wine-roulette.com est exploité dans 
                 le respect de la législation française. L'utilisation de ce site est régie par les présentes 
                 conditions générales. En utilisant le site, vous reconnaissez avoir pris connaissance de ces 
@@ -59,7 +59,7 @@ class ScrollDialog extends React.Component {
                 Natural-net ne saurait être tenu pour responsable en aucune manière d’une mauvaise utilisation 
                 du service.</p>
                 
-                <p>Limitation de responsabilité</p>
+                <p><b>Limitation de responsabilité</b></p>
                 <p>Les informations contenues sur ce site sont aussi précises que possibles et le site est 
                 périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des
                 lacunes. Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci 
@@ -70,34 +70,34 @@ class ScrollDialog extends React.Component {
                 <p>Tout contenu téléchargé se fait aux risques et périls de l'utilisateur et sous sa seule 
                 responsabilité. En conséquence, Natural-net ne saurait être tenu responsable d'un quelconque 
                 dommage subi par l'ordinateur de l'utilisateur ou d'une quelconque perte de données consécutives 
-                au téléchargement.  </p> 
+                au téléchargement. </p> 
 
                 <p>Les photos sont non contractuelles.</p>
 
                 <p>Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres 
                 ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de Natural-net.</p>
-                <p>Litiges</p>
+                <p><b>Litiges</b></p>
                 <p>Les présentes conditions sont régies par les lois françaises et toute contestation ou litiges qui 
                 pourraient naître de l'interprétation ou de l'exécution de celles-ci seront de la compétence 
                 exclusive des tribunaux dont dépend le siège social de la société Natural-net. La langue de 
                 référence, pour le règlement de contentieux éventuels, est le français.</p>
-                <p>Déclaration à la CNIL</p>
+                <p><b>Déclaration à la CNIL</b></p>
                 <p>Conformément à la loi 78-17 du 6 janvier 1978 (modifiée par la loi 2004-801 du 6 août 2004 
                 relative à la protection des personnes physiques à l'égard des traitements de données à 
                 caractère personnel) relative à l'informatique, aux fichiers et aux libertés, le site a fait 
                 l'objet d'une déclaration auprès de la Commission nationale de l'informatique et des libertés 
                 (www.cnil.fr). </p>
-                <p>Droit d'accès</p>
+                <p><b>Droit d'accès</b></p>
                 <p>En application de cette loi, les internautes disposent d’un droit d’accès, de rectification, 
                 de modification et de suppression concernant les données qui les concernent personnellement. 
                 Ce droit peut être exercé par voie postale auprès de Natural-net 49 Boulevard Antoine Gautier 
                 33000 Bordeaux ou par voie électronique à l’adresse email suivante : contact@natural-net.fr.
                 Les informations personnelles collectées ne sont en aucun cas confiées à des tiers hormis pour 
                 l’éventuelle bonne exécution de la prestation commandée par l’internaute.</p>
-                <p>Confidentialité</p>
+                <p><b>Confidentialité</b></p>
                 <p>Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers 
                 hormis pour la bonne exécution de la prestation.</p>
-                <p>Propriété intellectuelle</p>
+                <p><b>Propriété intellectuelle</b></p>
 
                 <p>Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, 
                 textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la
@@ -129,12 +129,13 @@ class ScrollDialog extends React.Component {
                 nous avons acquis les droits ou dont les droits d'utilisation sont ouverts : Pioneer - 
                 Multi-Purpose HTML 5 / CSS 3 Corporate Template. </p>  
                 
-
+                    <b>
                     <p>Créé le : 25/10/2018</p>
                     <p>Auteur : Nous</p>
                     <p>E-mail de l'auteur : nous@gmail.com</p>
+                    </b>
 
-                <p>Hébergeur</p>
+                <p><b>Hébergeur</b></p>
                 <p>Kiubi</p>
                 <p>Plateforme de gestion et création de sites internet</p>
                 <p>www.kiubi.com</p>
@@ -143,19 +144,19 @@ class ScrollDialog extends React.Component {
                 <p>Ce site est proposé en langages HTML5 et CSS3, pour un meilleur confort d'utilisation et un 
                 graphisme plus agréable, nous vous recommandons de recourir à des navigateurs modernes comme 
                 Safari, Firefox, Chrome,...</p>
-                <p>Informations et exclusion</p>
+                <p><b>Informations et exclusion</b></p>
                 <p>Natural-net met en œuvre tous les moyens dont elle dispose, pour assurer une information 
                 fiable et une mise à jour fiable de ses sites internet. Toutefois, des erreurs ou omissions 
                 peuvent survenir. L'internaute devra donc s'assurer de l'exactitude des informations auprès 
                 de Natural-net, et signaler toutes modifications du site qu'il jugerait utile. Natural-net 
                 n'est en aucun cas responsable de l'utilisation faite de ces informations, et de tout préjudice 
                 direct ou indirect pouvant en découler.</p>
-                <p>Cookies</p>
+                <p><b>Cookies</b></p>
                 <p>Pour des besoins de statistiques et d'affichage, le présent site utilise des cookies. Il s'agit 
                 de petits fichiers textes stockés sur votre disque dur afin d'enregistrer des données techniques 
                 sur votre navigation. Certaines parties de ce site ne peuvent être fonctionnelle sans 
                 l’acceptation de cookies.</p>
-                <p>Liens hypertextes</p>
+                <p><b>Liens hypertextes</b></p>
                 <p>Les sites internet de Natural-net peuvent offrir des liens vers d’autres sites internet 
                 ou d’autres ressources disponibles sur Internet.</p>
 
@@ -175,22 +176,22 @@ class ScrollDialog extends React.Component {
                 direction d’un des sites internet de Natural-net, il lui appartiendra d'adresser un email 
                 accessible sur le site afin de formuler sa demande de mise en place d'un hyperlien. Natural-net 
                 se réserve le droit d’accepter ou de refuser un hyperlien sans avoir à en justifier sa décision.</p>
-                <p>Recherche</p>
+                <p><b>Recherche</b></p>
                 <p>En outre, le renvoi sur un site internet pour compléter une information recherchée ne signifie 
                 en aucune façon que Natural-net reconnaît ou accepte quelque responsabilité quant à la teneur 
                 ou à l'utilisation dudit site.</p>
-                <p>Précautions d'usage</p>
+                <p><b>Précautions d'usage</b></p>
                 <p>Il vous incombe par conséquent de prendre les précautions d'usage nécessaires pour vous assurer 
                 que ce que vous choisissez d'utiliser ne soit pas entaché d'erreurs voire d'éléments de nature 
                 destructrice tels que virus, trojans, etc....</p>
-                <p>Responsabilité</p>
+                <p><b>Responsabilité</b></p>
                 <p>Aucune autre garantie n'est accordée au client, auquel incombe l'obligation de formuler 
                 clairement ses besoins et le devoir de s'informer. Si des informations fournies par Natural-net 
                 apparaissent inexactes, il appartiendra au client de procéder lui-même à toutes vérifications 
                 de la cohérence ou de la vraisemblance des résultats obtenus. Natural-net ne sera en aucune 
                 façon responsable vis à vis des tiers de l'utilisation par le client des informations ou de 
                 leur absence contenues dans ses produits y compris un de ses sites Internet.   </p>
-                <p>Contactez-nous</p>
+                <p><b>Contactez-nous</b></p>
                 <p>Natural-net est à votre disposition pour tous vos commentaires ou suggestions. Vous pouvez 
                 nous écrire en français par courrier électronique à : contact@natural-net.fr.</p>
                 </DialogContentText>
