@@ -3,25 +3,12 @@ import DisplayCarte from "./DisplayCarte";
 // import myWines from "./myWineList.json";
 
 class Carte extends Component {
-  state = {
-    data: null
-  };
-
-  // componentDidMount() {
-  //   this.setState({
-  //     data: myWines
-  //   });
-  // }
+  // state = {
+  //   data: null
+  // };
 
   render() {
-    
-    console.log('wineListFiltered[0]==',this.props.wineListFiltered[0])
-    console.log('wineListFiltered===',this.props.wineListFiltered)
-    //MESSAGE DE CHARGEMENT DE PAGE
-    // if (this.props.wineListFiltered === []) return "Wine is coming...";
-
     //GÉNÈRE UN INDEX AU HASARD
-    let random = Math.floor(Math.random() * Math.floor(this.props.wineListFiltered.length));
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
 
     //ENLEVE LA PARTIE "RÉGION" SI NULL
@@ -34,7 +21,6 @@ class Carte extends Component {
         return null;
       }
     };
-
     //SPLIT LA PARTIE TAGS ET RENVOIE LES TAGS AVEC DES "#"
     const hashtagMyTags = style => {
       if (style) {
@@ -48,7 +34,6 @@ class Carte extends Component {
         return null;
       }
     };
-
     const sansPointVirgule = descriptionDetaillee => {
       if (descriptionDetaillee) {
         return descriptionDetaillee
@@ -58,27 +43,11 @@ class Carte extends Component {
         return [];
       }
     };
-
     // FILTRER POUR N'AVOIR QUE DES PACKAGES = BOUTEILLE & CATEGORY = WINE & SERVING SUGGESTION != NULL
-    const selectedBottle = this.props.wineListFiltered.filter(element => {
-      return (
-         element.package_unit_type === "bottle" &&
-         element.primary_category === "Wine"  
-        // element.secondary_category === this.props.color 
-        // (!element.style || element.style.includes(this.props.subStyle)) &&
-        // element.price_in_cents >= this.props.minprix &&
-        // element.price_in_cents <= this.props.maxprix
-      );
-      
-    })[random]
-    console.log(random)
-    // console.log(selectedBottle);
-    // console.log();
-    let isWorking = false;
+    const selectedBottle = this.props.wineListFiltered
+    // let isWorking = true;
     let carteVin = {};
-    //FICHE IDENTITÉ DE MA CARTE
-    if (selectedBottle) {
-      isWorking = true;
+      
       carteVin = {
         name: selectedBottle.name,
         pays_region: enleverUndefined(selectedBottle.origin) || "Pas d'origine",
@@ -87,17 +56,16 @@ class Carte extends Component {
           : "Année non renseignée", //ne sélectionne que l'année
         imageVignes: `./photos-vigne/${randomImageVigne}.jpg`,
         imageBouteille:
-          selectedBottle.image_thumb_url || "Pas d'image disponible",
-        descriptionCourte:
-          `Serving suggestion: ${selectedBottle.serving_suggestion}` ||
-          "Pas de description",
+          selectedBottle.image_thumb_url ? selectedBottle.image_thumb_url : "http://static.hitek.fr/img/actualite/2016/10/07/w_capture-d-e-cran-2016-10-07-a-09-25-20.png",
+        descriptionCourte: 
+        selectedBottle.serving_suggestion ? `Serving suggestion: ${selectedBottle.serving_suggestion}` : "Pas de suggestion de dégustation bro",
         tags: hashtagMyTags(selectedBottle.style) || "Pas de tags, mamene",
         price: selectedBottle.price_in_cents
           ? `${selectedBottle.price_in_cents /100} $`
           : "Pas de price $$$",
-        descriptionDetaillee: sansPointVirgule(selectedBottle.tasting_note)
+        descriptionDetaillee: sansPointVirgule(selectedBottle.tasting_note) || "Pas de description, va sur Wikipedia calice"
       };
-    }
+    
 
 
     // if (Array.isArray(this.props.wineListFiltered)) return (<p>"Wine is coming..."</p>)
@@ -105,11 +73,11 @@ class Carte extends Component {
     if (this.props.wineListFiltered[0] === '') return (<p>"Wine is coming..."</p>)
     else return (
       <div>
-        {isWorking ? (
+        {/* {isWorking ? ( */}
           <DisplayCarte carteVin={carteVin} />
-        ) : (
-          "Pas de wine, tabarnak ! Relance la roulette hostie d'calice !"
-        )}
+        {/* ) : ( */}
+          {/* "Pas de wine, tabarnak ! Relance la roulette hostie d'calice !" */}
+        {/* )} */}
 
         </div>
       
@@ -118,3 +86,19 @@ class Carte extends Component {
 }
 
 export default Carte;
+
+    
+    // .filter(element => {
+    //   return (
+    //      element.package_unit_type === "bottle" &&
+    //      element.primary_category === "Wine"  
+    //     element.secondary_category === this.props.color 
+    //     (!element.style || element.style.includes(this.props.subStyle)) &&
+    //     element.price_in_cents >= this.props.minprix &&
+    //     element.price_in_cents <= this.props.maxprix
+    //   );
+      
+    // })[random]
+    // console.log(random)
+    // console.log(selectedBottle);
+    // console.log();

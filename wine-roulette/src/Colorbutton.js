@@ -73,10 +73,7 @@ ColorSelection = (color, subCategory) => {
           >
             Pétillant
           </Button>
-			<button onClick={() => this.ColorSelection('Red Wine', 'style')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('White Wine', 'sugar_content')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('Rosé Wine', 'style')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne', 'sugar_content')}>Petillant</button>
+			
 			<p> </p>
 			<Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
 		</div>
@@ -117,10 +114,7 @@ ColorSelection = (color, subCategory) => {
           >
             Pétillant
           </Button>
-			<button onClick={() => this.ColorSelection('Red Wine', 'style')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('White Wine', 'sugar_content')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('Rosé Wine', 'style')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne', 'sugar_content')}>Petillant</button>
+			
 			<p> </p>
 			<Whitesubcriterion  liftsubStyle={this.props.liftsubStyle}/>
 		</div>
@@ -161,10 +155,7 @@ ColorSelection = (color, subCategory) => {
           >
             Pétillant
           </Button>
-			<button onClick={() => this.ColorSelection('Red Wine', 'style')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('White Wine', 'sugar_content')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('Rosé Wine', 'style')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne', 'sugar_content')}>Petillant</button>
+			
 			<p> </p>
 			<Rosesubcriterion liftsubStyle={this.props.liftsubStyle}/>
 		</div>
@@ -207,10 +198,7 @@ ColorSelection = (color, subCategory) => {
           >
             Pétillant
           </Button>
-			<button onClick={() => this.ColorSelection('Red Wine', 'style')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('White Wine', 'sugar_content')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('Rosé Wine', 'style')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne', 'sugar_content')}>Petillant</button>
+			
 			<p> </p>
 			<Champsubcriterion liftsubStyle={this.props.liftsubStyle}/>
 		</div>
@@ -251,10 +239,7 @@ ColorSelection = (color, subCategory) => {
           >
             Pétillant
           </Button>
-			<button onClick={() => this.ColorSelection('red', 'style')}>Rouge</button>
-			<button onClick={() => this.ColorSelection('white', 'sugar_content')}>Blanc</button>
-			<button onClick={() => this.ColorSelection('Rosé Wine', 'style')}>Rosé</button>
-			<button onClick={() => this.ColorSelection('Champagne', 'sugar_content')}>Petillant</button>
+			
 			<p></p>
 		</div>
 		)

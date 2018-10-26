@@ -1,31 +1,81 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //import Appelapi from "./AppelAPI"
 
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#B7143F"
+  },
+  input: {
+    display: "none"
+  }
+});
 
 class Whitesubcriterion extends Component {
-    constructor() {
+  constructor() {
     super();
-    this.state = {whiteSubCriterion: ""}
-}
+    this.state = { whiteSubCriterion: "" };
+  }
 
-whiteSubCriterionSelection = subStyle => {
-	this.setState ({whiteSubCriterion: subStyle});
-	this.props.liftsubStyle(subStyle);
-}
+  whiteSubCriterionSelection = subStyle => {
+    this.setState({ whiteSubCriterion: subStyle });
+    this.props.liftsubStyle(subStyle);
+  };
 
   render() {
-  	return  (
-			<div>
-				<button onClick={() => this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
-				<button onClick={() => this.whiteSubCriterionSelection([null])}>Surprise !</button>
-			</div>
-	)
+    const { classes } = this.props;
+
+    return (
+      <div>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          onClick={() => this.whiteSubCriterionSelection(["XD - Extra Dry"])}
+        >
+          Sec
+        </Button>
+
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          onClick={() =>
+            this.whiteSubCriterionSelection(["D - Dry", "M - Medium"])
+          }
+        >
+          Demi-sec
+        </Button>
+
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          onClick={() => this.whiteSubCriterionSelection(["S - Sweet"])}
+        >
+          Moelleux
+        </Button>
+        
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.button}
+          onClick={() => this.whiteSubCriterionSelection([null])}
+        >
+          Mystère !
+        </Button>
+    
+      </div>
+    );
   }
 }
 
+Whitesubcriterion.propTypes = {
+	classes: PropTypes.object.isRequired
+  };
 
-
-
-export default Whitesubcriterion;
+  export default withStyles(styles)(Whitesubcriterion);
