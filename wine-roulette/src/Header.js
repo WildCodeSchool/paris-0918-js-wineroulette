@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import wine from './wine.png';
+import wine from './wine-final.png';
 import './Header.css'
 
 class Header extends Component {

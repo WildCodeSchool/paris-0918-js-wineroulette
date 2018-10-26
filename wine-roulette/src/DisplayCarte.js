@@ -63,7 +63,7 @@ const styles = theme => ({
   //CSS de mon bouton Acheter
   button: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B22222"
+    backgroundColor: "#b7143f"
   }
   //   input: {
   //     display: "none"

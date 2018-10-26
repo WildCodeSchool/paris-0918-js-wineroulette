@@ -5,3 +5,9 @@
 .MuiButton-fab-18 {
     border-radius: 90% !important;
 }
+
+.buttonReset {
+    position: absolute;
+    left: 20%;
+    background-color: #b7143f !important;
+}
