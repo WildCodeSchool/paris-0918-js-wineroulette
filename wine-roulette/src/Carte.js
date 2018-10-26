@@ -35,31 +35,34 @@ class Carte extends Component {
         return [];
       }
     };
-    const selectedBottle = this.props.wineListFiltered
+    const selectedBottle = this.props.wineListFiltered;
     let carteVin = {};
-      carteVin = {
-        name: selectedBottle.name,
-        pays_region: enleverUndefined(selectedBottle.origin) || "Pas d'origine",
-        annee: selectedBottle.released_on
-          ? selectedBottle.released_on.slice(0, 4)
-          : "Année non renseignée", //ne sélectionne que l'année
-        imageVignes: `./photos-vigne/${this.props.randomImageVigne}.jpg`,
-        imageBouteille:
-          selectedBottle.image_thumb_url ? selectedBottle.image_thumb_url : "http://static.hitek.fr/img/actualite/2016/10/07/w_capture-d-e-cran-2016-10-07-a-09-25-20.png",
-        descriptionCourte: 
-        selectedBottle.serving_suggestion ? `Serving suggestion: ${selectedBottle.serving_suggestion}` : "Pas de suggestion de dégustation bro",
-        tags: hashtagMyTags(selectedBottle.style) || "Pas de tags, mamene",
-        price: selectedBottle.price_in_cents
-          ? `${selectedBottle.price_in_cents /100} $`
-          : "Pas de price $$$",
-        descriptionDetaillee: sansPointVirgule(selectedBottle.tasting_note) || "Pas de description, va sur Wikipedia calice"
-      };
+    carteVin = {
+      name: selectedBottle.name,
+      pays_region: enleverUndefined(selectedBottle.origin) || "Pas d'origine",
+      annee: selectedBottle.released_on
+        ? selectedBottle.released_on.slice(0, 4)
+        : "Année non renseignée", //ne sélectionne que l'année
+      imageVignes: `./photos-vigne/${this.props.randomImageVigne}.jpg`,
+      imageBouteille: selectedBottle.image_thumb_url
+        ? selectedBottle.image_thumb_url
+        : "http://static.hitek.fr/img/actualite/2016/10/07/w_capture-d-e-cran-2016-10-07-a-09-25-20.png",
+      descriptionCourte: selectedBottle.serving_suggestion
+        ? `Serving suggestion: ${selectedBottle.serving_suggestion}`
+        : "Pas de suggestion de dégustation bro",
+      tags: hashtagMyTags(selectedBottle.style) || "Pas de tags, mamene",
+      price: selectedBottle.price_in_cents
+        ? `${selectedBottle.price_in_cents / 100} $`
+        : "Pas de price $$$",
+      descriptionDetaillee:
+        sansPointVirgule(selectedBottle.tasting_note) ||
+        "Pas de description, va sur Wikipedia calice",
+      id: selectedBottle.id
+    };
 
-    if (this.props.wineListFiltered[0] === '') return (<p>"Wine is coming..."</p>)
-    
-    else return (
-          <DisplayCarte carteVin={carteVin} />      
-    );
+    if (this.props.wineListFiltered[0] === "")
+      return <p>"Wine is coming..."</p>;
+    else return <DisplayCarte carteVin={carteVin} />;
   }
 }
 export default Carte;

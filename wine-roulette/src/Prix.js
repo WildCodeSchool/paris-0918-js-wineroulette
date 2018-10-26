@@ -64,15 +64,6 @@ class Prix extends Component {
           variant="contained"
           color="secondary"
           className={classes.button}
-          onClick={() => this.PriceSelection(1000, 1999)}
-        >
-          Entre 10 et 20$
-        </Button>
-
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
           onClick={() => this.PriceSelection(0, 50000)}
         >
           Tous les prix
@@ -83,8 +74,7 @@ class Prix extends Component {
 }
 
 Prix.propTypes = {
-	classes: PropTypes.object.isRequired
-  };
-  
-  export default withStyles(styles)(Prix);
-  
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Prix);
