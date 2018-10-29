@@ -3,9 +3,10 @@ import NbWinePossible from "./component/NbWinePossible";
 import Prix from "./component/Prix"
 import Colorbutton from "./component/Colorbutton"
 import './style/App.css';
-import BoutonReset from "./component/BoutonReset"
-import Footer from './component/Footer/Footer'
+
+import Footer from './component/Footer/Footer';
 import Searchbar from './component/Searchbar';
+import BoutonReset from "./component/BoutonReset";
 
 
 class App extends Component {

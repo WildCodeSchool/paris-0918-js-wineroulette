@@ -1,4 +1,4 @@
-const myWines = require("./myWineList.json")
+const myWines = require("../myWineList.json")
 
 // Fonction qui déboublonne
 const cleanArray = (array) => {

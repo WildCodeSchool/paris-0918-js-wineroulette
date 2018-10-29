@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import './BoutonReset.css'
+import '../style/BoutonReset.css'
 
 const theme = createMuiTheme({
     palette: {

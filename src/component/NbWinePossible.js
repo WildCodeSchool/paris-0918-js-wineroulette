@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import myWines from "./myWineList.json";
+import myWines from "../myWineList.json";
 import Carte from "./Carte";
-import "./NbWinePossible.css"
+import "../style/NbWinePossible.css"
 
 class NbWinePossible extends Component {
   state = {

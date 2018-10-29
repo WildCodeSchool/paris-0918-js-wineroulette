@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url('background.jpg');
+  background-image: url('../media/background.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 160vh;
@@ -46,8 +46,4 @@ h3 {
 }
 .card {
   z-index: 1;
-}
-
-.App-footer {
-
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./DisplayCarte.css";
+import "../style/DisplayCarte.css";
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
