@@ -39,38 +39,42 @@ class App extends Component {
 
   render() {
     return (
-		<div className="App">
-			<img src='http://image.noelshack.com/fichiers/2018/43/5/1540559518-wine-final.png'  alt="logprincipal" className="logoWine" />
-			{/* <h3>Votre bouteille sans prise de tête</h3> */}
-      <BoutonReset />
-      <p></p>
-      <Prix liftPrice={this.liftPrice} />
-			<p></p>
-      <Colorbutton liftColor={this.liftColor} 
-                   liftsubStyle={this.liftsubStyle}
-                   liftsubCategory={this.liftsubCategory} />
-      <p></p>
-      <div className="Searchbar">
-      <Searchbar liftsearchbar={this.liftsearchbar} />
-      {/* <Prix liftPrice={this.liftPrice} /> */}
-      {/* <ExpansionPanel liftsearchbar={this.liftsearchbar}/> */}
-      </div>
-      <NbWinePossible color={this.state.color}
-                      subStyle={this.state.subStyle}
-                      subCategory={this.state.subCategory}
-                      minprix={this.state.minprix}
-                      maxprix={this.state.maxprix}
-                      searchbar={this.state.searchbar}/>
+    <div>
+      <div className="App">
+        <img src='http://image.noelshack.com/fichiers/2018/43/5/1540559518-wine-final.png'  alt="logprincipal" className="logoWine" />
+        {/* <h3>Votre bouteille sans prise de tête</h3> */}
+        <BoutonReset />
+        <p></p>
+        <Prix liftPrice={this.liftPrice} />
+        <p></p>
+        <Colorbutton liftColor={this.liftColor} 
+                    liftsubStyle={this.liftsubStyle}
+                    liftsubCategory={this.liftsubCategory} />
+        <p></p>
+        <div className="Searchbar">
+        <Searchbar liftsearchbar={this.liftsearchbar} />
+        {/* <Prix liftPrice={this.liftPrice} /> */}
+        {/* <ExpansionPanel liftsearchbar={this.liftsearchbar}/> */}
+        </div>
+        <NbWinePossible color={this.state.color}
+                        subStyle={this.state.subStyle}
+                        subCategory={this.state.subCategory}
+                        minprix={this.state.minprix}
+                        maxprix={this.state.maxprix}
+                        searchbar={this.state.searchbar}/>
 
-      {/* <Carte color={this.state.color}
-             subStyle={this.state.subStyle}
-             minprix={this.state.minprix}
-             maxprix={this.state.maxprix}
-             searchbar={this.state.searchbar}/> */}
+        {/* <Carte color={this.state.color}
+              subStyle={this.state.subStyle}
+              minprix={this.state.minprix}
+              maxprix={this.state.maxprix}
+              searchbar={this.state.searchbar}/> */}
+      </div>  
+    
       <div className = "App-footer">
-      <Footer />
+        <Footer />
       </div>
-		</div>
+
+    </div>
     );
   }
 }

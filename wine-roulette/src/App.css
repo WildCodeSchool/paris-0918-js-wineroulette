@@ -3,7 +3,7 @@
   background-image: url('background.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 130vh;
+  height: 160vh;
 }
 /* 
 .App-logo {
@@ -49,5 +49,5 @@ h3 {
 }
 
 .App-footer {
-  
+
 }
