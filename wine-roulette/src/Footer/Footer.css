@@ -7,14 +7,8 @@ a {
     text-align: right;
 }
 
-.AppBar {
-    margin-top: 5%;
-}
-
 .foot {
     background-color: #b7143f !important;
-    
-
 }
 
 .MuiGrid-spacing-xs-24-95 > .MuiGrid-item-72  {
@@ -26,14 +20,11 @@ a {
     color: white !important;
 }
 
-.MuiToolbar-root-102 {
-    margin-top: 22px !important;
-}
 
-.MuiToolbar-regular-104  {
-    margin-top: 22px !important;
-}
 
-.MuiToolbar-gutters-103 {
-    margin-top: 22px !important;
+.Footer-root-65 {
+    position: absolute;
+    bottom: -330px;
+    width: 100%;
+    margin-top: 50px;
 }

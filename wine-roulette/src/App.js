@@ -61,13 +61,15 @@ class App extends Component {
                       minprix={this.state.minprix}
                       maxprix={this.state.maxprix}
                       searchbar={this.state.searchbar}/>
-      <p></p>
+
       {/* <Carte color={this.state.color}
              subStyle={this.state.subStyle}
              minprix={this.state.minprix}
              maxprix={this.state.maxprix}
              searchbar={this.state.searchbar}/> */}
+      <div className = "App-footer">
       <Footer />
+      </div>
 		</div>
     );
   }
