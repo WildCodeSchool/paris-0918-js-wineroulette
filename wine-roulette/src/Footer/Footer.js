@@ -14,6 +14,7 @@ import Modal from './Modal'
 const styles = {
   root: {
     flexGrow: 1,
+    marginTop: 22,
   },
 };
 

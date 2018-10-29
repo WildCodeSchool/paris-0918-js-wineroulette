@@ -24,6 +24,7 @@ import Grid from "@material-ui/core/Grid";
 //import Paper from '@material-ui/core/Paper';
 
 //CSS de ma carte
+
 const styles = theme => ({
   //   card: {
   //     maxWidth: "500px"
@@ -79,7 +80,7 @@ class DisplayCarte extends Component {
 
   render() {
     const { classes } = this.props;
-    
+
     // const maj2 = () => {
     //   let table = []
     //   for (let i = 0; i < sansPointVirgule.length; i++) {
@@ -88,7 +89,6 @@ class DisplayCarte extends Component {
     //   return table
     // }
     // console.log(maj2())
-
 
     return (
       <div className="card">
@@ -179,11 +179,16 @@ class DisplayCarte extends Component {
                   {/* BOUTON ACHETER */}
                   <Grid className="acheterButton" item xs={2}>
                     <Button
+                      key={this.props.carteVin.id}
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                    >
-                      Acheter
+                      href={
+                          "http://www.lcbo.com/lcbo/cherche?searchTerm=" +
+                          this.props.carteVin.id
+                        }
+                      >
+                        Acheter
                     </Button>
                   </Grid>
                 </Grid>
@@ -192,7 +197,9 @@ class DisplayCarte extends Component {
               <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                   <Typography paragraph>
-                    {this.props.carteVin.descriptionDetaillee.map(e => <p>{e}</p>)}
+                    {this.props.carteVin.descriptionDetaillee.map(e => (
+                      <p>{e}</p>
+                    ))}
                   </Typography>
                 </CardContent>
               </Collapse>

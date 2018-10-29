@@ -13,7 +13,7 @@ const theme = createMuiTheme({
   }});
 
 function BoutonPulse(props) {
-  const { classes } = props;
+
   return (
     <div className="BoutonPulse">
     <MuiThemeProvider theme={theme}>
