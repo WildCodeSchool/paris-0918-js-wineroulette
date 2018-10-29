@@ -1,0 +1,13 @@
+.ExpansionPanel {
+    position: relative !important;
+    text-align: center !important;
+
+}
+
+.MuiTypography-body1-51 {
+    width: 100% !important;
+}
+
+.MuiExpansionPanel-expanded-4:last-child {
+    position : center !important;
+}
