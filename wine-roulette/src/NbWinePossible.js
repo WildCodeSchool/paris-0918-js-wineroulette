@@ -22,21 +22,35 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
         if ((subStyle === '') && (searchbar === ''))
             return (
                 item.name !== null &&
+                item.subStyle !== null &&
                 item.package_unit_type === "bottle" &&
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix
             )
-        else if ((subStyle !== "")  && (subStyle !== null) && (searchbar === ''))
+        else if ((subStyle !== "")  && (searchbar === ''))
             return ( 
                 item.name !== null &&
+                item.subStyle !== null &&
                 item.package_unit_type === "bottle" &&
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
                 (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1])
+            )
+          else if ((subStyle === "")  && (searchbar !== ''))
+            return ( 
+                item.varietal !== null &&
+                item.name !== null &&
+                item.subStyle !== null &&
+                item.package_unit_type === "bottle" &&
+                item.primary_category === "Wine" &&
+                item.secondary_category === `${color}` &&
+                item.price_in_cents >= minprix &&
+                item.price_in_cents <= maxprix &&
+                item.varietal === 'Chianti'
             )
         else return false
     })

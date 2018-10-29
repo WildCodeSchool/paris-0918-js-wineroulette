@@ -36,7 +36,11 @@ class Carte extends Component {
       }
     };
     const selectedBottle = this.props.wineListFiltered;
+
+    console.log('varietal=',selectedBottle.varietal)
+
     let carteVin = {};
+
     carteVin = {
       name: selectedBottle.name,
       pays_region: enleverUndefined(selectedBottle.origin) || "Pas d'origine",
