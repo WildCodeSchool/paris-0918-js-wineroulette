@@ -5,8 +5,9 @@ import Prix from "./Prix"
 import Colorbutton from "./Colorbutton"
 import './App.css';
 import BoutonReset from "./BoutonReset"
-import Searchbar from './Searchbar';
 import Footer from './Footer/Footer'
+// import ExpansionPanel from './ExpansionPanel';
+import Searchbar from './Searchbar';
 
 
 class App extends Component {
@@ -39,9 +40,8 @@ class App extends Component {
   render() {
     return (
 		<div className="App">
-
-			<img src='http://image.noelshack.com/fichiers/2018/41/5/1539339298-wine.jpg'  alt="logprincipal" className="logoWine" />
-			<h3>Votre bouteille sans prise de tête</h3>
+			<img src='http://image.noelshack.com/fichiers/2018/43/5/1540559518-wine-final.png'  alt="logprincipal" className="logoWine" />
+			{/* <h3>Votre bouteille sans prise de tête</h3> */}
       <BoutonReset />
       <p></p>
       <Prix liftPrice={this.liftPrice} />
@@ -52,6 +52,8 @@ class App extends Component {
       <p></p>
       <div className="Searchbar">
       <Searchbar liftsearchbar={this.liftsearchbar} />
+      {/* <Prix liftPrice={this.liftPrice} /> */}
+      {/* <ExpansionPanel liftsearchbar={this.liftsearchbar}/> */}
       </div>
       <NbWinePossible color={this.state.color}
                       subStyle={this.state.subStyle}

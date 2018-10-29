@@ -5,26 +5,26 @@ import './BoutonReset.css'
 
 const theme = createMuiTheme({
     palette: {
-      primary: {
-          main: '#2d3436'
-      }
+        primary: {
+            main: '#2d3436'
+        }
     }});
 
 const BoutonReset = () => {
     return(
         <div className="BoutonReset">
         <MuiThemeProvider theme={theme}>
-          <Button 
+            <Button 
             variant="fab" 
             mini 
-            color="primary" a
-            ria-label="Add" 
-            className="button"
+            color="primary" 
+            aria-label="Add" 
+            className="buttonReset"
             >
             <i className="material-icons">
                 360
             </i>
-          </Button>
+            </Button>
         </MuiThemeProvider>  
         </div>
     );

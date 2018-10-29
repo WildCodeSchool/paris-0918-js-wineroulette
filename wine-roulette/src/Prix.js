@@ -1,4 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+// import Whitesubcriterion from "./Whitesubcriterion"
+// import Appelapi from "./AppelAPI"
+import './Prix.css'
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";

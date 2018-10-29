@@ -13,12 +13,27 @@ a {
 
 .foot {
     background-color: #b7143f !important;
+    
+
 }
 
 .MuiGrid-spacing-xs-24-95 > .MuiGrid-item-72  {
     padding: 0 !important;
+   
 }
 
 .MuiButton-root-204 {
     color: white !important;
+}
+
+.MuiToolbar-root-102 {
+    margin-top: 22px !important;
+}
+
+.MuiToolbar-regular-104  {
+    margin-top: 22px !important;
+}
+
+.MuiToolbar-gutters-103 {
+    margin-top: 22px !important;
 }
