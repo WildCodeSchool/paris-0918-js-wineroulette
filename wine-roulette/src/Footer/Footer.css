@@ -20,11 +20,8 @@ a {
     color: white !important;
 }
 
-
-
 .Footer-root-65 {
     position: absolute;
-    bottom: -330px;
+    bottom: auto;
     width: 100%;
-    margin-top: 50px;
 }
