@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-// import Carte from "./Carte";
-import NbWinePossible from "./NbWinePossible";
-import Prix from "./Prix"
-import Colorbutton from "./Colorbutton"
-import './App.css';
-import BoutonReset from "./BoutonReset"
-import Footer from './Footer/Footer'
-// import ExpansionPanel from './ExpansionPanel';
-import Searchbar from './Searchbar';
+import NbWinePossible from "./component/NbWinePossible";
+import Prix from "./component/Prix"
+import Colorbutton from "./component/Colorbutton"
+import './style/App.css';
+import BoutonReset from "./component/BoutonReset"
+import Footer from './component/Footer/Footer'
+import Searchbar from './component/Searchbar';
 
 
 class App extends Component {
