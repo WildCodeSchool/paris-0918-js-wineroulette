@@ -81,6 +81,8 @@ class DisplayCarte extends Component {
   render() {
     const { classes } = this.props;
 
+    console.log(this.props.carteVin.id)
+
     // const maj2 = () => {
     //   let table = []
     //   for (let i = 0; i < sansPointVirgule.length; i++) {
@@ -179,19 +181,11 @@ class DisplayCarte extends Component {
                   {/* BOUTON ACHETER */}
                   <Grid className="acheterButton" item xs={2}>
                     <Button
+                      key={this.props.carteVin.id}
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                    >
-                      <a
-                        href={
-                          "http://www.lcbo.com/lcbo/cherche?searchTerm=" +
-                          this.props.carteVin.id
-                        }
-                      >
-                        {" "}
-                        Acheter
-                      </a>
+                      href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${this.props.carteVin.id}`}>Acheter
                     </Button>
                   </Grid>
                 </Grid>
