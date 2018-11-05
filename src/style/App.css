@@ -4,6 +4,7 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 160vh;
+  font-family: 'Montserrat', sans-serif !important;
 }
 /* 
 .App-logo {
@@ -46,4 +47,10 @@ h3 {
 }
 .card {
   z-index: 1;
+}
+
+/* Font boutons */
+
+.MuiButton-root-32 {
+  font-family: 'Montserrat', sans-serif !important;
 }

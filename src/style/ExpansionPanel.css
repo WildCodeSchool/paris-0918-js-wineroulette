@@ -1,4 +1,4 @@
-.MuiExpansionPanelDetails-root-134 {
+.MuiExpansionPanelDetails-root-195 {
     left: 20% !important;
     position: relative !important;
     display: block !important;
@@ -10,11 +10,11 @@
     left: 25%;
 }
 
-.MuiSvgIcon-root-121 {
+.MuiSvgIcon-root-182 {
     display: none !important;
 }
 
-.MuiPaper-elevation1-9 {
+.MuiPaper-elevation1-73 {
     box-shadow: 0px 0px 0px !important; 
 }
 
@@ -24,6 +24,12 @@
 
 .test {
     background: transparent !important;
+}
+
+.SimpleExpansionPanel-heading-66 {
+    position: absolute;
+    left: 67%;
+    top: 20%;
 }
 
 
