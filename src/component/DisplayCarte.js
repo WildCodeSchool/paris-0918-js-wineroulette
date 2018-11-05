@@ -78,8 +78,7 @@ class DisplayCarte extends Component {
   render() {
     const { classes } = this.props;
     let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2';
-
-    return (
+  return (
       <div className={turningClassTreaks}>
         <h2 className="resultatSelection">Voici votre sélection</h2>
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}

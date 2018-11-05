@@ -37,7 +37,10 @@ class Carte extends Component {
     };
     const selectedBottle = this.props.wineListFiltered;
     let carteVin = {};
+    
 
+    if (selectedBottle !== undefined) {
+      // if (false) {
     carteVin = {
       name: selectedBottle.name,
       pays_region: enleverUndefined(selectedBottle.origin) || "Pas d'origine",
@@ -60,14 +63,14 @@ class Carte extends Component {
         "Pas de description, va sur Wikipedia calice",
       id: selectedBottle.id
     };
-
-    if (this.props.wineListFiltered[0] === "")
-      return <p>"Wine is coming... mémé"</p>;
-    else return <DisplayCarte 
+    return < DisplayCarte 
                         turning={this.props.turning}
                         carteVin={carteVin} />;
-  }
-}
+    
+  } 
+
+  else return <div>Pas de Pinard BB, pas de bol...</div>
+}}
 export default Carte;
 
 

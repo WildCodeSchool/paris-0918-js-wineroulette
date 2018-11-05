@@ -18,16 +18,17 @@ const styles = theme => ({
 class Rosesubcriterion extends Component {
   constructor() {
     super();
-    this.state = { roseSubCriterion: "" };
+    this.state = { roseSubCriterion: ""};
   }
 
   roseSubCriterionSelection = subStyle => {
-    this.setState({ roseSubCriterion: subStyle });
+    this.setState({ roseSubCriterion: subStyle});
     this.props.liftsubStyle(subStyle);
   };
 
   render() {
     const { classes } = this.props;
+    console.log(this.state.roseSubCriterion)
     return (
       <div>
         <Button
