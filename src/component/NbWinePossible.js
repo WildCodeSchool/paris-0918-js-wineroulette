@@ -62,10 +62,30 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
     this.setState({wineListFiltered: wineListFiltered[random],
                    randomImageVigne: randomImageVigne,
                    turning: !this.state.turning}) // So value true or false on click of "roulette" button  
+    const handleCancelReset = () => {this.props.cancelReset()}
+    handleCancelReset()
   };
 
-  render() {
-    const turning = this.state.turning
+  
+
+render() {
+    const turning = this.state.turning // So value true or false on click of "roulette" button   
+
+    if (this.props.reset === true) {
+      return (
+        <div>
+        <p></p>
+        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(this.props.color, 
+                                                this.props.subStyle,
+                                                this.props.subCategory, 
+                                                this.props.minprix, 
+                                                this.props.maxprix, 
+                                                this.props.searchbar)
+                        }>Roulette</button>
+                        </div>
+      )
+    } else if (this.state.data === null) return "Wine is coming...";
+
     return (
       <div>
         <p></p>
