@@ -17,8 +17,11 @@ class NbWinePossible extends Component {
   }
 
 TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
-console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
-      
+// console.log('==',this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
+console.log('searchbar=',searchbar)
+console.log('searchbar[0].value=',searchbar[0].value)
+// console.log('searchbar[1].value=',searchbar[1].value)
+
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
@@ -39,7 +42,7 @@ console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
-                (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1])
+                (item[`${subCategory}`] === subStyle[0] || item[`${subCategory}`] === subStyle[1])
             )
           else if ((subStyle === "")  && (searchbar !== ''))
             return ( 
@@ -50,9 +53,13 @@ console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.
                 item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
-                item.price_in_cents <= maxprix &&
+                item.price_in_cents <= maxprix 
+                &&
                 // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                item.varietal === 'Chianti' // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                (item.varietal.includes(searchbar[0].value) 
+                // || item.varietal.includes(searchbar[1].value)
+                )
+                // item.varietal === `${searchbar}` 
                 // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
                 )
 
@@ -68,7 +75,7 @@ console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.
                 item.price_in_cents <= maxprix &&
                 (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1]) &&
                 // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                item.varietal === 'Chianti' // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                (item.varietal === searchbar[0].value || item.varietal === searchbar[1].value) // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
                 // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
                 )
         else return false
@@ -90,7 +97,9 @@ render() {
       return (
         <div>
         <p></p>
-        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(this.props.color, 
+        <button className="roulette" id="roulette" onClick={() => 
+                                            this.TotalFilter2(
+                                                this.props.color, 
                                                 this.props.subStyle,
                                                 this.props.subCategory, 
                                                 this.props.minprix, 
