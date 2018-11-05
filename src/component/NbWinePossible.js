@@ -66,13 +66,9 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
     handleCancelReset()
   };
 
-  
 
 render() {
     const turning = this.state.turning // So value true or false on click of "roulette" button   
-
-
-  render() {
 
     if (this.props.reset === true) {
       return (
