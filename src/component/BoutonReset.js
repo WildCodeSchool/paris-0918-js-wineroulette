@@ -10,7 +10,13 @@ const theme = createMuiTheme({
         }
     }});
 
-const BoutonReset = () => {
+class BoutonReset extends React.Component {
+
+
+    handleReset = () => {
+        this.props.liftReset()
+    }
+    render() {
     return(
         <div className="BoutonReset">
         <MuiThemeProvider theme={theme}>
@@ -20,6 +26,7 @@ const BoutonReset = () => {
             color="primary" 
             aria-label="Add" 
             className="buttonReset"
+            onClick={() => this.handleReset()}
             >
             <i className="material-icons">
                 360
@@ -29,6 +36,6 @@ const BoutonReset = () => {
         </div>
     );
 
-
+    }
 }
 export default BoutonReset;
