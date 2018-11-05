@@ -58,10 +58,30 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
     this.setState({wineListFiltered: wineListFiltered[random],
                    randomImageVigne: randomImageVigne})    
+  
+
+  const handleCancelReset = () => {
+    this.props.cancelReset()
+  }
+  handleCancelReset()
   };
 
   render() {
-    if (this.state.data === null) return "Wine is coming...";
+
+    if (this.props.reset === true) {
+      return (
+        <div>
+        <p></p>
+        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(this.props.color, 
+                                                this.props.subStyle,
+                                                this.props.subCategory, 
+                                                this.props.minprix, 
+                                                this.props.maxprix, 
+                                                this.props.searchbar)
+                        }>Roulette</button>
+                        </div>
+      )
+    } else if (this.state.data === null) return "Wine is coming...";
     return (
       <div>
         <p></p>
