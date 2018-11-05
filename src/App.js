@@ -34,7 +34,7 @@ class App extends Component {
   liftsubCategory = subCategory => {
     this.setState({subCategory: subCategory});
   }
-
+ 
 
   render() {
     return (
