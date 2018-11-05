@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+  background-image: url('../media/background.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 160vh;
+}
+/* 
+.App-logo {
+  animation: App-logo-spin infinite 0.8s linear;
+} */
+
+/* img.logoWine {
+  width: 300px;
+} */
+
+h3 {
+  margin-bottom: 40px;
+  margin-top: -100px;
+}
+
+.App-header {
+  position: fixed;
+  min-height: 20vh;
+
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.Searchbar {
+  max-width: 500px;
+  margin: auto;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.card {
+  z-index: 1;
+}

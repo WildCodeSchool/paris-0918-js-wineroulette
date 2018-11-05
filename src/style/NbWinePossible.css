@@ -1,0 +1,9 @@
+.roulette {
+	width:85px;
+	height:85px;
+	background:#cc0000;
+	font:bold 13px Arial;
+	border-radius:50%;
+	border:none;
+	color:#fff;
+}

@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.rights {
+    text-align: right;
+}
+
+.foot {
+    background-color: #b7143f !important;
+}
+
+.MuiGrid-spacing-xs-24-95 > .MuiGrid-item-72  {
+    padding: 0 !important;
+   
+}
+
+.MuiButton-root-204 {
+    color: white !important;
+}
+
+.Footer-root-65 {
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+}

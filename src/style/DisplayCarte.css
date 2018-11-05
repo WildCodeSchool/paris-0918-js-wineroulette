@@ -1,0 +1,26 @@
+.resultatSelection{
+    text-align: center;
+}
+
+.nameOrigin{
+    margin-left:5%;
+}
+
+.photoVignes{
+    border: 1px solid white;
+    padding-left: 5%;
+}
+
+.photoBouteille{
+    border: 1px solid white;
+    margin-top: 25%;
+} 
+
+.price{
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.moreInfo{
+    border: 2px solid white;
+}
