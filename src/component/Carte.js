@@ -36,9 +36,6 @@ class Carte extends Component {
       }
     };
     const selectedBottle = this.props.wineListFiltered;
-
-    console.log('varietal=',selectedBottle.varietal)
-
     let carteVin = {};
 
     carteVin = {
@@ -65,11 +62,15 @@ class Carte extends Component {
     };
 
     if (this.props.wineListFiltered[0] === "")
-      return <p>"Wine is coming..."</p>;
-    else return <DisplayCarte carteVin={carteVin} />;
+      return <p>"Wine is coming... mémé"</p>;
+    else return <DisplayCarte turning={this.props.turning} carteVin={carteVin} />;
   }
 }
 export default Carte;
+
+
+
+
 
 // .filter(element => {
 //   return (

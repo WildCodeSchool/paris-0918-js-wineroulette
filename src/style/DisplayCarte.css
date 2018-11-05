@@ -1,6 +1,4 @@
-.resultatSelection{
-    text-align: center;
-}
+
 
 .nameOrigin{
     margin-left:5%;
@@ -24,3 +22,44 @@
 .moreInfo{
     border: 2px solid white;
 }
+
+
+.yooo3 {
+	animation: turning-spin 1s linear;
+  }
+
+  @keyframes turning-spin {
+	  0% {
+		transform: rotate(0deg);
+	  }
+	  50% {
+        transform: rotate(700deg);
+        padding: 15%;
+	  }
+	  100% {
+		  transform: rotate(0deg);
+		}
+    }
+
+.yoo {
+    animation: yoo-spin 1s linear;
+}
+
+@keyframes yoo-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(700deg);
+      padding: 15%;
+    }
+    100% {
+        transform: rotate(0deg);
+      }
+  }
+    
+
+
+
+
+
