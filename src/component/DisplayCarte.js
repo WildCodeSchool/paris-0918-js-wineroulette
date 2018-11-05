@@ -77,7 +77,7 @@ class DisplayCarte extends Component {
 
   render() {
     const { classes } = this.props;
-    let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2'
+    let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2';
 
     return (
       <div className={turningClassTreaks}>

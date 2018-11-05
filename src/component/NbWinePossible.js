@@ -65,7 +65,7 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
   };
 
   render() {
-    const turning = this.state.turning // So value true or false on click of "roulette" button
+    const turning = this.state.turning
     return (
       <div>
         <p></p>
