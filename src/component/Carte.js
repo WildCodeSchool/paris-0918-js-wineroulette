@@ -63,7 +63,9 @@ class Carte extends Component {
 
     if (this.props.wineListFiltered[0] === "")
       return <p>"Wine is coming... mémé"</p>;
-    else return <DisplayCarte turning={this.props.turning} carteVin={carteVin} />;
+    else return <DisplayCarte 
+                        turning={this.props.turning}
+                        carteVin={carteVin} />;
   }
 }
 export default Carte;

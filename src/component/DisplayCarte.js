@@ -68,8 +68,7 @@ const styles = theme => ({
 });
 
 class DisplayCarte extends Component {
-  state = { expanded: false, 
-            turning: 'card'};
+  state = { expanded: false };
 
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
@@ -78,14 +77,10 @@ class DisplayCarte extends Component {
 
   render() {
     const { classes } = this.props;
-    let yo = this.props.turning ? 'yoo' : 'yooo3'
-    console.log(yo)
+    let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2'
 
     return (
-      <div 
-      className={yo}
-      // className="yooo3"
-      >
+      <div className={turningClassTreaks}>
         <h2 className="resultatSelection">Voici votre sélection</h2>
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
         <Grid container direction="row" justify="center" alignItems="center">

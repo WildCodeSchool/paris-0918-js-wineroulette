@@ -51,20 +51,21 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
-                item.varietal === 'Chianti'
-            )
+                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                item.varietal === 'Chianti' // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                )
         else return false
     })
     let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
     this.setState({wineListFiltered: wineListFiltered[random],
                    randomImageVigne: randomImageVigne,
-                   turning: !this.state.turning})    
+                   turning: !this.state.turning}) // So value true or false on click of "roulette" button  
   };
 
   render() {
-    const turning = this.state.turning
-    // console.log(turning)
+    const turning = this.state.turning // So value true or false on click of "roulette" button
     return (
       <div>
         <p></p>
@@ -77,7 +78,7 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                                                 this.props.searchbar)
                         }>Roulette</button>
         <p></p>
-        <Carte turning={turning}
+        <Carte turning={turning} // So value true or false on click of "roulette" button
                wineListFiltered={this.state.wineListFiltered}
                randomImageVigne={this.state.randomImageVigne} />
       </div>
