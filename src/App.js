@@ -5,8 +5,9 @@ import Colorbutton from "./component/Colorbutton"
 import './style/App.css';
 
 import Footer from './component/Footer/Footer';
-import Searchbar from './component/Searchbar';
+// import Searchbar from './component/Searchbar';
 import BoutonReset from "./component/BoutonReset";
+import ExpansionPanel from './component/ExpansionPanel';
 
 
 class App extends Component {
@@ -16,7 +17,8 @@ class App extends Component {
     subCategory: "style",
     minprix: 0,
     maxprix: 10000,
-    searchbar: ""
+    searchbar: "",
+    reset: true
   };
 
   liftColor = color => {
@@ -34,6 +36,22 @@ class App extends Component {
   liftsubCategory = subCategory => {
     this.setState({subCategory: subCategory});
   }
+  liftReset = () => {
+    this.setState({
+      color: "Red Wine",
+      subStyle: "",
+      subCategory: "style",
+      minprix: 0,
+      maxprix: 10000,
+      searchbar: "",
+      reset: true
+    })
+  }
+  liftCancelReset = () => {
+    this.setState({
+      reset: false
+    })
+  }
 
 
   render() {
@@ -42,7 +60,7 @@ class App extends Component {
       <div className="App">
         <img src='http://image.noelshack.com/fichiers/2018/43/5/1540559518-wine-final.png'  alt="logprincipal" className="logoWine" />
         {/* <h3>Votre bouteille sans prise de tête</h3> */}
-        <BoutonReset />
+        <BoutonReset liftReset={this.liftReset} />
         <p></p>
         <Prix liftPrice={this.liftPrice} />
         <p></p>
@@ -51,7 +69,8 @@ class App extends Component {
                     liftsubCategory={this.liftsubCategory} />
         <p></p>
         <div className="Searchbar">
-        <Searchbar liftsearchbar={this.liftsearchbar} />
+        <ExpansionPanel liftsearchbar={this.liftsearchbar}/>
+        {/* <Searchbar liftsearchbar={this.liftsearchbar} /> */}
         {/* <Prix liftPrice={this.liftPrice} /> */}
         {/* <ExpansionPanel liftsearchbar={this.liftsearchbar}/> */}
         </div>
@@ -60,7 +79,9 @@ class App extends Component {
                         subCategory={this.state.subCategory}
                         minprix={this.state.minprix}
                         maxprix={this.state.maxprix}
-                        searchbar={this.state.searchbar}/>
+                        searchbar={this.state.searchbar}
+                        reset={this.state.reset}
+                        cancelReset={this.liftCancelReset}/>
 
         {/* <Carte color={this.state.color}
               subStyle={this.state.subStyle}
