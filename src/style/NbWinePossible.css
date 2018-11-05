@@ -7,3 +7,23 @@
 	border:none;
 	color:#fff;
 }
+
+
+
+
+/* .card{
+    text-align: center;
+    animation: turning-spin 1s linear;
+}
+
+@keyframes turning-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+      }
+  } */
