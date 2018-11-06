@@ -10,7 +10,7 @@ const theme = createMuiTheme({
     primary: {
         main: '#b71540'
     }
-  }});
+  }}); 
 
 function BoutonPulse(props) {
 

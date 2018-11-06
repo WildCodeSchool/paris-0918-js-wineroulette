@@ -1,15 +1,21 @@
 import React, { Component } from "react";
-//import Appelapi from "./AppelAPI"
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
+  buttonSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#483D8B",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
+  },
+
+  buttonNotSelected: {
     margin: theme.spacing.unit,
     backgroundColor: "#B7143F"
   },
+
   input: {
     display: "none"
   }
@@ -18,7 +24,7 @@ const styles = theme => ({
 class Whitesubcriterion extends Component {
   constructor() {
     super();
-    this.state = { whiteSubCriterion: "" };
+    this.state = { whiteSubCriterion: "vin" };
   }
 
   whiteSubCriterionSelection = subStyle => {
@@ -34,39 +40,55 @@ class Whitesubcriterion extends Component {
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.whiteSubCriterion == "XD - Extra Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.whiteSubCriterionSelection(["XD - Extra Dry"])}
         >
-          Sec
+          Extra-Dry
         </Button>
 
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.whiteSubCriterion[0] == "D - Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() =>
             this.whiteSubCriterionSelection(["D - Dry", "M - Medium"])
           }
         >
-          Demi-sec
+          Dry
         </Button>
 
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.whiteSubCriterion == "S - Sweet"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.whiteSubCriterionSelection(["S - Sweet"])}
         >
-          Moelleux
+          Sweet
         </Button>
         
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.whiteSubCriterion == ""
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.whiteSubCriterionSelection([null])}
         >
-          Mystère !
+          Surprise !
         </Button>
     
       </div>

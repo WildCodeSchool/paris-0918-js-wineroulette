@@ -9,16 +9,17 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
+  buttonSelected: {
     margin: theme.spacing.unit,
-	backgroundColor: "#B7143F",
-	'&:active': {
-		boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
-	  },
-    "&:focus": {
-      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
-    }
+    backgroundColor: "#483D8B",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
   },
+
+  buttonNotSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#B7143F"
+  },
+
   input: {
     display: "none"
   }
@@ -41,213 +42,85 @@ class Colorbutton extends Component {
     this.props.liftsubCategory(subCategory);
   };
 
+
+
+
   render() {
-    // ESSAYER DE METTRE DE NE PAS SE REPÉTER
+
     const { classes } = this.props;
-    if (this.state.color === "Red Wine")
-      return (
-        <div>
-          <p />
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Red Wine", "style")}
-          >
-            Rouge
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("White Wine", "sugar_content")}
-          >
-            Blanc
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Rosé Wine", "style")}
-          >
-            Rosé
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Champagne", "sugar_content")}
-          >
-            Pétillant
-          </Button>
 
-          <p> </p>
-          <Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
-        </div>
-      );
-    else if (this.state.color === "White Wine")
-      return (
-        <div>
-          <p />
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Red Wine", "style")}
-          >
-            Rouge
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("White Wine", "sugar_content")}
-          >
-            Blanc
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Rosé Wine", "style")}
-          >
-            Rosé
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Champagne", "sugar_content")}
-          >
-            Pétillant
-          </Button>
+    if(true)
+    return(
+    <div>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={
+          this.state.color === "Red Wine"
+            ? classes.buttonSelected
+            : classes.buttonNotSelected
+        }
+        onClick={() => this.ColorSelection("Red Wine", "style")}
+      >
+        Red
+      </Button>
 
-          <p> </p>
-          <Whitesubcriterion liftsubStyle={this.props.liftsubStyle} />
-        </div>
-      );
-    else if (this.state.color === "Rosé Wine")
-      return (
-        <div>
-          <p />
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Red Wine", "style")}
-          >
-            Rouge
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("White Wine", "sugar_content")}
-          >
-            Blanc
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Rosé Wine", "style")}
-          >
-            Rosé
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Champagne", "sugar_content")}
-          >
-            Pétillant
-          </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={
+          this.state.color === "White Wine"
+            ? classes.buttonSelected
+            : classes.buttonNotSelected
+        }
+        onClick={() => this.ColorSelection("White Wine", "sugar_content")}
+      >
+        White
+      </Button>
 
-          <p> </p>
-          <Rosesubcriterion liftsubStyle={this.props.liftsubStyle} />
-        </div>
-      );
-    else if (this.state.color === "Champagne")
-      return (
-        <div>
-          <p />
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Red Wine", "style")}
-          >
-            Rouge
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("White Wine", "sugar_content")}
-          >
-            Blanc
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Rosé Wine", "style")}
-          >
-            Rosé
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Champagne", "sugar_content")}
-          >
-            Pétillant
-          </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={
+          this.state.color === "Rosé Wine"
+            ? classes.buttonSelected
+            : classes.buttonNotSelected
+        }
+        onClick={() => this.ColorSelection("Rosé Wine", "style")}
+      >
+        Rosé
+      </Button>
 
-          <p> </p>
-          <Champsubcriterion liftsubStyle={this.props.liftsubStyle} />
-        </div>
-      );
-    else
-      return (
-        <div>
-          <p />
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Red Wine", "style")}
-          >
-            Rouge
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("White Wine", "sugar_content")}
-          >
-            Blanc
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Rosé Wine", "style")}
-          >
-            Rosé
-          </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            onClick={() => this.ColorSelection("Champagne", "sugar_content")}
-          >
-            Pétillant
-          </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={
+          this.state.color === "Champagne"
+            ? classes.buttonSelected
+            : classes.buttonNotSelected
+        }
+        onClick={() => this.ColorSelection("Champagne", "sugar_content")}
+      >
+        Sparkling
+      </Button>
+      
+      
+      {/* <{this.state.color === "Champagne"
+            ? Whitesubcriterion
+            : Redsubcriterion} liftsubStyle={this.props.liftsubStyle} /> */}
 
-          <p />
-        </div>
-      );
+            
+      {this.state.color==="Red Wine" &&  <Redsubcriterion liftsubStyle={this.props.liftsubStyle} />}
+      {this.state.color==="White Wine" &&  <Whitesubcriterion liftsubStyle={this.props.liftsubStyle} />}
+      {this.state.color==="Rosé Wine" &&  <Rosesubcriterion liftsubStyle={this.props.liftsubStyle} />}
+      {this.state.color==="Champagne" &&  <Champsubcriterion liftsubStyle={this.props.liftsubStyle} />}
+
+      </div>
+    )
+
+      {/* {this.state.color} === "Red Wine" ? return <Redsubcriterion liftsubStyle={this.props.liftsubStyle} /> : ""
+       */}
+
   }
 }
 

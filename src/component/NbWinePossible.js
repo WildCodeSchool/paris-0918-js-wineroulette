@@ -18,7 +18,6 @@ class NbWinePossible extends Component {
 
 filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 
-
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
