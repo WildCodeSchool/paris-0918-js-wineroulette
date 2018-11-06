@@ -80,7 +80,6 @@ class DisplayCarte extends Component {
     let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2';
   return (
       <div className={turningClassTreaks}>
-        <h2 className="resultatSelection">Voici votre sélection</h2>
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
         <Grid container direction="row" justify="center" alignItems="center" className="allCard">
           <Grid item xs={12} sm={10} md={8} lg={6}>

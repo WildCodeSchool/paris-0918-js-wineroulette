@@ -87,7 +87,7 @@ render() {
                                                 this.props.searchbar)
                         }>Roulette</button>
                         </div>
-      )
+      ) 
 
     } else if (this.state.data === null) return "Wine is coming...pépé";
 

@@ -42,7 +42,7 @@ class Champsubscriterion extends Component {
     } else {
       // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
       this.setState({ champSubCriterion: subStyle });
-      this.props.liftsubStyle([subStyle]);
+      this.props.liftsubStyle(subStyle);
       }
     
   };
