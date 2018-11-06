@@ -54,7 +54,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
-            Rouge
+            Red
           </Button>
           <Button
             variant="contained"
@@ -62,7 +62,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
-            Blanc
+            White
           </Button>
           <Button
             variant="contained"
@@ -78,7 +78,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
-            Pétillant
+            Sparkling
           </Button>
 
           <p> </p>
@@ -95,7 +95,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
-            Rouge
+            Red
           </Button>
           <Button
             variant="contained"
@@ -103,7 +103,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
-            Blanc
+            White
           </Button>
           <Button
             variant="contained"
@@ -119,7 +119,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
-            Pétillant
+            Sparkling
           </Button>
 
           <p> </p>
@@ -136,7 +136,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
-            Rouge
+            Red
           </Button>
           <Button
             variant="contained"
@@ -144,7 +144,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
-            Blanc
+            White
           </Button>
           <Button
             variant="contained"
@@ -160,7 +160,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
-            Pétillant
+            Sparkling
           </Button>
 
           <p> </p>
@@ -177,7 +177,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
-            Rouge
+            Red
           </Button>
           <Button
             variant="contained"
@@ -185,7 +185,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
-            Blanc
+            White
           </Button>
           <Button
             variant="contained"
@@ -201,7 +201,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
-            Pétillant
+            Sparkling
           </Button>
 
           <p> </p>
@@ -218,7 +218,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
-            Rouge
+            Red
           </Button>
           <Button
             variant="contained"
@@ -226,7 +226,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
-            Blanc
+            White
           </Button>
           <Button
             variant="contained"
@@ -242,7 +242,7 @@ class Colorbutton extends Component {
             className={classes.button}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
-            Pétillant
+            Sparkling
           </Button>
 
           <p />

@@ -24,7 +24,7 @@ class ScrollDialog extends React.Component {
     render() {
         return (
         <div>
-            <Button onClick={this.handleClickOpen('paper')} className="ML"> Mentions Légales </Button>
+            <Button onClick={this.handleClickOpen('paper')} className="ML"> Terms and conditions </Button>
             <Dialog
             open={this.state.open}
             onClose={this.handleClose}

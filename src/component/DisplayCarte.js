@@ -94,7 +94,7 @@ class DisplayCarte extends Component {
 
     return (
       <div className="card">
-        <h2 className="resultatSelection">Voici votre sélection</h2>
+        <h2 className="resultatSelection">Here your selection</h2>
 
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
         <Grid container direction="row" justify="center" alignItems="center">
@@ -185,7 +185,7 @@ class DisplayCarte extends Component {
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                      href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${this.props.carteVin.id}`}>Acheter
+                      href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${this.props.carteVin.id}`}>Here to buy
                     </Button>
                   </Grid>
                 </Grid>

@@ -36,7 +36,7 @@ class Rosesubcriterion extends Component {
           className={classes.button}
           onClick={() => this.roseSubCriterionSelection(["Easygoing & Fruity"])}
         >
-          Fruité
+          Fruity
         </Button>
         
 		<Button
@@ -47,7 +47,7 @@ class Rosesubcriterion extends Component {
             this.roseSubCriterionSelection(["Medium-bodied & Dry"])
           }
         >
-          Sec
+          Dry
         </Button>
 
 		<Button
@@ -58,7 +58,7 @@ class Rosesubcriterion extends Component {
             this.roseSubCriterionSelection(["Soft & Off-dry", null])
           }
         >
-          Mystère !
+          Surprise !
         </Button>
 
       </div>

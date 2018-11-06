@@ -64,7 +64,7 @@ function Footer(props) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
                 <Typography className="rights" variant="caption" color="inherit" >
-                  © All right reserved Chaigneau/Castillon/Coutens/Paget/Cnudde/Lucchini/Yu
+                  © All right reserved Wine Roulette
                 </Typography>
             </Grid>
           </Grid>
