@@ -3,11 +3,10 @@ import NbWinePossible from "./component/NbWinePossible";
 import Prix from "./component/Prix"
 import Colorbutton from "./component/Colorbutton"
 import './style/App.css';
-
 import Footer from './component/Footer/Footer';
-// import Searchbar from './component/Searchbar';
+import Searchbar from './component/Searchbar';
 import BoutonReset from "./component/BoutonReset";
-import ExpansionPanel from './component/ExpansionPanel';
+// import ExpansionPanel from './component/ExpansionPanel';
 
 
 class App extends Component {
@@ -69,10 +68,9 @@ class App extends Component {
                     liftsubCategory={this.liftsubCategory} />
         <p></p>
         <div className="Searchbar">
-        <ExpansionPanel liftsearchbar={this.liftsearchbar}/>
-        {/* <Searchbar liftsearchbar={this.liftsearchbar} /> */}
-        {/* <Prix liftPrice={this.liftPrice} /> */}
         {/* <ExpansionPanel liftsearchbar={this.liftsearchbar}/> */}
+        {/* Le props ne remonte pas dans App.js */}
+        <Searchbar liftsearchbar={this.liftsearchbar} />
         </div>
         <NbWinePossible color={this.state.color}
                         subStyle={this.state.subStyle}

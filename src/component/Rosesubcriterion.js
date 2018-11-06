@@ -34,9 +34,6 @@ class Rosesubcriterion extends Component {
 
   render() {
     const { classes } = this.props;
-    // if (this.state.roseSubCriterion ==== "Easygoing & Fruity"){
-    //   console.log("FRUITY!")
-    // }
 
     return (
       <div>
