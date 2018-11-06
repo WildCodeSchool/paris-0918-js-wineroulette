@@ -5,10 +5,17 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
+  buttonSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#483D8B",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
+  },
+
+  buttonNotSelected: {
     margin: theme.spacing.unit,
     backgroundColor: "#B7143F"
   },
+
   input: {
     display: "none"
   }
@@ -17,7 +24,7 @@ const styles = theme => ({
 class Champsubscriterion extends Component {
   constructor() {
     super();
-    this.state = { champSubCriterion: "" };
+    this.state = { champSubCriterion: "vin" };
   }
 
   champSubCriterionSelection = subStyle => {
@@ -32,17 +39,23 @@ class Champsubscriterion extends Component {
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.champSubCriterion == "XD - Extra Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.champSubCriterionSelection(["XD - Extra Dry"])}
-        >
-          {" "}
-          Extra-dry{" "}
+          "Extra-dry"
         </Button>
 
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.champSubCriterion == "D - Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.champSubCriterionSelection(["D - Dry"])}
         >
           {" "}
@@ -52,7 +65,11 @@ class Champsubscriterion extends Component {
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.champSubCriterion == ""
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.champSubCriterionSelection([null])}
         >
           Surprise !
