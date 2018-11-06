@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DisplayCarte from "./DisplayCarte";
 
 class Carte extends Component {
-
   render() {
 
     const clearRegionName = RegionName => {

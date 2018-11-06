@@ -11,7 +11,7 @@ import BoutonReset from "./component/BoutonReset";
 
 class App extends Component {
   state = {
-    color: "Red Wine",
+    color: ["Red Wine"],
     subStyle: "",
     subCategory: "style",
     minprix: 0,
@@ -37,7 +37,7 @@ class App extends Component {
   }
   liftReset = () => {
     this.setState({
-      color: "Red Wine",
+      color: ["Red Wine"],
       subStyle: "",
       subCategory: "style",
       minprix: 0,
