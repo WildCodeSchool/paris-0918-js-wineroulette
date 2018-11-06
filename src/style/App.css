@@ -1,11 +1,12 @@
 .App {
   text-align: center;
-  background-image: url('../media/background.jpg');
+  background-image: url("../media/background.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 160vh;
   font-family: 'Montserrat', sans-serif !important;
 }
+
 /* 
 .App-logo {
   animation: App-logo-spin infinite 0.8s linear;
@@ -32,9 +33,20 @@ h3 {
   color: #61dafb;
 }
 
+.logoWine{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
 .Searchbar {
   max-width: 500px;
   margin: auto;
+}
+
+@media screen and (max-width: 425px) {
+  .logoWine {
+    width: 220px;
+  }
 }
 
 @keyframes App-logo-spin {

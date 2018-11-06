@@ -9,20 +9,22 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-	backgroundColor: "#B7143F",
-	'&:active': {
-		boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
-	  },
-    "&:focus": {
-      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
-    }
+  buttonSelected:{
+    backgroundColor: "#483D8B",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
   },
+  
+  buttonNotSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#B7143F"
+  },
+
   input: {
     display: "none"
-  }
+  },
+ 
 });
+
 
 class Colorbutton extends Component {
   constructor() {
@@ -51,7 +53,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonSelected}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
             Red
@@ -59,7 +61,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
             White
@@ -67,7 +69,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Rosé Wine", "style")}
           >
             Rosé
@@ -75,7 +77,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
             Sparkling
@@ -92,7 +94,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
             Red
@@ -100,7 +102,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonSelected}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
             White
@@ -108,7 +110,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Rosé Wine", "style")}
           >
             Rosé
@@ -116,7 +118,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
             Sparkling
@@ -133,7 +135,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
             Red
@@ -141,7 +143,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
             White
@@ -149,7 +151,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonSelected}
             onClick={() => this.ColorSelection("Rosé Wine", "style")}
           >
             Rosé
@@ -157,7 +159,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
             Sparkling
@@ -174,7 +176,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
             Red
@@ -182,7 +184,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
             White
@@ -190,7 +192,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Rosé Wine", "style")}
           >
             Rosé
@@ -198,7 +200,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonSelected}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
             Sparkling
@@ -215,7 +217,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Red Wine", "style")}
           >
             Red
@@ -223,7 +225,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("White Wine", "sugar_content")}
           >
             White
@@ -231,7 +233,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Rosé Wine", "style")}
           >
             Rosé
@@ -239,7 +241,7 @@ class Colorbutton extends Component {
           <Button
             variant="contained"
             color="secondary"
-            className={classes.button}
+            className={classes.buttonNotSelected}
             onClick={() => this.ColorSelection("Champagne", "sugar_content")}
           >
             Sparkling

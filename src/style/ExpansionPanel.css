@@ -22,8 +22,9 @@
     background: transparent !important;
 } */
 
-.test {
+.expansionPanel {
     background: transparent !important;
+    margin-bottom: 40px;
 }
 
 .SimpleExpansionPanel-heading-66 {
