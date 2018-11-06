@@ -18,24 +18,27 @@ class NbWinePossible extends Component {
 
 filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 
-
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+
+
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
+
+
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix
             )
         else if ((subStyle !== "")  && (searchbar === ''))
             return ( 
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
@@ -44,10 +47,10 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
           else if ((subStyle === "")  && (searchbar !== ''))
             return ( 
                 item.varietal !== null &&
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
@@ -55,15 +58,13 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                     if (!cur) return cur;
                   return acc;
                 }, true)))
-                
-
           else if ((subStyle !== "")  && (searchbar !== ''))
             return ( 
                 item.varietal !== null &&
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
@@ -86,7 +87,6 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 
 render() {
     const turning = this.state.turning // So value true or false on click of "roulette" button   
-    console.log(this.state.wineListFiltered)
     if (this.props.reset === true) {
       return (
         <div>

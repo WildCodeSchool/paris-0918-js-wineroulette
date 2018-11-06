@@ -10,15 +10,31 @@ const cleanArray = (array) => {
     } return out;
   }
 
-// la variable keyWord stock tous les mots contenus dans myWine.varietal, 
-// ensuite on dédoublonne les mots supérieurs à 6 lettre
-let keyWord = [];
-myWines.map(items => items.varietal).filter(item => item !==null).map(item => keyWord.push(...item.split(' ')));
-const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
 
-//on place ces mots  dans un objet de la forme { value: motclé, Label : motclé }, 
-// on met ces objets dans un tableau.
-// ce tableau est destiné a etre lu par le composant SearchBar
+  const myWinesFiltered = myWines.filter(item => 
+            item.name !== null &&
+            item.subStyle !== null &&
+            item.package_unit_type === "bottle" &&
+            item.primary_category === "Wine")
+
+let keyWord = [];
+myWinesFiltered.map(items => items.varietal).filter(item => 
+  item !==null && 
+  item !=='Albarossa').map(item => keyWord.push(...item.split(' ')));
+// const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
+const cleanedkeyWord = cleanArray(keyWord);
+// console.log(cleanedkeyWord)
+
+
+// let c = 0;
+// for (let j = 0; j < cleanedkeyWord.length; j++) {
+//     for (let i = 0; i < keyWord.length; i++) {
+//         if (cleanedkeyWord[j] === keyWord[i]) c +=1;
+//     }
+// console.log(j,'_',cleanedkeyWord[j],'-',c)
+// c=0;
+//   }
+
 const suggestions = [];
 for (let i = 0; i < cleanedkeyWord.length; i++) {
     let ObjWithLabel = {};
