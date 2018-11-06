@@ -45,6 +45,7 @@ class Champsubscriterion extends Component {
               : classes.buttonNotSelected
           }
           onClick={() => this.champSubCriterionSelection(["XD - Extra Dry"])}
+          >
           "Extra-dry"
         </Button>
 
