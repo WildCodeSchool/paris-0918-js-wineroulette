@@ -82,7 +82,7 @@ class DisplayCarte extends Component {
       <div className={turningClassTreaks}>
         <h2 className="resultatSelection">Voici votre sélection</h2>
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction="row" justify="center" alignItems="center" className="allCard">
           <Grid item xs={12} sm={10} md={8} lg={6}>
             <Card className={classes.card}>
               <Grid
@@ -143,14 +143,15 @@ class DisplayCarte extends Component {
                   direction="row"
                   justify="space-between"
                   alignItems="center"
+                  className="expandAcheter"
                 >
                   {/* PRIX DE LA BOUTEILLE */}
-                  <Grid className="price" item xs={2}>
+                  <Grid className="empty" item xs={4} sm={3} >
                     <p />
                   </Grid>
-
+ 
                   {/* BOUTON PLUS D'INFOS */}
-                  <Grid className="moreInfo" item xs={2}>
+                  <Grid className="moreInfo" item xs={4} sm={3}>
                     <IconButton
                       className={classnames(classes.expand, {
                         [classes.expandOpen]: this.state.expanded
@@ -164,7 +165,7 @@ class DisplayCarte extends Component {
                   </Grid>
 
                   {/* BOUTON ACHETER */}
-                  <Grid className="acheterButton" item xs={2}>
+                  <Grid className="acheterButton" item xs={4} sm={3}>
                     <Button
                       key={this.props.carteVin.id}
                       variant="contained"

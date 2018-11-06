@@ -1,3 +1,8 @@
+
+.resultatSelection{
+    text-align: center;
+}
+
 .nameOrigin{
     margin-left:5%;
 }
@@ -12,12 +17,19 @@
     margin-top: 25%;
 } 
 
-.price{
-    font-size: 26px;
-    font-weight: bold;
+.empty{
+    border: 2px solid white;
 }
 
 .moreInfo{
+    border: 2px solid white;
+}
+
+.acheterButton{
+    border: 2px solid white;
+}
+
+.expandAcheter{
     border: 2px solid white;
 }
 

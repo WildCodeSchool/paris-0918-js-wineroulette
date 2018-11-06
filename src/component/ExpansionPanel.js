@@ -18,13 +18,14 @@ const styles = theme => ({
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+  
     });
 
     function SimpleExpansionPanel(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-        <ExpansionPanel className="test">
+        <ExpansionPanel className="expansionPanel">
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>
                 <BoutonPulse />
