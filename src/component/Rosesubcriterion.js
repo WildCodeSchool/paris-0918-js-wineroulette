@@ -9,6 +9,15 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     backgroundColor: "#B7143F"
   },
+  buttonSelected:{
+    backgroundColor: "#483D8B",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
+  },
+  
+  buttonNotSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#B7143F"
+  },
   input: {
     display: "none"
   }
@@ -18,22 +27,27 @@ const styles = theme => ({
 class Rosesubcriterion extends Component {
   constructor() {
     super();
-    this.state = { roseSubCriterion: "" };
+    this.state = { roseSubCriterion: "", buttonSelection: "buttonNotSelected"};
   }
 
   roseSubCriterionSelection = subStyle => {
-    this.setState({ roseSubCriterion: subStyle });
+    this.setState({ roseSubCriterion: subStyle, buttonSelection: "buttonSelected" });
     this.props.liftsubStyle(subStyle);
   };
 
   render() {
     const { classes } = this.props;
+    // if (this.state.roseSubCriterion === "Easygoing & Fruity"){
+    //   console.log("FRUITY!")
+    // }
+    
     return (
       <div>
         <Button
+          button = {this.state.buttonSelection}
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={classes.buttonNotSelected}
           onClick={() => this.roseSubCriterionSelection(["Easygoing & Fruity"])}
         >
           Fruité
@@ -42,7 +56,7 @@ class Rosesubcriterion extends Component {
 		<Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={classes.buttonNotSelected}
           onClick={() =>
             this.roseSubCriterionSelection(["Medium-bodied & Dry"])
           }
@@ -53,7 +67,7 @@ class Rosesubcriterion extends Component {
 		<Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={classes.buttonNotSelected}
           onClick={() =>
             this.roseSubCriterionSelection(["Soft & Off-dry", null])
           }

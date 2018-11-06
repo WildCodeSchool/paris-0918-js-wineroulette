@@ -18,6 +18,7 @@ const styles = theme => ({
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+  
     });
 
     function SimpleExpansionPanel(props) {
