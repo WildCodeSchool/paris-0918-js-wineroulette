@@ -7,13 +7,20 @@ import Button from "@material-ui/core/Button";
 const styles = theme => ({
   buttonSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#483D8B",
-    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
+    backgroundColor: "#603d8b",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    '&:hover': {
+      backgroundColor: "#603d8b",
+    },
   },
 
   buttonNotSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F"
+    backgroundColor: "#B7143F",
+    '&:hover': {
+      backgroundColor: '#603d8b',
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    },
   },
 
   input: {
@@ -24,12 +31,19 @@ const styles = theme => ({
 class Whitesubcriterion extends Component {
   constructor() {
     super();
-    this.state = { whiteSubCriterion: "vin" };
+    this.state = { whiteSubCriterion: ["vin"] };
   }
 
   whiteSubCriterionSelection = subStyle => {
-    this.setState({ whiteSubCriterion: subStyle });
-    this.props.liftsubStyle(subStyle);
+    // Si je clique et que l'état actuel est sur x-dry/dry.. (buttonSelected) --> je repasse en état initial (buttonNotSelected)
+    if (subStyle[0] === this.state.whiteSubCriterion[0]) {
+      this.setState({ whiteSubCriterion: ["vin"] });
+      this.props.liftsubStyle(["vin"]);
+    } else {
+      // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
+      this.setState({ whiteSubCriterion: subStyle });
+      this.props.liftsubStyle([subStyle]);
+    }
   };
 
   render() {
@@ -41,7 +55,7 @@ class Whitesubcriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.whiteSubCriterion == "XD - Extra Dry"
+            this.state.whiteSubCriterion[0] == "XD - Extra Dry"
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
@@ -69,7 +83,7 @@ class Whitesubcriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.whiteSubCriterion == "S - Sweet"
+            this.state.whiteSubCriterion[0] == "S - Sweet"
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
@@ -77,12 +91,12 @@ class Whitesubcriterion extends Component {
         >
           Sweet
         </Button>
-        
+
         <Button
           variant="contained"
           color="secondary"
           className={
-            this.state.whiteSubCriterion == ""
+            this.state.whiteSubCriterion[0] == null
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
@@ -90,14 +104,13 @@ class Whitesubcriterion extends Component {
         >
           Surprise !
         </Button>
-    
       </div>
     );
   }
 }
 
 Whitesubcriterion.propTypes = {
-	classes: PropTypes.object.isRequired
-  };
+  classes: PropTypes.object.isRequired
+};
 
-  export default withStyles(styles)(Whitesubcriterion);
+export default withStyles(styles)(Whitesubcriterion);
