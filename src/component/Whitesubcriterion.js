@@ -37,7 +37,7 @@ class Whitesubcriterion extends Component {
           className={classes.button}
           onClick={() => this.whiteSubCriterionSelection(["XD - Extra Dry"])}
         >
-          Sec
+          Extra-Dry
         </Button>
 
         <Button
@@ -48,7 +48,7 @@ class Whitesubcriterion extends Component {
             this.whiteSubCriterionSelection(["D - Dry", "M - Medium"])
           }
         >
-          Demi-sec
+          Dry
         </Button>
 
         <Button
@@ -57,7 +57,7 @@ class Whitesubcriterion extends Component {
           className={classes.button}
           onClick={() => this.whiteSubCriterionSelection(["S - Sweet"])}
         >
-          Moelleux
+          Sweet
         </Button>
         
         <Button
@@ -66,7 +66,7 @@ class Whitesubcriterion extends Component {
           className={classes.button}
           onClick={() => this.whiteSubCriterionSelection([null])}
         >
-          Mystère !
+          Surprise !
         </Button>
     
       </div>
