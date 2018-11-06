@@ -51,7 +51,7 @@ class Prix extends Component {
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <div style={wrapperStyle}>
             <Typography component="p" align="center" variant="headline">
-              Price Range
+              Price
             </Typography>
             <Range
               min={200}

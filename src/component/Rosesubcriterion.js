@@ -33,7 +33,7 @@ class Rosesubcriterion extends Component {
     super();
     this.state = { roseSubCriterion: ["vin"] };
   }
-
+ 
   roseSubCriterionSelection = subStyle => {
     // Si je clique et que l'état actuel est sur x-dry/dry.. (buttonSelected) --> je repasse en état initial (buttonNotSelected)
     if (subStyle[0] === this.state.roseSubCriterion[0]) {
