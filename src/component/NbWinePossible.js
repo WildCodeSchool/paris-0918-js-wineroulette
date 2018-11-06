@@ -85,7 +85,7 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
   };
 
 
-render() {
+render() { 
     const turning = this.state.turning // So value true or false on click of "roulette" button   
     if (this.props.reset === true) {
       return (
