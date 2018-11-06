@@ -25,3 +25,15 @@ a {
     bottom: auto;
     width: 100%;
 }
+
+.MuiPaper-elevation4-76 {
+    box-shadow: none;
+}
+
+.MuiGrid-spacing-xs-24-234 > .MuiGrid-item-211 {
+    padding: 0px;
+}
+
+.MuiGrid-spacing-xs-24-234 {
+    margin: 0 !important
+}
