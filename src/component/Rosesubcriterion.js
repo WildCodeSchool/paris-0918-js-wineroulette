@@ -5,58 +5,73 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
+  buttonSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F"
+    backgroundColor: "#603d8b",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    '&:hover': {
+      backgroundColor: "#603d8b",
+    },
   },
-  buttonSelected:{
-    backgroundColor: "#483D8B",
-    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
-  },
-  
+
   buttonNotSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F"
+    backgroundColor: "#B7143F",
+    '&:hover': {
+      backgroundColor: '#603d8b',
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    },
   },
+
   input: {
     display: "none"
   }
 });
-//import Appelapi from "./AppelAPI"
 
 class Rosesubcriterion extends Component {
   constructor() {
     super();
-    this.state = { roseSubCriterion: "", buttonSelection: "buttonNotSelected"};
+    this.state = { roseSubCriterion: ["vin"] };
   }
 
   roseSubCriterionSelection = subStyle => {
-    this.setState({ roseSubCriterion: subStyle, buttonSelection: "buttonSelected" });
-    this.props.liftsubStyle(subStyle);
+    // Si je clique et que l'état actuel est sur x-dry/dry.. (buttonSelected) --> je repasse en état initial (buttonNotSelected)
+    if (subStyle[0] === this.state.roseSubCriterion[0]) {
+      this.setState({ roseSubCriterion: ["vin"] });
+      this.props.liftsubStyle(["vin"]);
+    } else {
+      // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
+      this.setState({ roseSubCriterion: subStyle });
+      this.props.liftsubStyle([subStyle]);
+    }
   };
 
   render() {
     const { classes } = this.props;
 
-    // if (this.state.roseSubCriterion === "Easygoing & Fruity"){
-    //   console.log("FRUITY!")
-    // }
     return (
       <div>
         <Button
-          button = {this.state.buttonSelection}
           variant="contained"
           color="secondary"
-          className={classes.buttonNotSelected}
+          className={
+            this.state.roseSubCriterion[0] == "Easygoing & Fruity"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.roseSubCriterionSelection(["Easygoing & Fruity"])}
         >
           Fruity
         </Button>
-        
-		<Button
+
+        <Button
           variant="contained"
           color="secondary"
-          className={classes.buttonNotSelected}
+          className={
+            this.state.roseSubCriterion[0] == "Medium-bodied & Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() =>
             this.roseSubCriterionSelection(["Medium-bodied & Dry"])
           }
@@ -64,26 +79,27 @@ class Rosesubcriterion extends Component {
           Dry
         </Button>
 
-		<Button
+        <Button
           variant="contained"
           color="secondary"
-          className={classes.buttonNotSelected}
+          className={
+            this.state.roseSubCriterion[0] == "Soft & Off-dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() =>
             this.roseSubCriterionSelection(["Soft & Off-dry", null])
           }
         >
           Surprise !
         </Button>
-
       </div>
     );
   }
 }
 
-
 Rosesubcriterion.propTypes = {
-	classes: PropTypes.object.isRequired
-  };
-  
-  export default withStyles(styles)(Rosesubcriterion);
-  
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Rosesubcriterion);

@@ -16,29 +16,30 @@ class NbWinePossible extends Component {
     });
   }
 
-TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
-// console.log('==',this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
-console.log('searchbar=',searchbar)
-//console.log('searchbar[0].value=',searchbar[0].value)
-// console.log('searchbar[1].value=',searchbar[1].value)
+
+filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 
     const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+
+
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
+
+
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix
             )
         else if ((subStyle !== "")  && (searchbar === ''))
             return ( 
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
@@ -47,37 +48,32 @@ console.log('searchbar=',searchbar)
           else if ((subStyle === "")  && (searchbar !== ''))
             return ( 
                 item.varietal !== null &&
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
-                item.price_in_cents <= maxprix 
-                &&
-                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                (item.varietal.includes(searchbar[0].value) 
-                // || item.varietal.includes(searchbar[1].value)
-                )
-                // item.varietal === `${searchbar}` 
-                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                )
-
+                item.price_in_cents <= maxprix &&
+                (searchbar.map(criterion => criterion.value.includes(item.varietal)).reduce((acc, cur) => {
+                    if (!cur) return cur;
+                  return acc;
+                }, true)))
           else if ((subStyle !== "")  && (searchbar !== ''))
             return ( 
                 item.varietal !== null &&
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
+                // item.name !== null &&
+                // item.subStyle !== null &&
+                // item.package_unit_type === "bottle" &&
+                // item.primary_category === "Wine" &&
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
                 (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1]) &&
-                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                (item.varietal === searchbar[0].value || item.varietal === searchbar[1].value) // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
-                )
+                (searchbar.map(criterion => criterion.value.includes(item.varietal)).reduce((acc, cur) => {
+                    if (!cur) return cur;
+                  return acc;
+                }, true)))
         else return false
     })
     let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
@@ -92,13 +88,12 @@ console.log('searchbar=',searchbar)
 
 render() {
     const turning = this.state.turning // So value true or false on click of "roulette" button   
-    console.log(this.state.wineListFiltered)
     if (this.props.reset === true) {
       return (
         <div>
         <p></p>
         <button className="roulette" id="roulette" onClick={() => 
-                                            this.TotalFilter2(
+                                            this.filtering(
                                                 this.props.color, 
                                                 this.props.subStyle,
                                                 this.props.subCategory, 
@@ -114,7 +109,7 @@ render() {
     return (
       <div>
         <p></p>
-        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(
+        <button className="roulette" id="roulette" onClick={() => this.filtering(
                                                 this.props.color, 
                                                 this.props.subStyle,
                                                 this.props.subCategory, 
