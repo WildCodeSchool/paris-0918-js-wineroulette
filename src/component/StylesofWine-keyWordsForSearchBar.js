@@ -20,26 +20,37 @@ const cleanArray = (array) => {
 let keyWord = [];
 myWinesFiltered.map(items => items.varietal).filter(item => 
   item !==null && 
-  item !=='Albarossa').map(item => keyWord.push(...item.split(' ')));
+  item !=='Albarossa').map(item => 
+    keyWord.push(...item.split(' ')));
 // const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
 const cleanedkeyWord = cleanArray(keyWord);
-// console.log(cleanedkeyWord)
 
 
-// let c = 0;
-// for (let j = 0; j < cleanedkeyWord.length; j++) {
-//     for (let i = 0; i < keyWord.length; i++) {
-//         if (cleanedkeyWord[j] === keyWord[i]) c +=1;
-//     }
-// console.log(j,'_',cleanedkeyWord[j],'-',c)
-// c=0;
-//   }
+const varietalList = [];
+let c = 0;
+for (let j = 0; j < cleanedkeyWord.length; j++) {
+    for (let i = 0; i < keyWord.length; i++) {
+        if (cleanedkeyWord[j] === keyWord[i]) c +=1;
+    }
+if (c > 100 && 
+    cleanedkeyWord[j] !== 'Red' &&
+    cleanedkeyWord[j] !== '-' &&
+    cleanedkeyWord[j] !== 'Sparkling' &&
+    cleanedkeyWord[j] !== 'White' &&
+    cleanedkeyWord[j] !== 'Rosé' &&
+    cleanedkeyWord[j] !== 'Bordeaux') {
+  varietalList.push(cleanedkeyWord[j])
+}
+
+c=0;
+  }
+console.log(varietalList)
 
 const suggestions = [];
-for (let i = 0; i < cleanedkeyWord.length; i++) {
+for (let i = 0; i < varietalList.length; i++) {
     let ObjWithLabel = {};
-    ObjWithLabel.value = cleanedkeyWord[i];
-    ObjWithLabel.label = cleanedkeyWord[i];
+    ObjWithLabel.value = varietalList[i];
+    ObjWithLabel.label = varietalList[i];
     suggestions.push(ObjWithLabel)
 }
 
