@@ -7,13 +7,20 @@ import Button from "@material-ui/core/Button";
 const styles = theme => ({
   buttonSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#483D8B",
-    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
+    backgroundColor: "#603d8b",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    '&:hover': {
+      backgroundColor: "#603d8b",
+    },
   },
 
   buttonNotSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F"
+    backgroundColor: "#B7143F",
+    '&:hover': {
+      backgroundColor: '#603d8b',
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    },
   },
 
   input: {
@@ -24,12 +31,19 @@ const styles = theme => ({
 class Rosesubcriterion extends Component {
   constructor() {
     super();
-    this.state = { roseSubCriterion: "" };
+    this.state = { roseSubCriterion: ["vin"] };
   }
 
   roseSubCriterionSelection = subStyle => {
-    this.setState({ roseSubCriterion: subStyle });
-    this.props.liftsubStyle(subStyle);
+    // Si je clique et que l'état actuel est sur x-dry/dry.. (buttonSelected) --> je repasse en état initial (buttonNotSelected)
+    if (subStyle[0] === this.state.roseSubCriterion[0]) {
+      this.setState({ roseSubCriterion: ["vin"] });
+      this.props.liftsubStyle(["vin"]);
+    } else {
+      // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
+      this.setState({ roseSubCriterion: subStyle });
+      this.props.liftsubStyle([subStyle]);
+    }
   };
 
   render() {
@@ -41,7 +55,7 @@ class Rosesubcriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.roseSubCriterion == "Easygoing & Fruity"
+            this.state.roseSubCriterion[0] == "Easygoing & Fruity"
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
@@ -54,7 +68,7 @@ class Rosesubcriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.roseSubCriterion == "Medium-bodied & Dry"
+            this.state.roseSubCriterion[0] == "Medium-bodied & Dry"
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }

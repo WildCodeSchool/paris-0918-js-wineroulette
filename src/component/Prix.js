@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-// import Whitesubcriterion from "./Whitesubcriterion"
-// import Appelapi from "./AppelAPI"
 import '../style/Prix.css'
-
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import "rc-slider/assets/index.css";
+import "rc-tooltip/assets/bootstrap.css";
+import Grid from "@material-ui/core/Grid";
+import Slider from "rc-slider";
+import Typography from "@material-ui/core/Typography";
+
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
+const wrapperStyle = { width: 400, marginTop: 20 };
+
 
 const styles = theme => ({
   button: {
@@ -17,61 +23,51 @@ const styles = theme => ({
   }
 });
 
+ 
 class Prix extends Component {
   constructor() {
     super();
-    this.state = { minprix: 2000, maxprix: 50000 };
+    this.state = { minprix: 2000, maxprix: 50000, priceMinMax: [2000, 50000] };
   }
 
-  PriceSelection = (minprix, maxprix) => {
-    this.setState({ minprix: minprix, maxprix: maxprix });
-    this.props.liftPrice(minprix, maxprix);
-    // (e).preventDefault()
+  handlePriceChange = priceMinMax => {
+    this.setState({
+      priceMinMax
+    });
+    this.props.liftPrice(this.state.priceMinMax[0], this.state.priceMinMax[1]);
   };
 
   render() {
-    const { classes } = this.props;
 
-    // balise html le fait : https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/range
-    // localstorage
     return (
-      <div>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          onClick={() => this.PriceSelection(0, 999)}
-        >
-          Moins de 10$
-        </Button>
-
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          onClick={() => this.PriceSelection(1000, 1999)}
-        >
-          Entre 10 et 20$
-        </Button>
-
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          onClick={() => this.PriceSelection(2000, 50000)}
-        >
-          Plus de 20$
-        </Button>
-
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          onClick={() => this.PriceSelection(0, 50000)}
-        >
-          Tous les prix
-        </Button>
-      </div>
+      <Grid
+            container
+            spacing={16}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            alignContent="center"
+          >
+        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+          <div style={wrapperStyle}>
+            <Typography component="p" align="center" variant="headline">
+              Price Range
+            </Typography>
+            <Range
+              min={200}
+              max={10000}
+              step={100}
+              value={this.state.priceMinMax}
+              onChange={this.handlePriceChange}
+              allowCross={false}
+              pushable={500}
+              tipFormatter={value => `${Math.floor(value / 100)}$`}
+              {...this.props}
+            />
+          </div>
+        </Grid>
+      </Grid>
+      
     );
   }
 }
