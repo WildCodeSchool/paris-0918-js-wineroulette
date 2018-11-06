@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -83,20 +82,17 @@ class Champsubscriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.champSubCriterion[0] == null
+
+            this.state.champSubCriterion[0] == '-'
+
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
-          onClick={() => this.champSubCriterionSelection([null])}
+          onClick={() => this.champSubCriterionSelection(['-'])}
         >
           Surprise !
         </Button>
-        
 
-        {/* <button onClick={this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
-				<button onClick={this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
-				<button onClick={this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
-				<button onClick={this.whiteSubCriterionSelection([null])}>Surprise !</button> */}
       </div>
     );
   }
