@@ -13,7 +13,6 @@ const styles = theme => ({
     display: "none"
   }
 });
-//import Appelapi from "./AppelAPI"
 
 class Redsubcriterion extends Component {
   constructor() {
