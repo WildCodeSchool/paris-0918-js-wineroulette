@@ -32,3 +32,37 @@
 .expandAcheter{
     border: 2px solid white;
 }
+
+.turningClassTreaks1 {
+	animation: turningClassTreaks1-spin 1s linear;
+  }
+
+  @keyframes turningClassTreaks1-spin {
+	  0% {
+		transform: rotate(0deg);
+	  }
+	  50% {
+        transform: rotate(700deg);
+        padding: 15%;
+	  }
+	  100% {
+		  transform: rotate(0deg);
+		}
+  }
+
+.turningClassTreaks2 {
+    animation: turningClassTreaks2-spin 1s linear;
+}
+
+@keyframes turningClassTreaks2-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(700deg);
+      padding: 15%;
+    }
+    100% {
+        transform: rotate(0deg);
+      }
+  }

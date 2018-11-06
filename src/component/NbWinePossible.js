@@ -1,24 +1,25 @@
 import React, { Component } from "react";
 import myWines from "../myWineList.json";
 import Carte from "./Carte";
-import "../style/NbWinePossible.css"
+import "../style/NbWinePossible.css";
 
 class NbWinePossible extends Component {
   state = {
     data: null,
     wineListFiltered: [''],
     randomImageVigne :0,
+    turning: true // treaks to give a class name 'turning' to the DisplayCard component"
 };
-
   componentDidMount() {
     this.setState({
       data: myWines
     });
   }
+  
 
 TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 // console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
-    const wineListFiltered = this.state.data.filter(item => {
+      const wineListFiltered = this.state.data.filter(item => {
         if ((subStyle === '') && (searchbar === ''))
             return (
                 item.name !== null &&
@@ -50,21 +51,26 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
-                item.varietal === 'Chianti'
-            )
+                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                item.varietal === 'Chianti' // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                // A MODIFIER EN FONCTION DE LA VALEUR DE LA BARRE AUTOCOMPLETE
+                )
         else return false
     })
     let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
     this.setState({wineListFiltered: wineListFiltered[random],
-                   randomImageVigne: randomImageVigne})    
+                   randomImageVigne: randomImageVigne,
+                   turning: !this.state.turning}) // So value true or false on click of "roulette" button  
+    const handleCancelReset = () => {this.props.cancelReset()}
+    handleCancelReset()
+  };
+
   
 
-  const handleCancelReset = () => {
-    this.props.cancelReset()
-  }
-  handleCancelReset()
-  };
+render() {
+    const turning = this.state.turning // So value true or false on click of "roulette" button   
+
 
   render() {
 
@@ -82,10 +88,12 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                         </div>
       )
     } else if (this.state.data === null) return "Wine is coming...";
+
     return (
       <div>
         <p></p>
-        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(this.props.color, 
+        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(
+                                                this.props.color, 
                                                 this.props.subStyle,
                                                 this.props.subCategory, 
                                                 this.props.minprix, 
@@ -93,13 +101,13 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                                                 this.props.searchbar)
                         }>Roulette</button>
         <p></p>
-        <Carte wineListFiltered={this.state.wineListFiltered}
+        <Carte turning={turning} // So value true or false on click of "roulette" button
+               wineListFiltered={this.state.wineListFiltered}
                randomImageVigne={this.state.randomImageVigne} />
       </div>
     );
   }
 }
-
 export default NbWinePossible;
 
 
