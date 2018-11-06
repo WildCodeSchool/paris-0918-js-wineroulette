@@ -7,13 +7,20 @@ import Button from "@material-ui/core/Button";
 const styles = theme => ({
   buttonSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#483D8B",
-    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
+    backgroundColor: "#603d8b",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    '&:hover': {
+      backgroundColor: "#603d8b",
+    },
   },
 
   buttonNotSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F"
+    backgroundColor: "#B7143F",
+    '&:hover': {
+      backgroundColor: '#603d8b',
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    },
   },
 
   input: {
@@ -30,6 +37,18 @@ class Redsubcriterion extends Component {
   redSubCriterionSelection = subStyle => {
     this.setState({ redSubCriterion: subStyle });
     this.props.liftsubStyle(subStyle);
+  };
+
+  redSubCriterionSelection = subStyle => {
+    // Si je clique et que l'état actuel est sur x-dry/dry.. (buttonSelected) --> je repasse en état initial (buttonNotSelected)
+    if (subStyle[0] === this.state.redSubCriterion[0]) {
+      this.setState({ redSubCriterion: ["vin"] });
+      this.props.liftsubStyle(["vin"]);
+    } else {
+      // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
+      this.setState({ redSubCriterion: subStyle });
+      this.props.liftsubStyle([subStyle]);
+    }
   };
 
   render() {
@@ -77,7 +96,7 @@ class Redsubcriterion extends Component {
           variant="contained"
           color="secondary"
            className={
-            this.state.redSubCriterion == ""
+            this.state.redSubCriterion[0] == null
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
