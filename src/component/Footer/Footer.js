@@ -5,8 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import { createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
+// import { createMuiTheme } from '@material-ui/core/styles';
+// import blue from '@material-ui/core/colors/blue';
 import './Footer.css';
 import Modal from './Modal'
 
@@ -17,14 +17,14 @@ const styles = {
   },
 };
 
-const theme = createMuiTheme({
-  palette: {
-    primary: blue,
-    secondary: {
-      main: '#f6c1a0',
-    },
-  },
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: blue,
+//     secondary: {
+//       main: '#f6c1a0',
+//     },
+//   },
+// });
 
 function Footer(props) {
   const { classes } = props;
@@ -64,7 +64,7 @@ function Footer(props) {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12}>
                 <Typography className="rights" variant="caption" color="inherit" >
-                  © All right reserved Chaigneau/Castillon/Coutens/Paget/Cnudde/Lucchini/Yu
+                  © All right reserved Wine Roulette
                 </Typography>
             </Grid>
           </Grid>
