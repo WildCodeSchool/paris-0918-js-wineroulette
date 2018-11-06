@@ -27,11 +27,11 @@ const styles = theme => ({
     display: "none"
   }
 });
-
+ 
 class Redsubcriterion extends Component {
   constructor() {
     super();
-    this.state = { redSubCriterion: "vin" };
+    this.state = { redSubCriterion: ["vin"] };
   }
 
   redSubCriterionSelection = subStyle => {
