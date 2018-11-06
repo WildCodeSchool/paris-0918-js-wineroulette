@@ -34,9 +34,12 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                 item.secondary_category === `${color}` &&
                 item.price_in_cents >= minprix &&
                 item.price_in_cents <= maxprix &&
-                (item[`${subCategory}`] === subStyle[0] || item[`${subCategory}`] === subStyle[1])
+                (item[`${subCategory}`] === subStyle[0]
+                //  || item[`${subCategory}`] === subStyle[1]
+                )
             )
-          else if ((subStyle === "")  && (searchbar !== ''))
+          else if ((subStyle === "")  && (searchbar !== '')) {
+          // console.log('--------',searchbar)
             return ( 
                 item.varietal !== null &&
                 item.secondary_category === `${color}` &&
@@ -46,7 +49,8 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                     if (!cur) return cur;
                   return acc;
                 }, true)))
-          else if ((subStyle !== "")  && (searchbar !== ''))
+
+              } else if ((subStyle !== "")  && (searchbar !== ''))
             return ( 
                 item.varietal !== null &&
                 item.secondary_category === `${color}` &&
@@ -70,6 +74,7 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
 
 
 render() {
+  console.log('this.props.searchbar',this.props.searchbar)
     const turning = this.state.turning // So value true or false on click of "roulette" button   ls
     if (this.props.reset === true) {
       return (

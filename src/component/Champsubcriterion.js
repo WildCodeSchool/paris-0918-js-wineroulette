@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -67,11 +66,11 @@ class Champsubscriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.champSubCriterion == ""
+            this.state.champSubCriterion == '-'
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
-          onClick={() => this.champSubCriterionSelection([null])}
+          onClick={() => this.champSubCriterionSelection(['-'])}
         >
           Surprise !
         </Button>

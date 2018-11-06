@@ -44,7 +44,7 @@ if (c > 100 &&
 
 c=0;
   }
-console.log(varietalList)
+// console.log(varietalList)
 
 const suggestions = [];
 for (let i = 0; i < varietalList.length; i++) {
