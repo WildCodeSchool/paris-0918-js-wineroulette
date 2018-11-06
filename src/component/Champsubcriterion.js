@@ -74,12 +74,6 @@ class Champsubscriterion extends Component {
         >
           Surprise !
         </Button>
-        
-
-        {/* <button onClick={() => this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
-				<button onClick={() => this.whiteSubCriterionSelection([null])}>Surprise !</button> */}
       </div>
     );
   }
