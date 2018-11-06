@@ -52,7 +52,7 @@ class Redsubcriterion extends Component {
             ])
           }
         >
-          Corsé
+          Full-bodied
         </Button>
 
 		<Button
@@ -70,7 +70,7 @@ class Redsubcriterion extends Component {
             ])
           }
         >
-          Léger
+          Light-bodied
         </Button>
 
         <Button
@@ -83,7 +83,7 @@ class Redsubcriterion extends Component {
           }
 		  onClick={() => this.redSubCriterionSelection([null])}
         >
-          Mystère !
+          Surprise !
         </Button>
 		
        
@@ -91,7 +91,7 @@ class Redsubcriterion extends Component {
         {/* <button onClick={() => this.redSubCriterionSelection('Fruity')}>Fruité</button> */}
         {/* <button onClick={() => this.redSubCriterionSelection('Smooth')}>léger</button> */}
         {/* <button onClick={() => this.redSubCriterionSelection('Rich')}>Riche</button> */}
-        {/* <button onClick={() => this.redSubCriterionSelection('Fullbodied')}>Corsé</button> */}
+        {/* <button onClick={() => this.redSubCriterionSelection('Fullbodied')}>Full Full-bodied</button> */}
         {/* <button onClick={() => this.redSubCriterionSelection('Mediumbodied')}>Doux</button> */}
       </div>
     );
