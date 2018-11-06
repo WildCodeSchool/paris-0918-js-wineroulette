@@ -5,20 +5,26 @@ import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
+  buttonSelected: {
     margin: theme.spacing.unit,
-	backgroundColor: "#B7143F",
+    backgroundColor: "#483D8B",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)"
   },
+
+  buttonNotSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#B7143F"
+  },
+
   input: {
     display: "none"
   }
 });
-//import Appelapi from "./AppelAPI"
 
 class Redsubcriterion extends Component {
   constructor() {
     super();
-    this.state = { redSubCriterion: "" };
+    this.state = { redSubCriterion: "vin" };
   }
 
   redSubCriterionSelection = subStyle => {
@@ -28,12 +34,17 @@ class Redsubcriterion extends Component {
 
   render() {
     const { classes } = this.props;
+
     return (
       <div>
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.redSubCriterion[0] == "Full-bodied & Smooth"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() =>
             this.redSubCriterionSelection([
               "Full-bodied & Smooth",
@@ -47,7 +58,11 @@ class Redsubcriterion extends Component {
 		<Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+           className={
+            this.state.redSubCriterion[0] == "Light-bodied & Fruity"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
 		  onClick={() =>
             this.redSubCriterionSelection([
               "Light-bodied & Fruity",
@@ -61,7 +76,11 @@ class Redsubcriterion extends Component {
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+           className={
+            this.state.redSubCriterion == ""
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
 		  onClick={() => this.redSubCriterionSelection([null])}
         >
           Mystère !
