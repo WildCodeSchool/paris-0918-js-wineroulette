@@ -41,7 +41,7 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
       if (searchbar === "") bool = true;
       else {
         for (let i = 0; i < searchbar.length; i++) {
-          bool = (item.varietal.includes(searchbar[i].value))
+          bool = (item.varietal === searchbar[i].value)
           if (bool) break
         } 
       }
