@@ -1,4 +1,7 @@
 .roulette {
+	/* width:390px; */
+	/* height:390px; */
+	font:bold 13px Arial;
 	width:85px;
 	height:85px;
 	background:#B7143F;
@@ -7,7 +10,7 @@
 	border:1px solid black;
   color:#fff;
   margin-top:20px;
-  animation: App-logo-spin infinite 2s linear;
+  animation: App-logo-spin infinite 6s linear;
   font-family: 'Montserrat', sans-serif !important; 
 
 }
