@@ -40,10 +40,10 @@ class App extends Component {
   liftsubCategory = subCategory => {
     this.setState({ subCategory: subCategory });
   };
-  liftReset = () => {
-    window.location.reload();
-    window.location.href = "./";
-  };
+//  liftReset = () => {
+//    window.location.reload();
+//    window.location.href = "./";
+//  };
   liftCancelReset = () => {
     this.setState({
       reset: false
@@ -59,8 +59,7 @@ class App extends Component {
             alt="logprincipal"
             className="logoWine"
           />
-          {/* <h3>Votre bouteille sans prise de tête</h3> */}
-          <BoutonReset liftReset={this.liftReset} />
+          {/* <BoutonReset liftReset={this.liftReset} /> */}
           <p />
           <Prix liftPrice={this.liftPrice} className="rangeSlider" />
           <span>between {(this.state.minprix)/100} $ and {(this.state.maxprix)/100} $</span>

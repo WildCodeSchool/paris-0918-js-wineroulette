@@ -1,12 +1,15 @@
 .roulette {
 	width:85px;
 	height:85px;
-	background:#cc0000;
+	background:#B7143F;
 	font:bold 13px Arial;
 	border-radius:50%;
-	border:none;
+	border:1px solid black;
   color:#fff;
   margin-top:20px;
+  animation: App-logo-spin infinite 2s linear;
+  font-family: 'Montserrat', sans-serif !important; 
+
 }
 
 

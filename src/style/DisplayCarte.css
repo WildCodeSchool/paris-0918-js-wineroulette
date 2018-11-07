@@ -1,15 +1,21 @@
-.price{
-    font-size: 25px;
-    font-weight: bold; 
+.allCard{
+    font-family: 'Montserrat', sans-serif !important;
 }
 
+.price{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif !important; 
+}
  
- .resultatSelection{
+ 
+.resultatSelection{
     text-align: center;
 }
 
 .nameOrigin{
     margin-left:5%;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .photoVignes{
@@ -21,6 +27,21 @@
     border: 1px solid white;
     margin-top: 25%;
 } 
+
+.servingSuggestion{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.descriptionCourte{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 30px;
+}
+
+.tags{
+    font-family: 'Montserrat', sans-serif !important;
+    size: 30px;
+}
 
 .empty{
     border: 2px solid white;
@@ -38,8 +59,12 @@
     border: 2px solid white;
 }
 
+.descriptionDetaillee{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 .turningClassTreaks1 {
-	animation: turningClassTreaks1-spin 1s linear;
+    animation: turningClassTreaks1-spin 1s linear;
   }
 
   @keyframes turningClassTreaks1-spin {

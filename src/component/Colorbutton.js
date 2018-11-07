@@ -5,9 +5,11 @@ import Rosesubcriterion from "./Rosesubcriterion";
 import Champsubcriterion from "./Champsubcriterion";
 import "../style/Colorbutton.css";
 
+import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import BoutonReset from "./BoutonReset";
 
 const styles = theme => ({
   buttonSelected: {
@@ -50,74 +52,97 @@ class Colorbutton extends Component {
     this.props.liftsubCategory(subCategory);
   };
 
+  liftReset = () => {
+    window.location.reload();
+    window.location.href = "./";
+  };
+  
   render() {
     const { classes } = this.props;
 
     if (true)
       return (
         <div>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={
-              this.state.color[0] === "Red Wine"
-                ? classes.buttonSelected
-                : classes.buttonNotSelected
-            }
-            onClick={() => this.ColorSelection(["Red Wine"], "style")}
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className="subCriterionsReset"
+            spacing={0}
           >
-            Red
-          </Button>
+            <Grid className="gridDivUseless" item xs={4} sm={2} md={2} lg={4}>
+              <div></div>
+            </Grid>
+            <Grid className="gridButtons" item xs={4} sm={8} md={8} lg={4}>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={
+                  this.state.color[0] === "Red Wine"
+                    ? classes.buttonSelected
+                    : classes.buttonNotSelected
+                }
+                onClick={() => this.ColorSelection(["Red Wine"], "style")}
+              >
+                Red
+              </Button>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            className={
-              this.state.color[0] === "White Wine"
-                ? classes.buttonSelected
-                : classes.buttonNotSelected
-            }
-            onClick={() => this.ColorSelection(["White Wine"], "sugar_content")}
-          >
-            White
-          </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={
+                  this.state.color[0] === "White Wine"
+                    ? classes.buttonSelected
+                    : classes.buttonNotSelected
+                }
+                onClick={() =>
+                  this.ColorSelection(["White Wine"], "sugar_content")
+                }
+              >
+                White
+              </Button>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            className={
-              this.state.color[0] === "Rosé Wine"
-                ? classes.buttonSelected
-                : classes.buttonNotSelected
-            }
-            onClick={() => this.ColorSelection(["Rosé Wine"], "style")}
-          >
-            Rosé
-          </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={
+                  this.state.color[0] === "Rosé Wine"
+                    ? classes.buttonSelected
+                    : classes.buttonNotSelected
+                }
+                onClick={() => this.ColorSelection(["Rosé Wine"], "style")}
+              >
+                Rosé
+              </Button>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            className={
-              this.state.color[0] === "Champagne"
-                ? classes.buttonSelected
-                : classes.buttonNotSelected
-            }
-            onClick={() =>
-              this.ColorSelection(
-                ["Champagne", "Sparkling Wine"],
-                "sugar_content"
-              )
-            }
-          >
-            Sparkling
-          </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={
+                  this.state.color[0] === "Champagne"
+                    ? classes.buttonSelected
+                    : classes.buttonNotSelected
+                }
+                onClick={() =>
+                  this.ColorSelection(
+                    ["Champagne", "Sparkling Wine"],
+                    "sugar_content"
+                  )
+                }
+              >
+                Sparkling
+              </Button>
 
-          {/* <{this.state.color === "Champagne"
+              {/* <{this.state.color === "Champagne"
             ? Whitesubcriterion
             : Redsubcriterion} liftsubStyle={this.props.liftsubStyle} /> */}
-          
-          <div className="divUseless"></div>
+            </Grid>
+            <Grid className="gridReset" item xs={4} sm={2} md={2} lg={4}>
+              <BoutonReset liftReset={this.liftReset} />
+            </Grid>
+          </Grid>
+          <div className="divUseless" />
 
           {this.state.color[0] === "Red Wine" && (
             <Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
@@ -132,8 +157,7 @@ class Colorbutton extends Component {
             <Champsubcriterion liftsubStyle={this.props.liftsubStyle} />
           )}
 
-          <div className="divUseless2"></div>
-
+          <div className="divUseless2" />
         </div>
       );
 
