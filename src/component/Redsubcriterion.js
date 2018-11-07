@@ -16,7 +16,7 @@ const styles = theme => ({
 
   buttonNotSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F",
+    backgroundColor: "#f43365",
     '&:hover': {
       backgroundColor: '#603d8b',
       boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
@@ -50,7 +50,7 @@ class Redsubcriterion extends Component {
       this.props.liftsubStyle(subStyle);
     }
   };
-
+ 
   render() {
     const { classes } = this.props;
 
