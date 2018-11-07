@@ -34,7 +34,7 @@ class Prix extends Component {
     this.setState({
       priceMinMax
     });
-    this.props.liftPrice(this.state.priceMinMax[0], this.state.priceMinMax[1]);
+    this.props.liftPrice(priceMinMax[0], priceMinMax[1]);
   };
 
   render() {
