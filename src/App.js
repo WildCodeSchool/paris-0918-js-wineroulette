@@ -11,12 +11,12 @@ import SearchbarRegion from "./component/SearchbarRegion";
 class App extends Component {
   state = {
     color: ["Red Wine"],
-    subStyle: "",
+    subStyle: ["vin"],
     subCategory: "style",
     minprix: 0,
-    maxprix: 10000,
-    searchbar: "",
-    searchbarRegion: "",
+    maxprix: 30000,
+    searchbar: [],
+    searchbarRegion: [],
     reset: true
   };
 
@@ -40,10 +40,10 @@ class App extends Component {
   liftsubCategory = subCategory => {
     this.setState({ subCategory: subCategory });
   };
-//  liftReset = () => {
-//    window.location.reload();
-//    window.location.href = "./";
-//  };
+ liftReset = () => {
+   window.location.reload();
+   window.location.href = "./";
+ };
   liftCancelReset = () => {
     this.setState({
       reset: false
@@ -51,8 +51,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('searchbar-',this.state.searchbar)
-    console.log('searchbarRegion-',this.state.searchbarRegion)
     return (
       <div>
         <div className="App">
@@ -63,7 +61,10 @@ class App extends Component {
           />
           {/* <BoutonReset liftReset={this.liftReset} /> */}
           <p />
-          <Prix liftPrice={this.liftPrice} className="rangeSlider" />
+          <div className="rangeSlider">
+          <Prix liftPrice={this.liftPrice} />
+          <span>between {(this.state.minprix)/100} $ and {(this.state.maxprix)/100} $</span>
+          </div>
           <p />
           <Colorbutton
             liftColor={this.liftColor}

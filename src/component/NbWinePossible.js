@@ -39,7 +39,7 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar, SearchbarRe
       if (!bool) return false
       // VARIERAL
       bool = false;
-      if (searchbar === "") bool = true;
+      if (searchbar.length === 0) bool = true;
       else {
         for (let i = 0; i < searchbar.length; i++) {
           bool = (item.varietal === searchbar[i].value)
@@ -49,7 +49,7 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar, SearchbarRe
       if (!bool) return false
       // Region
       bool = false;
-      if (SearchbarRegion === "") bool = true;
+      if (SearchbarRegion.length === 0) bool = true;
       else {
         for (let i = 0; i < SearchbarRegion.length; i++) {
           bool = (item.origin === SearchbarRegion[i].value)
@@ -59,7 +59,7 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar, SearchbarRe
       if (!bool) return false
       // SOUS CATEGORIE
       bool = false;
-      if (subStyle === "") bool = true;
+      if (subStyle[0] === "vin") bool = true;
       else {
         for (let i = 0; i < subStyle.length; i++) {
           bool = (item[`${subCategory}`] === subStyle[i])

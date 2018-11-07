@@ -38,7 +38,7 @@ class Carte extends Component {
                         turning={this.props.turning}
                         carteVin={carteVin} />;}
 
-    else return <div> Pas de Pinard BB, pas de bol...</div>
+    else return <div> There is no wine that matches your criteria, we can reset</div>
   }
 }
 
