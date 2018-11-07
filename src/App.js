@@ -13,8 +13,8 @@ class App extends Component {
     color: ["Red Wine"],
     subStyle: "",
     subCategory: "style",
-    minprix: 800,
-    maxprix: 28000,
+    minprix: 0,
+    maxprix: 30000,
     searchbar: "",
     searchbarRegion: "",
     reset: true
@@ -61,8 +61,10 @@ class App extends Component {
           />
           {/* <BoutonReset liftReset={this.liftReset} /> */}
           <p />
-          <Prix liftPrice={this.liftPrice} className="rangeSlider" />
+          <div className="rangeSlider">
+          <Prix liftPrice={this.liftPrice} />
           <span>between {(this.state.minprix)/100} $ and {(this.state.maxprix)/100} $</span>
+          </div>
           <p />
           <Colorbutton
             liftColor={this.liftColor}

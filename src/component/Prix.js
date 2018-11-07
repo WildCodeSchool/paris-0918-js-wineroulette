@@ -6,11 +6,11 @@ import "rc-slider/assets/index.css";
 import "rc-tooltip/assets/bootstrap.css";
 import Grid from "@material-ui/core/Grid";
 import Slider from "rc-slider";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
-const wrapperStyle = { width: 280, marginTop: 20 };
+const wrapperStyle = { width: 280, marginTop: 5 };
 
 
 const styles = theme => ({
@@ -27,7 +27,7 @@ const styles = theme => ({
 class Prix extends Component {
   constructor() {
     super();
-    this.state = { minprix: 800, maxprix: 28000, priceMinMax: [800, 28000] };
+    this.state = { minprix: 0, maxprix: 30000, priceMinMax: [0, 30000] };
   }
 
   handlePriceChange = priceMinMax => {
@@ -49,9 +49,6 @@ class Prix extends Component {
           >
         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
           <div style={wrapperStyle}>
-            <Typography component="p" align="center" variant="headline" className="myPrice">
-              Price
-            </Typography>
             <Range
               min={0}
               max={30000}
