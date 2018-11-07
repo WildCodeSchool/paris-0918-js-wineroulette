@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
-const wrapperStyle = { width: 400, marginTop: 20 };
+const wrapperStyle = { width: 280, marginTop: 20 };
 
 
 const styles = theme => ({
@@ -27,14 +27,14 @@ const styles = theme => ({
 class Prix extends Component {
   constructor() {
     super();
-    this.state = { minprix: 2000, maxprix: 50000, priceMinMax: [2000, 50000] };
+    this.state = { minprix: 2000, maxprix: 28000, priceMinMax: [2000, 28000] };
   }
 
   handlePriceChange = priceMinMax => {
     this.setState({
       priceMinMax
     });
-    this.props.liftPrice(this.state.priceMinMax[0], this.state.priceMinMax[1]);
+    this.props.liftPrice(priceMinMax[0], priceMinMax[1]);
   };
 
   render() {
@@ -42,7 +42,6 @@ class Prix extends Component {
     return (
       <Grid
             container
-            spacing={16}
             direction="column"
             alignItems="center"
             justify="center"
@@ -54,8 +53,8 @@ class Prix extends Component {
               Price
             </Typography>
             <Range
-              min={200}
-              max={10000}
+              min={0}
+              max={30000}
               step={100}
               value={this.state.priceMinMax}
               onChange={this.handlePriceChange}

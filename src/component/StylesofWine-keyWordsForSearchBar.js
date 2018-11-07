@@ -24,13 +24,19 @@ const myWinesFiltered = myWines.filter(
     item.primary_category === "Wine"
 );
 
+// let keyWord = [];
+// myWinesFiltered
+//   .map(items => items.varietal)
+//   .filter(item => item !== null && item !== "Albarossa")
+//   .map(item => keyWord.push(...item.split(" ")));
 let keyWord = [];
 myWinesFiltered
   .map(items => items.varietal)
   .filter(item => item !== null && item !== "Albarossa")
-  .map(item => keyWord.push(...item.split(" ")));
+  .map(item => keyWord.push(item));
 // const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
 const cleanedkeyWord = cleanArray(keyWord);
+
 
 const varietalList = [];
 let c = 0;
