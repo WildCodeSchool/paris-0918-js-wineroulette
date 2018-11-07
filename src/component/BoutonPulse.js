@@ -2,7 +2,7 @@ import React from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import './BoutonPulse.css';
+import '../style/BoutonPulse.css';
 
 
 const theme = createMuiTheme({
@@ -10,7 +10,7 @@ const theme = createMuiTheme({
     primary: {
         main: '#b71540'
     }
-  }});
+  }}); 
 
 function BoutonPulse(props) {
 

@@ -1,14 +1,27 @@
 import React, { Component } from "react";
-
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
-  button: {
+  buttonSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F"
+    backgroundColor: "#603d8b",
+    boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    '&:hover': {
+      backgroundColor: "#603d8b",
+    },
   },
+
+  buttonNotSelected: {
+    margin: theme.spacing.unit,
+    backgroundColor: "#B7143F",
+    '&:hover': {
+      backgroundColor: '#603d8b',
+      boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    },
+  },
+
   input: {
     display: "none"
   }
@@ -17,12 +30,21 @@ const styles = theme => ({
 class Champsubscriterion extends Component {
   constructor() {
     super();
-    this.state = { champSubCriterion: "" };
+    this.state = { champSubCriterion: ['vin'] };
   }
 
+  
   champSubCriterionSelection = subStyle => {
-    this.setState({ champSubCriterion: subStyle });
-    this.props.liftsubStyle(subStyle);
+    // Si je clique et que l'état actuel est sur x-dry/dry.. (buttonSelected) --> je repasse en état initial (buttonNotSelected)
+    if (subStyle[0] === this.state.champSubCriterion[0]) {
+      this.setState({ champSubCriterion: ['vin'] });
+    this.props.liftsubStyle(['vin']);
+    } else {
+      // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
+      this.setState({ champSubCriterion: subStyle });
+      this.props.liftsubStyle(subStyle);
+      }
+    
   };
 
   render() {
@@ -32,37 +54,45 @@ class Champsubscriterion extends Component {
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
+          className={
+            this.state.champSubCriterion[0] == "XD - Extra Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
           onClick={() => this.champSubCriterionSelection(["XD - Extra Dry"])}
-        >
-          {" "}
-          Sec{" "}
+          >
+          Extra-dry
         </Button>
 
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
-          onClick={() => this.champSubCriterionSelection(["D - Dry"])}
+          className={
+            this.state.champSubCriterion[0] == "D - Dry"
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
+          onClick={() => {this.champSubCriterionSelection(["D - Dry"])}}
         >
           {" "}
-          Demi-sec{" "}
+          Dry{" "}
         </Button>
 
         <Button
           variant="contained"
           color="secondary"
-          className={classes.button}
-          onClick={() => this.champSubCriterionSelection([null])}
-        >
-          Mystère !
-        </Button>
-        
+          className={
 
-        {/* <button onClick={() => this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
-				<button onClick={() => this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
-				<button onClick={() => this.whiteSubCriterionSelection([null])}>Surprise !</button> */}
+            this.state.champSubCriterion[0] == '-'
+
+              ? classes.buttonSelected
+              : classes.buttonNotSelected
+          }
+          onClick={() => this.champSubCriterionSelection(['-'])}
+        >
+          Surprise !
+        </Button>
+
       </div>
     );
   }

@@ -1,71 +1,101 @@
 import React, { Component } from "react";
-import myWines from "../myWineList.json";
 import Carte from "./Carte";
-import "../style/NbWinePossible.css"
+import myWines from "../myWineList.json";
+import "../style/NbWinePossible.css";
 
 class NbWinePossible extends Component {
   state = {
     data: null,
     wineListFiltered: [''],
-    randomImageVigne :0,
+    randomImageVigne: 0,
+    turning: true // treaks to give a class name 'turning' to the DisplayCard component"
 };
-
   componentDidMount() {
     this.setState({
-      data: myWines
+      data: myWines.filter(item => 
+        item.name !== null &&
+        item.subStyle !== null &&
+        item.package_unit_type === "bottle" &&
+        item.varietal !== null &&
+        item.primary_category === "Wine")
     });
   }
 
-TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
-// console.log(this.props.color, this.props.subStyle, this.props.subCategory, this.props.minprix, this.props.maxprix, this.props.searchbar);
+
+filtering(color, subStyle, subCategory, minprix, maxprix, searchbar) {
+
     const wineListFiltered = this.state.data.filter(item => {
-        if ((subStyle === '') && (searchbar === ''))
-            return (
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
-                item.secondary_category === `${color}` &&
-                item.price_in_cents >= minprix &&
-                item.price_in_cents <= maxprix
-            )
-        else if ((subStyle !== "")  && (searchbar === ''))
-            return ( 
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
-                item.secondary_category === `${color}` &&
-                item.price_in_cents >= minprix &&
-                item.price_in_cents <= maxprix &&
-                (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1])
-            )
-          else if ((subStyle === "")  && (searchbar !== ''))
-            return ( 
-                item.varietal !== null &&
-                item.name !== null &&
-                item.subStyle !== null &&
-                item.package_unit_type === "bottle" &&
-                item.primary_category === "Wine" &&
-                item.secondary_category === `${color}` &&
-                item.price_in_cents >= minprix &&
-                item.price_in_cents <= maxprix &&
-                item.varietal === 'Chianti'
-            )
-        else return false
+      // PRIX
+      let bool = false;
+      bool = (item.price_in_cents >= minprix && item.price_in_cents <= maxprix)
+      if (!bool) return false
+      //COLOR
+      bool = false;
+      for (let i = 0; i < color.length; i++) {
+        bool = (item.secondary_category === color[i])
+        if (bool) break
+      } 
+      if (!bool) return false
+      // VARIERAL
+      bool = false;
+      if (searchbar === "") bool = true;
+      else {
+        for (let i = 0; i < searchbar.length; i++) {
+          bool = (item.varietal.includes(searchbar[i].value))
+          if (bool) break
+        } 
+      }
+      if (!bool) return false
+      // SOUS CATEGORIE
+      bool = false;
+      if (subStyle === "") bool = true;
+      else {
+        for (let i = 0; i < subStyle.length; i++) {
+          bool = (item[`${subCategory}`] === subStyle[i])
+          if (bool) break
+        } 
+      }
+      if (!bool) return false 
+      ///////////////////////////////////
+     return true;
     })
+    
     let random = Math.floor(Math.random() * Math.floor(wineListFiltered.length));
     let randomImageVigne = Math.floor(Math.random() * Math.floor(25));
     this.setState({wineListFiltered: wineListFiltered[random],
-                   randomImageVigne: randomImageVigne})    
+                   randomImageVigne: randomImageVigne,
+                   turning: !this.state.turning}) // So, value true or false on click of "roulette" button  
+    const handleCancelReset = () => {this.props.cancelReset()}
+    handleCancelReset()
   };
 
-  render() {
-    if (this.state.data === null) return "Wine is coming...";
+
+render() {
+  console.log('this.props.searchbar',this.props.searchbar)
+    const turning = this.state.turning // So value true or false on click of "roulette" button   ls
+    if (this.props.reset === true) {
+      return (
+        <div>
+        <p></p>
+        <button className="roulette" id="roulette" onClick={() => 
+                                            this.filtering(
+                                                this.props.color, 
+                                                this.props.subStyle,
+                                                this.props.subCategory, 
+                                                this.props.minprix, 
+                                                this.props.maxprix, 
+                                                this.props.searchbar)
+                        }>Roulette</button>
+                        </div>
+      ) 
+
+    } else if (this.state.data === null) return "Wine is coming...pépé";
+
     return (
       <div>
         <p></p>
-        <button className="roulette" id="roulette" onClick={() => this.TotalFilter2(this.props.color, 
+        <button className="roulette" id="roulette" onClick={() => this.filtering(
+                                                this.props.color, 
                                                 this.props.subStyle,
                                                 this.props.subCategory, 
                                                 this.props.minprix, 
@@ -73,13 +103,13 @@ TotalFilter2(color, subStyle, subCategory, minprix, maxprix, searchbar) {
                                                 this.props.searchbar)
                         }>Roulette</button>
         <p></p>
-        <Carte wineListFiltered={this.state.wineListFiltered}
+        <Carte turning={turning} // So value true or false on click of "roulette" button
+               wineListFiltered={this.state.wineListFiltered}
                randomImageVigne={this.state.randomImageVigne} />
       </div>
     );
   }
 }
-
 export default NbWinePossible;
 
 
@@ -277,3 +307,59 @@ export default NbWinePossible;
 //       this.setState({wineListFiltered: table});
 //     }
 //   };
+
+
+
+      
+
+
+
+
+        // if ((subStyle === '') && (searchbar === ''))
+        //     return (
+        //       item.secondary_category === `${color}` &&
+        //       // (item.secondary_category === color[0] || item.secondary_category === color[1] ) &&
+        //       item.price_in_cents >= minprix &&
+        //       item.price_in_cents <= maxprix
+        //     )
+        // else if ((subStyle !== "")  && (searchbar === ''))
+        //     {console.log('bla')
+        //     return (
+        //         item.secondary_category === `${color}` &&
+        //         item.price_in_cents >= minprix &&
+        //         item.price_in_cents <= maxprix &&
+        //         (item[`${subCategory}`] === subStyle[0]
+        //         //  || item[`${subCategory}`] === subStyle[1]
+        //         )
+        //     )}
+        //   else if ((subStyle === "")  && (searchbar !== '')) {
+        //     console.log(searchbar.value, item.varietal, searchbar.includes(item.varietal))
+        //     return ( 
+        //         item.varietal !== null &&
+        //         item.secondary_category === `${color}` &&
+        //         item.price_in_cents >= minprix &&
+        //         item.price_in_cents <= maxprix &&
+        //         //(searchbar.map(criterion => criterion.value.include()))
+        //         searchbar.includes(item.varietal))
+        //         // (searchbar.map(criterion => criterion.value.includes(item.varietal)).reduce((acc, cur) => {
+        //         //     if (!cur) return cur;
+        //         //   return acc;
+        //         // }, true))
+                
+
+        //       } else if ((subStyle !== "")  && (searchbar !== '')) {
+        //         // console.log('~~~~~~~~~~~~~~~~~~~~~~~~')
+        //         // console.log(searchbar.map(criterion => criterion.value.includes(item.varietal)))
+        //     return ( 
+        //         item.varietal !== null &&
+        //         item.secondary_category === `${color}` &&
+        //         item.price_in_cents >= minprix &&
+        //         item.price_in_cents <= maxprix &&
+        //         (item[`${subCategory}`] === subStyle[0] || item.style === subStyle[1]) &&
+
+
+        //         (searchbar.map(criterion => criterion.value.includes(item.varietal)).reduce((acc, cur) => {
+        //             if (!cur) return cur;
+        //           return acc;
+        //         }, true)))
+        //       } else return false

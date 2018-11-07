@@ -5,5 +5,26 @@
 	font:bold 13px Arial;
 	border-radius:50%;
 	border:none;
-	color:#fff;
+  color:#fff;
+  margin-top:20px;
 }
+
+
+
+
+/* .card{
+    text-align: center;
+    animation: turning-spin 1s linear;
+}
+
+@keyframes turning-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+      }
+  } */

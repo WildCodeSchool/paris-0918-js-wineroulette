@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../style/DisplayCarte.css";
-
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
@@ -26,9 +25,6 @@ import Grid from "@material-ui/core/Grid";
 //CSS de ma carte
 
 const styles = theme => ({
-  //   card: {
-  //     maxWidth: "500px"
-  //   },
   media: {
     height: 0,
     paddingTop: "56.25%" // 16:9
@@ -78,26 +74,14 @@ class DisplayCarte extends Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
+
   render() {
     const { classes } = this.props;
-
-    console.log(this.props.carteVin.id)
-
-    // const maj2 = () => {
-    //   let table = []
-    //   for (let i = 0; i < sansPointVirgule.length; i++) {
-    //     table.push(sansPointVirgule[i].toUpperCase().slice(0,2))
-    //   }
-    //   return table
-    // }
-    // console.log(maj2())
-
-    return (
-      <div className="card">
-        <h2 className="resultatSelection">Voici votre sélection</h2>
-
+    let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2';
+  return (
+      <div className={turningClassTreaks}>
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction="row" justify="center" alignItems="center" className="allCard">
           <Grid item xs={12} sm={10} md={8} lg={6}>
             <Card className={classes.card}>
               <Grid
@@ -158,14 +142,15 @@ class DisplayCarte extends Component {
                   direction="row"
                   justify="space-between"
                   alignItems="center"
+                  className="expandAcheter"
                 >
                   {/* PRIX DE LA BOUTEILLE */}
-                  <Grid className="price" item xs={2}>
+                  <Grid className="empty" item xs={4} sm={3} >
                     <p />
                   </Grid>
-
+ 
                   {/* BOUTON PLUS D'INFOS */}
-                  <Grid className="moreInfo" item xs={2}>
+                  <Grid className="moreInfo" item xs={4} sm={3}>
                     <IconButton
                       className={classnames(classes.expand, {
                         [classes.expandOpen]: this.state.expanded
@@ -179,13 +164,13 @@ class DisplayCarte extends Component {
                   </Grid>
 
                   {/* BOUTON ACHETER */}
-                  <Grid className="acheterButton" item xs={2}>
+                  <Grid className="acheterButton" item xs={4} sm={3}>
                     <Button
                       key={this.props.carteVin.id}
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                      href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${this.props.carteVin.id}`}>Acheter
+                      href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${this.props.carteVin.id}`}>Here to buy
                     </Button>
                   </Grid>
                 </Grid>
