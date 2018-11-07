@@ -1,50 +1,74 @@
-const myWines = require("../myWineList.json")
+const myWines = require("../myWineList.json");
 
 // Fonction qui déboublonne
-const cleanArray = (array) => {
-    let i, j, len = array.length, out = [], obj = {};
-    for (i = 0; i < len; i++) {
-      obj[array[i]] = 0;
-    } for (j in obj) {
-      out.push(j);
-    } return out;
+const cleanArray = array => {
+  let i,
+    j,
+    len = array.length,
+    out = [],
+    obj = {};
+  for (i = 0; i < len; i++) {
+    obj[array[i]] = 0;
   }
+  for (j in obj) {
+    out.push(j);
+  }
+  return out;
+};
 
+const myWinesFiltered = myWines.filter(
+  item =>
+    item.name !== null &&
+    item.subStyle !== null &&
+    item.package_unit_type === "bottle" &&
+    item.primary_category === "Wine"
+);
 
-  const myWinesFiltered = myWines.filter(item => 
-            item.name !== null &&
-            item.subStyle !== null &&
-            item.package_unit_type === "bottle" &&
-            item.primary_category === "Wine")
-
+// let keyWord = [];
+// myWinesFiltered
+//   .map(items => items.varietal)
+//   .filter(item => item !== null && item !== "Albarossa")
+//   .map(item => keyWord.push(...item.split(" ")));
 let keyWord = [];
-myWinesFiltered.map(items => items.varietal).filter(item => 
-  item !==null && 
-  item !=='Albarossa').map(item => keyWord.push(...item.split(' ')));
+myWinesFiltered
+  .map(items => items.varietal)
+  .filter(item => item !== null && item !== "Albarossa")
+  .map(item => keyWord.push(item));
 // const cleanedkeyWord = cleanArray(keyWord.filter(item => item.length > 6));
 const cleanedkeyWord = cleanArray(keyWord);
-// console.log(cleanedkeyWord)
 
 
-// let c = 0;
-// for (let j = 0; j < cleanedkeyWord.length; j++) {
-//     for (let i = 0; i < keyWord.length; i++) {
-//         if (cleanedkeyWord[j] === keyWord[i]) c +=1;
-//     }
-// console.log(j,'_',cleanedkeyWord[j],'-',c)
-// c=0;
-//   }
+const varietalList = [];
+let c = 0;
+for (let j = 0; j < cleanedkeyWord.length; j++) {
+  for (let i = 0; i < keyWord.length; i++) {
+    if (cleanedkeyWord[j] === keyWord[i]) c += 1;
+  }
+  if (
+    c > 100 &&
+    cleanedkeyWord[j] !== "Red" &&
+    cleanedkeyWord[j] !== "-" &&
+    cleanedkeyWord[j] !== "Sparkling" &&
+    cleanedkeyWord[j] !== "White" &&
+    cleanedkeyWord[j] !== "Rosé" &&
+    cleanedkeyWord[j] !== "Bordeaux"
+  ) {
+    varietalList.push(cleanedkeyWord[j]);
+  }
+
+  c = 0;
+}
+// console.log(varietalList)
 
 const suggestions = [];
-for (let i = 0; i < cleanedkeyWord.length; i++) {
-    let ObjWithLabel = {};
-    ObjWithLabel.value = cleanedkeyWord[i];
-    ObjWithLabel.label = cleanedkeyWord[i];
-    suggestions.push(ObjWithLabel)
+for (let i = 0; i < varietalList.length; i++) {
+  let ObjWithLabel = {};
+  ObjWithLabel.value = varietalList[i];
+  ObjWithLabel.label = varietalList[i];
+  suggestions.push(ObjWithLabel);
 }
 
 export default suggestions;
-
 
 // Red Wine :
 // Full-bodied
@@ -73,5 +97,3 @@ export default suggestions;
 // Light & Fruity
 // Medium-bodied & Flavourful
 // Rich & Complex
-
-

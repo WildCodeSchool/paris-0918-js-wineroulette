@@ -1,0 +1,34 @@
+.divUseless{
+    margin-top: 20px;
+}
+
+.divUseless2{
+    margin-top: 50px;
+}
+
+.gridDivUseless{
+    width: 40px;
+}
+
+.gridButtons{
+}
+
+
+
+@media (min-width : 729px) {
+    .gridReset{
+        padding-right:50px;
+    }
+}
+
+@media (min-width : 1024px) {
+    .gridReset{
+        padding-right:160px;
+    }
+}
+
+@media (min-width : 1440px) {
+    .gridReset{
+        padding-right:300px;
+    }
+}

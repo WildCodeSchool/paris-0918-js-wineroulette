@@ -1,20 +1,13 @@
-.App {
+.App { 
   text-align: center;
   background-image: url("../media/background.jpg");
   background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 160vh;
+  background-repeat: repeat;
+  /* height: 160vh; */
+  padding-bottom: 100px;
   font-family: 'Montserrat', sans-serif !important;
 }
-
-/* 
-.App-logo {
-  animation: App-logo-spin infinite 0.8s linear;
-} */
-
-/* img.logoWine {
-  width: 300px;
-} */
+ 
 
 h3 {
   margin-bottom: 40px;
@@ -26,7 +19,7 @@ h3 {
   min-height: 20vh;
 
   font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
 .App-link {
@@ -41,7 +34,11 @@ h3 {
 .Searchbar {
   max-width: 500px;
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
+
 
 @media screen and (max-width: 425px) {
   .logoWine {
@@ -57,6 +54,14 @@ h3 {
     transform: rotate(360deg);
   }
 }
+
+.rangeSlider{
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .card {
   z-index: 1;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -13,10 +12,10 @@ const styles = theme => ({
       backgroundColor: "#603d8b",
     },
   },
-
+ 
   buttonNotSelected: {
     margin: theme.spacing.unit,
-    backgroundColor: "#B7143F",
+    backgroundColor: "#f43365",
     '&:hover': {
       backgroundColor: '#603d8b',
       boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
@@ -43,7 +42,7 @@ class Champsubscriterion extends Component {
     } else {
       // Si je clique et que l'état actuel est sur rien (buttonNotSelected) --> je passe en état x-dry/dry.. (buttonNotSelected)
       this.setState({ champSubCriterion: subStyle });
-      this.props.liftsubStyle([subStyle]);
+      this.props.liftsubStyle(subStyle);
       }
     
   };
@@ -83,20 +82,17 @@ class Champsubscriterion extends Component {
           variant="contained"
           color="secondary"
           className={
-            this.state.champSubCriterion[0] == null
+
+            this.state.champSubCriterion[0] == '-'
+
               ? classes.buttonSelected
               : classes.buttonNotSelected
           }
-          onClick={() => this.champSubCriterionSelection([null])}
+          onClick={() => this.champSubCriterionSelection(['-'])}
         >
           Surprise !
         </Button>
-        
 
-        {/* <button onClick={this.whiteSubCriterionSelection(['XD - Extra Dry'])}>Sec</button>
-				<button onClick={this.whiteSubCriterionSelection(['D - Dry','M - Medium'])}>Demi-sec</button>
-				<button onClick={this.whiteSubCriterionSelection(['S - Sweet'])}>Moelleux</button>
-				<button onClick={this.whiteSubCriterionSelection([null])}>Surprise !</button> */}
       </div>
     );
   }
