@@ -4,26 +4,26 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/lib/animated";
-import suggestions from "./StylesofWine-keyWordsForSearchBar";
+import suggestionsRegion from "./RegionList";
 
-class Searchbar extends Component {
+class SearchbarRegion extends Component {
   state = {
     selectedOption: null
   };
   handleChange = selectedOption => {
     this.setState({ selectedOption });
-    this.props.liftsearchbar(selectedOption);
+    this.props.liftsearchbarRegion(selectedOption);
   };
   render() {
     const { selectedOption } = this.state;
     return (
       <Select
-        key={suggestions.label}
+        key={suggestionsRegion.label}
         closeMenuOnSelect={false}
+        placeholder="Origin"
         components={makeAnimated()}
-        placeholder="Varietal"
         isMulti={true}
-        options={suggestions}
+        options={suggestionsRegion}
         className="basic-multi-select"
         classNamePrefix="Du pinard Non de Dieu !!!"
         value={selectedOption}
@@ -33,4 +33,4 @@ class Searchbar extends Component {
   }
 }
 
-export default Searchbar;
+export default SearchbarRegion;

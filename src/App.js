@@ -5,8 +5,8 @@ import Colorbutton from "./component/Colorbutton";
 import "./style/App.css";
 import Footer from "./component/Footer/Footer";
 import Searchbar from "./component/Searchbar";
+import SearchbarRegion from "./component/SearchbarRegion";
 import BoutonReset from "./component/BoutonReset";
-// import ExpansionPanel from './component/ExpansionPanel';
 
 class App extends Component {
   state = {
@@ -16,6 +16,7 @@ class App extends Component {
     minprix: 0,
     maxprix: 10000,
     searchbar: "",
+    searchbarRegion: "",
     reset: true
   };
 
@@ -31,6 +32,11 @@ class App extends Component {
   liftsearchbar = searchbar => {
     this.setState({ searchbar: searchbar });
   };
+
+  liftsearchbarRegion = searchbarRegion => {
+    this.setState({ searchbarRegion: searchbarRegion });
+  };
+
   liftsubCategory = subCategory => {
     this.setState({ subCategory: subCategory });
   };
@@ -45,6 +51,8 @@ class App extends Component {
   };
 
   render() {
+    console.log('searchbar-',this.state.searchbar)
+    console.log('searchbarRegion-',this.state.searchbarRegion)
     return (
       <div>
         <div className="App">
@@ -66,9 +74,9 @@ class App extends Component {
           />
           <p />
           <div className="Searchbar">
-            {/* <ExpansionPanel liftsearchbar={this.liftsearchbar}/> */}
-            {/* Le props ne remonte pas dans App.js */}
             <Searchbar liftsearchbar={this.liftsearchbar} />
+            <p />
+            <SearchbarRegion liftsearchbarRegion={this.liftsearchbarRegion} />
           </div>
           <NbWinePossible
             color={this.state.color}
@@ -77,15 +85,10 @@ class App extends Component {
             minprix={this.state.minprix}
             maxprix={this.state.maxprix}
             searchbar={this.state.searchbar}
+            searchbarRegionPROPS={this.state.searchbarRegion}
             reset={this.state.reset}
             cancelReset={this.liftCancelReset}
           />
-
-          {/* <Carte color={this.state.color}
-              subStyle={this.state.subStyle}
-              minprix={this.state.minprix}
-              maxprix={this.state.maxprix}
-              searchbar={this.state.searchbar}/> */}
         </div>
 
         <div className="App-footer">
