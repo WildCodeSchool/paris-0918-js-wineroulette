@@ -27,7 +27,7 @@ const styles = theme => ({
 class Prix extends Component {
   constructor() {
     super();
-    this.state = { minprix: 2000, maxprix: 28000, priceMinMax: [2000, 28000] };
+    this.state = { minprix: 800, maxprix: 28000, priceMinMax: [800, 28000] };
   }
 
   handlePriceChange = priceMinMax => {
