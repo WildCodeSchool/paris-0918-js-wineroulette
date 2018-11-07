@@ -74,123 +74,135 @@ class DisplayCarte extends Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
-
   render() {
     const { classes } = this.props;
-    let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2';
-  return (
-    <div>
-      <div className={turningClassTreaks}>
-        {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
-        <Grid container direction="row" justify="center" alignItems="center" className="allCard">
-          <Grid item xs={12} sm={10} md={8} lg={6}>
-            <Card className={classes.card}>
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-              >
-                <Grid item xs={9}>
-                  <CardHeader
-                    className="nameOrigin"
-                    title={this.props.carteVin.name}
-                    subheader={`${this.props.carteVin.pays_region}, ${
-                      this.props.carteVin.annee
-                    }`}
-                  />
-                </Grid>
-                <Grid item xs={3}>
-                  <p className="price">{this.props.carteVin.price}</p>
-                </Grid>
-              </Grid>
-
-              {/* GRILLE PRENANT EN COMPTE IMAGE VIGNES ET IMAGE BOUTEILLE */}
-              <Grid container spacing={0}>
-                <Grid className="vignes" item xs={9}>
-                  <div className="photoVignes">
-                    <CardMedia
-                      className={classes.vignes}
-                      image={this.props.carteVin.imageVignes}
-                      title="Vignobles"
-                    />
-                  </div>
-                </Grid>
-                <Grid className="bouteille" item xs={3}>
-                  <div className="photoBouteille">
-                    <CardMedia
-                      className={classes.bouteille}
-                      image={this.props.carteVin.imageBouteille}
-                      title="Sélection de vin"
-                    />
-                  </div>
-                </Grid>
-              </Grid>
-
-              <CardContent>
-                <Typography component="p" className="descriptionCourte">
-                  {this.props.carteVin.descriptionCourte}
-                </Typography>
-                <Typography component="p" className="tags">
-                  {this.props.carteVin.tags}
-                </Typography>
-              </CardContent>
-
-              <CardActions className={classes.actions} disableActionSpacing>
-                {/* GRILLE GERANT L'EXPAND ET LE BOUTON ACHETER */}
+    let turningClassTreaks = this.props.turning
+      ? "turningClassTreaks1"
+      : "turningClassTreaks2";
+    return (
+      <div>
+        <div className={turningClassTreaks}>
+          {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className="allCard"
+          >
+            <Grid item xs={12} sm={10} md={8} lg={6}>
+              <Card className={classes.card}>
                 <Grid
                   container
                   direction="row"
-                  justify="space-between"
+                  justify="center"
                   alignItems="center"
-                  className="expandAcheter"
                 >
-                  {/* DIV VIDE POUR AIDER A L'AGENCEMENT */}
-                  <Grid className="empty" item xs={4} sm={3} >
-                    <p />
+                  <Grid item xs={9}>
+                    <Typography  className="nameOrigin">
+                      <CardHeader
+                        title={this.props.carteVin.name}
+                        subheader={`${this.props.carteVin.pays_region}, ${
+                          this.props.carteVin.annee
+                        }`}
+                      />
+                    </Typography>
                   </Grid>
- 
-                  {/* FLÈCHE PLUS D'INFOS */}
-                  <Grid className="moreInfo" item xs={4} sm={3}>
-                    <IconButton
-                      className={classnames(classes.expand, {
-                        [classes.expandOpen]: this.state.expanded
-                      })}
-                      onClick={this.handleExpandClick}
-                      aria-expanded={this.state.expanded}
-                      aria-label="Show more"
-                    >
-                      <ExpandMoreIcon />
-                    </IconButton>
-                  </Grid>
-
-                  {/* BOUTON ACHETER */}
-                  <Grid className="acheterButton" item xs={4} sm={3}>
-                    <Button
-                      key={this.props.carteVin.id}
-                      variant="contained"
-                      color="primary"
-                      className={classes.button}
-                      href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${this.props.carteVin.id}`}>Here to buy
-                    </Button>
+                  <Grid item xs={3}>
+                    <p className="price">{this.props.carteVin.price}</p>
                   </Grid>
                 </Grid>
-              </CardActions>
 
-              <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                {/* GRILLE PRENANT EN COMPTE IMAGE VIGNES ET IMAGE BOUTEILLE */}
+                <Grid container spacing={0}>
+                  <Grid className="vignes" item xs={9}>
+                    <div className="photoVignes">
+                      <CardMedia
+                        className={classes.vignes}
+                        image={this.props.carteVin.imageVignes}
+                        title="Vignobles"
+                      />
+                    </div>
+                  </Grid>
+                  <Grid className="bouteille" item xs={3}>
+                    <div className="photoBouteille">
+                      <CardMedia
+                        className={classes.bouteille}
+                        image={this.props.carteVin.imageBouteille}
+                        title="Sélection de vin"
+                      />
+                    </div>
+                  </Grid>
+                </Grid>
+
                 <CardContent>
-                  <Typography paragraph className="descriptionDetaillee">
-                    {this.props.carteVin.descriptionDetaillee.map(e => (
-                      <p>{e}</p>
-                    ))}
+                  <Typography component="p" className="descriptionCourte">
+                  <p className="servingSuggestion">Serving suggestion: </p>{this.props.carteVin.descriptionCourte}
+                  </Typography>
+                  <Typography component="p" className="tags">
+                    {this.props.carteVin.tags}
                   </Typography>
                 </CardContent>
-              </Collapse>
-            </Card>
+
+                <CardActions className={classes.actions} disableActionSpacing>
+                  {/* GRILLE GERANT L'EXPAND ET LE BOUTON ACHETER */}
+                  <Grid
+                    container
+                    direction="row"
+                    justify="space-between"
+                    alignItems="center"
+                    className="expandAcheter"
+                  >
+                    {/* DIV VIDE POUR AIDER A L'AGENCEMENT */}
+                    <Grid className="empty" item xs={4} sm={3}>
+                      <p />
+                    </Grid>
+
+                    {/* FLÈCHE PLUS D'INFOS */}
+                    <Grid className="moreInfo" item xs={4} sm={3}>
+                      <IconButton
+                        className={classnames(classes.expand, {
+                          [classes.expandOpen]: this.state.expanded
+                        })}
+                        onClick={this.handleExpandClick}
+                        aria-expanded={this.state.expanded}
+                        aria-label="Show more"
+                      >
+                        <ExpandMoreIcon />
+                      </IconButton>
+                    </Grid>
+
+                    {/* BOUTON ACHETER */}
+                    <Grid className="acheterButton" item xs={4} sm={3}>
+                      <Button
+                        key={this.props.carteVin.id}
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        href={`http://www.lcbo.com/lcbo/cherche?searchTerm=${
+                          this.props.carteVin.id
+                        }`}
+                      >
+                        Here to buy
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </CardActions>
+
+                <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                  <CardContent>
+                    <Typography paragraph className="descriptionDetaillee">
+                      {this.props.carteVin.descriptionDetaillee.map(e => (
+                        <p>{e}</p>
+                      ))}
+                    </Typography>
+                  </CardContent>
+                </Collapse>
+              </Card>
+            </Grid>
           </Grid>
-        </Grid>
+        </div>
       </div>
-    </div>
     );
   }
 }

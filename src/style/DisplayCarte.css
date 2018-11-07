@@ -28,12 +28,19 @@
     margin-top: 25%;
 } 
 
+.servingSuggestion{
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .descriptionCourte{
     font-family: 'Montserrat', sans-serif !important;
+    font-size: 30px;
 }
 
 .tags{
     font-family: 'Montserrat', sans-serif !important;
+    size: 30px;
 }
 
 .empty{
