@@ -5,6 +5,7 @@ import Rosesubcriterion from "./Rosesubcriterion";
 import Champsubcriterion from "./Champsubcriterion";
 import "../style/Colorbutton.css";
 
+import Grid from "@material-ui/core/Grid";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -116,24 +117,39 @@ class Colorbutton extends Component {
           {/* <{this.state.color === "Champagne"
             ? Whitesubcriterion
             : Redsubcriterion} liftsubStyle={this.props.liftsubStyle} /> */}
-          
-          <div className="divUseless"></div>
 
-          {this.state.color[0] === "Red Wine" && (
-            <Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
-          )}
-          {this.state.color[0] === "White Wine" && (
-            <Whitesubcriterion liftsubStyle={this.props.liftsubStyle} />
-          )}
-          {this.state.color[0] === "Rosé Wine" && (
-            <Rosesubcriterion liftsubStyle={this.props.liftsubStyle} />
-          )}
-          {this.state.color[0] === "Champagne" && (
-            <Champsubcriterion liftsubStyle={this.props.liftsubStyle} />
-          )}
+          <div className="divUseless" />
 
-          <div className="divUseless2"></div>
+          {/* <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+            className="subCriterionsReset"
+          >
+            <Grid className="vignes" item >
+              <p>coucou</p>
+            </Grid>
+            <Grid className="vignes" item > */}
+              {this.state.color[0] === "Red Wine" && (
+                <Redsubcriterion liftsubStyle={this.props.liftsubStyle} />
+              )}
+              {this.state.color[0] === "White Wine" && (
+                <Whitesubcriterion liftsubStyle={this.props.liftsubStyle} />
+              )}
+              {this.state.color[0] === "Rosé Wine" && (
+                <Rosesubcriterion liftsubStyle={this.props.liftsubStyle} />
+              )}
+              {this.state.color[0] === "Champagne" && (
+                <Champsubcriterion liftsubStyle={this.props.liftsubStyle} />
+              )}
+            {/* </Grid>
+            <Grid className="vignes" item >
+              <p>coucou</p>
+            </Grid>
+          </Grid> */}
 
+          <div className="divUseless2" />
         </div>
       );
 
