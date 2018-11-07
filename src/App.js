@@ -11,12 +11,12 @@ import SearchbarRegion from "./component/SearchbarRegion";
 class App extends Component {
   state = {
     color: ["Red Wine"],
-    subStyle: "",
+    subStyle: ["vin"],
     subCategory: "style",
     minprix: 0,
     maxprix: 30000,
-    searchbar: "",
-    searchbarRegion: "",
+    searchbar: [],
+    searchbarRegion: [],
     reset: true
   };
 
@@ -40,10 +40,10 @@ class App extends Component {
   liftsubCategory = subCategory => {
     this.setState({ subCategory: subCategory });
   };
-//  liftReset = () => {
-//    window.location.reload();
-//    window.location.href = "./";
-//  };
+ liftReset = () => {
+   window.location.reload();
+   window.location.href = "./";
+ };
   liftCancelReset = () => {
     this.setState({
       reset: false

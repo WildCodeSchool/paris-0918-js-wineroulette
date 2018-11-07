@@ -48,7 +48,7 @@ class Colorbutton extends Component {
     this.setState({ color: color });
     this.setState({ subCategory: subCategory });
     this.props.liftColor(color);
-    this.props.liftsubStyle("");
+    this.props.liftsubStyle(["vin"]);
     this.props.liftsubCategory(subCategory);
   };
 
