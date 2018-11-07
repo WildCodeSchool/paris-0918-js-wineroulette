@@ -81,10 +81,8 @@ filtering(color, subStyle, subCategory, minprix, maxprix, searchbar, SearchbarRe
   };
 
 
-render() {
-  console.log('this.props.searchbar',this.props.searchbar)
-  console.log('this.props.searchbarRegionPROPS',this.props.searchbarRegionPROPS)
-    const turning = this.state.turning // So value true or false on click of "roulette" button   ls
+render() { 
+    const turning = this.state.turning // So value true or false on click of "roulette" button   
     if (this.props.reset === true) {
       return (
         <div>
