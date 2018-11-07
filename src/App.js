@@ -35,15 +35,8 @@ class App extends Component {
     this.setState({ subCategory: subCategory });
   };
   liftReset = () => {
-    this.setState({
-      color: ["Red Wine"],
-      subStyle: "",
-      subCategory: "style",
-      minprix: 0,
-      maxprix: 10000,
-      searchbar: "",
-      reset: true
-    });
+    window.location.reload();
+    window.location.href = "./";
   };
   liftCancelReset = () => {
     this.setState({
