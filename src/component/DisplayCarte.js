@@ -79,6 +79,7 @@ class DisplayCarte extends Component {
     const { classes } = this.props;
     let turningClassTreaks = this.props.turning ? 'turningClassTreaks1' : 'turningClassTreaks2';
   return (
+    <div>
       <div className={turningClassTreaks}>
         {/* GRILLE PRENANT EN COMPTE TOUTE LA CARTE */}
         <Grid container direction="row" justify="center" alignItems="center" className="allCard">
@@ -127,10 +128,10 @@ class DisplayCarte extends Component {
               </Grid>
 
               <CardContent>
-                <Typography component="p">
+                <Typography component="p" className="descriptionCourte">
                   {this.props.carteVin.descriptionCourte}
                 </Typography>
-                <Typography component="p">
+                <Typography component="p" className="tags">
                   {this.props.carteVin.tags}
                 </Typography>
               </CardContent>
@@ -144,12 +145,12 @@ class DisplayCarte extends Component {
                   alignItems="center"
                   className="expandAcheter"
                 >
-                  {/* PRIX DE LA BOUTEILLE */}
+                  {/* DIV VIDE POUR AIDER A L'AGENCEMENT */}
                   <Grid className="empty" item xs={4} sm={3} >
                     <p />
                   </Grid>
  
-                  {/* BOUTON PLUS D'INFOS */}
+                  {/* FLÈCHE PLUS D'INFOS */}
                   <Grid className="moreInfo" item xs={4} sm={3}>
                     <IconButton
                       className={classnames(classes.expand, {
@@ -178,7 +179,7 @@ class DisplayCarte extends Component {
 
               <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                  <Typography paragraph>
+                  <Typography paragraph className="descriptionDetaillee">
                     {this.props.carteVin.descriptionDetaillee.map(e => (
                       <p>{e}</p>
                     ))}
@@ -189,6 +190,7 @@ class DisplayCarte extends Component {
           </Grid>
         </Grid>
       </div>
+    </div>
     );
   }
 }

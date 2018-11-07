@@ -28,7 +28,7 @@ class Carte extends Component {
       pays_region: clearRegionName(selectedBottle.origin) || "Pas d'origine",
       annee: selectedBottle.released_on ? selectedBottle.released_on.slice(0, 4) : "Année non renseignée",
       imageVignes: `./photos-vigne/${this.props.randomImageVigne}.jpg`,
-      imageBouteille: selectedBottle.image_thumb_url ? selectedBottle.image_thumb_url : "http://static.hitek.fr/img/actualite/2016/10/07/w_capture-d-e-cran-2016-10-07-a-09-25-20.png",
+      imageBouteille: selectedBottle.image_thumb_url ? selectedBottle.image_thumb_url : "https://image.noelshack.com/fichiers/2018/45/3/1541584730-poutine.png",
       descriptionCourte: selectedBottle.serving_suggestion ? `Serving suggestion: ${selectedBottle.serving_suggestion}` : "Pas de suggestion de dégustation bro",
       tags: clearTagSection(selectedBottle.style) || "Pas de tags, mamene",
       price: selectedBottle.price_in_cents ? `${selectedBottle.price_in_cents / 100} $`: "Pas de price $$$",
